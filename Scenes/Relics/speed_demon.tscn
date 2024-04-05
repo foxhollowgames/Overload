@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://baeeuaw3nbgat"]
+
+[ext_resource type="PackedScene" uid="uid://bhwmso830a1g1" path="res://Scenes/Relics/relic_parent.tscn" id="1_7mgqc"]
+[ext_resource type="Script" path="res://Scenes/Relics/speed_demon.gd" id="2_jjeor"]
+
+[node name="Speed Demon" instance=ExtResource("1_7mgqc")]
+theme_override_font_sizes/font_size = 7
+text = "Speed Demon"
+script = ExtResource("2_jjeor")

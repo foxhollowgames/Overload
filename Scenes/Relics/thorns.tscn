@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://eouy7nh7ifmu"]
+
+[ext_resource type="PackedScene" uid="uid://bhwmso830a1g1" path="res://Scenes/Relics/relic_parent.tscn" id="1_1ij8y"]
+[ext_resource type="Script" path="res://Scenes/Relics/thorns.gd" id="2_52jnf"]
+
+[node name="Thorns" instance=ExtResource("1_1ij8y")]
+script = ExtResource("2_52jnf")

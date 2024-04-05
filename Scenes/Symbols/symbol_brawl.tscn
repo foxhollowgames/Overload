@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c48qxuua7uj4v"]
+
+[ext_resource type="PackedScene" uid="uid://me6ierptsfv2" path="res://Scenes/Symbols/symbol_parent.tscn" id="1_8k0k3"]
+[ext_resource type="Texture2D" uid="uid://dnne1wfk5o8cj" path="res://Sprites/Symbols/Brawl.svg" id="3_ueg5l"]
+
+[node name="symbol_brawl" instance=ExtResource("1_8k0k3")]
+damage = 1
+symbol_type = 1
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_ueg5l")

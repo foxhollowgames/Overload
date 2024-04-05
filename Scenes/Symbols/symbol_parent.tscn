@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://me6ierptsfv2"]
+
+[ext_resource type="Texture2D" uid="uid://cy07rsjwxy2r4" path="res://Sprites/Symbols/Block.svg" id="1_0myvf"]
+[ext_resource type="Script" path="res://Scenes/Symbols/symbol_parent.gd" id="1_pxmun"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_r851i"]
+bounce = 2.3
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3v31g"]
+radius = 9.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yql04"]
+radius = 26.46
+
+[node name="symbol_parent" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_r851i")
+script = ExtResource("1_pxmun")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_0myvf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3v31g")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_yql04")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

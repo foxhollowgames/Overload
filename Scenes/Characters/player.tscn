@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dm886n4fygh66"]
+
+[ext_resource type="Texture2D" uid="uid://cy07rsjwxy2r4" path="res://Sprites/Symbols/Block.svg" id="1_s40af"]
+[ext_resource type="Script" path="res://Scenes/Characters/player.gd" id="1_uvq1p"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_npvgw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_s40af")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_uvq1p")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_npvgw")
+animation = &"Idle"

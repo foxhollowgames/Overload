@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkuih8v60l230"]
+
+[ext_resource type="PackedScene" uid="uid://dm886n4fygh66" path="res://Scenes/Characters/player.tscn" id="1_5nglk"]
+[ext_resource type="Script" path="res://Scenes/Characters/villain_parent.gd" id="2_4w0ln"]
+[ext_resource type="Texture2D" uid="uid://dnne1wfk5o8cj" path="res://Sprites/Symbols/Brawl.svg" id="3_j02eu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ecbg8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_j02eu")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="Villain_Parent" instance=ExtResource("1_5nglk")]
+script = ExtResource("2_4w0ln")
+
+[node name="Sprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_ecbg8")
