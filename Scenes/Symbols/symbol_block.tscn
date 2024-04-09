@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmtvquqc60s3b"]
+[gd_scene load_steps=3 format=3 uid="uid://cmtvquqc60s3b"]
 
 [ext_resource type="PackedScene" uid="uid://me6ierptsfv2" path="res://Scenes/Symbols/symbol_parent.tscn" id="1_lj3if"]
+[ext_resource type="Script" path="res://Scenes/Symbols/symbol_block.gd" id="2_h7bfn"]
 
 [node name="symbol_block" instance=ExtResource("1_lj3if")]
+script = ExtResource("2_h7bfn")
 block = 1.0
-symbol_type = 0
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.06, 0.06)
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_barricade"]

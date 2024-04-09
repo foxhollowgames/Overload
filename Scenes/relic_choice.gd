@@ -1,6 +1,6 @@
 extends Node2D
 
-var fight_scene = preload("res://Scenes/fight_scene_2.tscn")
+var fight_scene = load("res://Scenes/fight_scene_2.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

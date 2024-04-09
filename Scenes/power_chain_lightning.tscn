@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://7w26hdp67v7o"]
+
+[ext_resource type="PackedScene" uid="uid://4kvyxrhchcci" path="res://Scenes/power_parent.tscn" id="1_buslo"]
+[ext_resource type="Script" path="res://Scenes/Power_chain_lightning.gd" id="2_m786k"]
+[ext_resource type="Texture2D" uid="uid://csdjxk6je0lmx" path="res://Sprites/Symbols/Power.svg" id="3_g55kx"]
+[ext_resource type="Texture2D" uid="uid://csvntsja5boly" path="res://Sprites/Symbols/Energy.svg" id="4_56jw3"]
+
+[node name="Power_chain_lightning" instance=ExtResource("1_buslo")]
+script = ExtResource("2_m786k")
+
+[node name="1" parent="." index="2"]
+texture = ExtResource("3_g55kx")
+
+[node name="2" parent="." index="3"]
+texture = ExtResource("3_g55kx")
+
+[node name="3" parent="." index="4"]
+texture = ExtResource("4_56jw3")
+
+[node name="4" parent="." index="5"]
+texture = ExtResource("3_g55kx")
+
+[node name="5" parent="." index="6"]
+texture = ExtResource("4_56jw3")
+
+[node name="6" parent="." index="7"]
+texture = ExtResource("3_g55kx")

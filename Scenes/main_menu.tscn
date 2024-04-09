@@ -1,0 +1,83 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnls7ka4l7b5a"]
+
+[ext_resource type="Texture2D" uid="uid://bsh2jl25josyf" path="res://Sprites/Symbols/Magnet.svg" id="1_3c03o"]
+[ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_oaecy"]
+[ext_resource type="Texture2D" uid="uid://cy07rsjwxy2r4" path="res://Sprites/Symbols/Block.svg" id="2_egwkt"]
+[ext_resource type="Texture2D" uid="uid://csdjxk6je0lmx" path="res://Sprites/Symbols/Power.svg" id="3_dmup3"]
+[ext_resource type="Script" path="res://Scenes/Audio_slider.gd" id="5_sil5v"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oaecy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(160.5, 91)
+scale = Vector2(20.0625, 11.125)
+texture = ExtResource("1_3c03o")
+
+[node name="Overload_sprite" type="Sprite2D" parent="."]
+position = Vector2(290, 88)
+scale = Vector2(2.5625, 9.9375)
+texture = ExtResource("2_egwkt")
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(44, 28)
+scale = Vector2(2.5625, 2.625)
+texture = ExtResource("3_dmup3")
+
+[node name="Full Screen" type="CheckBox" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 124.0
+offset_right = 115.0
+offset_bottom = 155.0
+text = "Full Screen"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 151.0
+offset_right = 68.0
+offset_bottom = 182.0
+text = "Quit
+"
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 59.0
+offset_right = 63.0
+offset_bottom = 90.0
+text = "Play
+"
+
+[node name="Audio_slider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 103.0
+offset_right = 75.0
+offset_bottom = 119.0
+max_value = 1.0
+step = 0.05
+script = ExtResource("5_sil5v")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 92.0
+offset_right = 77.0
+offset_bottom = 115.0
+theme_override_font_sizes/font_size = 8
+text = "Volume"
+horizontal_alignment = 1
+
+[connection signal="toggled" from="Full Screen" to="." method="_on_windowed_toggled"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Play" to="." method="_play"]
+[connection signal="mouse_exited" from="Audio_slider" to="." method="release_focus"]
+[connection signal="value_changed" from="Audio_slider" to="Audio_slider" method="_on_value_changed"]

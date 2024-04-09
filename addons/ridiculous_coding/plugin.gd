@@ -3,14 +3,14 @@ extends EditorPlugin
 
 signal typing
 
-# Scenes preloaded
-const Boom: PackedScene = preload("res://addons/ridiculous_coding/boom.tscn")
-const Blip: PackedScene = preload("res://addons/ridiculous_coding/blip.tscn")
-const Newline: PackedScene = preload("res://addons/ridiculous_coding/newline.tscn")
-const Dock: PackedScene = preload("res://addons/ridiculous_coding/dock.tscn")
+# Scenes loaded
+var Boom: PackedScene = load("res://addons/ridiculous_coding/boom.tscn")
+var Blip: PackedScene = load("res://addons/ridiculous_coding/blip.tscn")
+var Newline: PackedScene = load("res://addons/ridiculous_coding/newline.tscn")
+var Dock: PackedScene = load("res://addons/ridiculous_coding/dock.tscn")
 
 # Inner Variables
-const PITCH_DECREMENT := 2.0
+var PITCH_DECREMENT := 2.0
 
 var shake: float = 0.0
 var shake_intensity:float  = 0.0

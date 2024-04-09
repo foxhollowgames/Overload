@@ -8,18 +8,34 @@ var thorns = false
 var speed_demon = false
 @export var energy_progress_bar : ProgressBar
 @export var super_power_label : Label
-
+@onready var villain_parent = $"../Villain_Parent"
 
 func _ready():
 	super()
 	energy_progress_bar.max_value = energy_max
-	super_power_label.text = "Chain Lighting"
+	SignalBus.power.connect(_effect)
 
-func _effect(damage, block, energize, super_power, magnet_chance, radius):
-	_energize(energize)
-	_block(block)
-	if super_power: 
-		_super_power()
+func _process(delta):
+	if hp <= 0:
+		get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
+
+func _effect(power_name):
+	print(power_name)
+	match power_name:
+		"Brawl": 
+			villain_parent._damage(1)
+		"Block":
+			_block(1)
+		"Energize":
+			_energize(1)
+		"Chain Lightning":
+			_super_power()
+		"Shock":
+			villain_parent._damage(1)
+			_energize(1)
+		"Static Shield":
+			_block(1)
+			_energize(1)
 
 func _energize(energize):
 	energy += energize

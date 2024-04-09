@@ -10,22 +10,22 @@ class_name symbol_parent
 @onready var area_2d = $Area2D
 @onready var collision_shape_2d = $Area2D/CollisionShape2D
 @onready var SYMBOL_PARENT = get_parent()
-const BOUNCY_PEG = preload("res://Scenes/Symbols/bouncy_peg.tscn")
+var BOUNCY_PEG = load("res://Scenes/Symbols/bouncy_peg.tscn")
 var ball_lightning_count = 3
-const SymbolManager = preload("res://Scenes/Symbols/Symbol_manager.gd")
+var SymbolManager = load("res://Scenes/Symbols/Symbol_manager.gd")
 var barricade = false
 var thorns = false
 var speed_demon = false
 @onready var speed_demon_timer = get_parent().get_node("Speed_demon_timer")
-
-@export_enum("BLOCK", "BRAWL", "ENERGIZE", "MAGNET", "SUPER_POWER") var symbol_type
+var symbol_type
 
 func _ready():
 	#collision_shape_2d.disabled = true
 	SignalBus.turn_end.connect(_delete)
 	speed_demon_timer.timeout.connect(_speed_demon_disable)
+	symbol_type = Global.symbol_type.BRAWL
 
-func _input(event):
+func _unhandled_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and SYMBOL_PARENT.can_spawn:
 				if event.position.distance_to(global_position) < radius and not symbol_type == 3:
 					if speed_demon:
@@ -39,7 +39,8 @@ func _input(event):
 							damage += 1
 							print(damage)
 							Global.thorns_count = 0
-					SignalBus.clicked.emit(damage, block, energize, super_power, magnet_chance, radius)
+					Global.combo.append(symbol_type)
+					SignalBus.clicked.emit(symbol_type)
 					if SYMBOL_PARENT.ball_lightning:
 						_chain_lightning(ball_lightning_count)
 					else:
@@ -49,12 +50,12 @@ func _input(event):
 func _chain_lightning(count):
 	if count <= 0:
 		return
-		
+
 	var _overlapping = area_2d.get_overlapping_bodies()
-	
+
 	if not _overlapping:
 		return
-		
+
 	var _i = _overlapping.pop_front()
 	if _i is symbol_parent:
 		_i._chain_lightning(count - 1)
@@ -68,7 +69,7 @@ func _barricade():
 	print(block)
 	block /= 5
 	print(block)
-	SignalBus.clicked.emit(damage, block, energize, super_power, magnet_chance, radius)
+	SignalBus.clicked.emit(symbol_type)
 
 func _speed_demon_disable():
 	speed_demon = false

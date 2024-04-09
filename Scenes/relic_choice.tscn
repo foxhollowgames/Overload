@@ -5,13 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://baeeuaw3nbgat" path="res://Scenes/Relics/speed_demon.tscn" id="2_bjfpd"]
 [ext_resource type="PackedScene" uid="uid://eouy7nh7ifmu" path="res://Scenes/Relics/thorns.tscn" id="3_t1jsy"]
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_2w3uw"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_t7irx"]
 allow_unpress = true
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_pfsep"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_wncwh"]
 allow_unpress = true
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_mfa2f"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_i60oj"]
 allow_unpress = true
 
 [node name="relic_choice" type="Node2D"]
@@ -21,7 +21,7 @@ script = ExtResource("1_yemlt")
 offset_top = 53.0
 offset_right = 116.0
 offset_bottom = 148.0
-button_group = SubResource("ButtonGroup_2w3uw")
+button_group = SubResource("ButtonGroup_t7irx")
 
 [node name="Relic_2" parent="." instance=ExtResource("2_bjfpd")]
 offset_left = 132.0
@@ -29,14 +29,14 @@ offset_top = 53.0
 offset_right = 208.0
 offset_bottom = 148.0
 theme_override_font_sizes/font_size = 10
-button_group = SubResource("ButtonGroup_pfsep")
+button_group = SubResource("ButtonGroup_wncwh")
 
 [node name="Relic_3" parent="." instance=ExtResource("3_t1jsy")]
 offset_left = 228.0
 offset_top = 53.0
 offset_right = 304.0
 offset_bottom = 148.0
-button_group = SubResource("ButtonGroup_mfa2f")
+button_group = SubResource("ButtonGroup_i60oj")
 
 [node name="Power Up!" type="Label" parent="."]
 offset_left = 113.0

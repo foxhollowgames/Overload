@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dof51qr5iy8ml"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ybal6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e01n5"]
+texture = SubResource("CanvasTexture_ybal6")
+draw_center = false
+
+[node name="turn_start_button" type="Button"]
+z_index = 1
+offset_left = 132.0
+offset_top = 73.0
+offset_right = 190.0
+offset_bottom = 104.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_e01n5")
+text = "GO?"

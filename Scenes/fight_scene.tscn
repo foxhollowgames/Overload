@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c613om832wxoa"]
+[gd_scene load_steps=21 format=3 uid="uid://c613om832wxoa"]
 
 [ext_resource type="Script" path="res://Scenes/Symbols/Symbol_manager.gd" id="1_kgg8t"]
 [ext_resource type="Texture2D" uid="uid://dpw11vwgj3tns" path="res://Sprites/UI/Symbol_Background.png" id="2_rg6a3"]
@@ -8,6 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://dm886n4fygh66" path="res://Scenes/Characters/player.tscn" id="6_xhbep"]
 [ext_resource type="PackedScene" uid="uid://dkuih8v60l230" path="res://Scenes/Characters/villain_parent.tscn" id="7_j38ax"]
 [ext_resource type="Script" path="res://Scenes/Turn_Timer.gd" id="8_u7unc"]
+[ext_resource type="PackedScene" uid="uid://du1f6yickomfp" path="res://Scenes/canvas_layer.tscn" id="9_npqyu"]
+[ext_resource type="PackedScene" uid="uid://0y7eb3miu478" path="res://Scenes/power_block.tscn" id="10_br8mh"]
+[ext_resource type="PackedScene" uid="uid://bvw5trm5by4kj" path="res://Scenes/power_brawl.tscn" id="11_mjch4"]
+[ext_resource type="PackedScene" uid="uid://7w26hdp67v7o" path="res://Scenes/power_chain_lightning.tscn" id="12_cg1qw"]
+[ext_resource type="PackedScene" uid="uid://ssulfiwung2b" path="res://Scenes/power_energize.tscn" id="13_mp4mw"]
+[ext_resource type="PackedScene" uid="uid://bxwlhou7vq1rh" path="res://Scenes/power_shock.tscn" id="14_t1s75"]
+[ext_resource type="PackedScene" uid="uid://b8vrlp4v6d34e" path="res://Scenes/power_static_shield.tscn" id="15_tdffc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_orfkl"]
 size = Vector2(2.19231, 8.42307)
@@ -69,8 +76,11 @@ shape = SubResource("RectangleShape2D_orfkl")
 script = ExtResource("6_jybau")
 
 [node name="Timer" type="Timer" parent="Symbol_Timers"]
-wait_time = 0.736
-autostart = true
+wait_time = 0.41
+
+[node name="Pre-turn" type="Timer" parent="Symbol_Timers"]
+wait_time = 3.0
+one_shot = true
 
 [node name="Player_label" type="Label" parent="."]
 offset_left = -1.0
@@ -81,11 +91,11 @@ theme_override_font_sizes/font_size = 10
 text = "OVERLOAD"
 horizontal_alignment = 1
 
-[node name="Player" parent="." node_paths=PackedStringArray("energy_progress_bar", "super_power_label", "hp_label", "hp_progress_bar_max", "hp_progress_bar_current", "block_label") instance=ExtResource("6_xhbep")]
-position = Vector2(30, 48)
+[node name="Player" parent="." node_paths=PackedStringArray("energy_progress_bar", "hp_label", "hp_progress_bar_max", "hp_progress_bar_current", "block_label") instance=ExtResource("6_xhbep")]
+position = Vector2(26, 48)
 rotation = 1.83259
+scale = Vector2(0.05, 0.05)
 energy_progress_bar = NodePath("../Energy_bar")
-super_power_label = NodePath("../Energy_bar/Super_power_label")
 hp_label = NodePath("../Player_health_block/ProgressBar/hp_player_label")
 hp_progress_bar_max = NodePath("../Player_health_block/ProgressBar")
 hp_progress_bar_current = NodePath("../Player_health_block/ProgressBar")
@@ -102,6 +112,7 @@ horizontal_alignment = 1
 
 [node name="Villain_Parent" parent="." node_paths=PackedStringArray("intention_label", "intention_value_label", "villain_label", "hp_label", "hp_progress_bar_max", "hp_progress_bar_current", "block_label") instance=ExtResource("7_j38ax")]
 position = Vector2(303, 47)
+scale = Vector2(0.05, 0.05)
 intention_label = NodePath("Intention_label")
 intention_value_label = NodePath("Intention_label/Value")
 villain_label = NodePath("../Villain_label")
@@ -136,7 +147,6 @@ horizontal_alignment = 1
 [node name="Turn_Timer" type="Timer" parent="." node_paths=PackedStringArray("timer_progress", "timer_label")]
 wait_time = 10.0
 one_shot = true
-autostart = true
 script = ExtResource("8_u7unc")
 timer_progress = NodePath("../Timer_bar")
 timer_label = NodePath("../Timer_bar/Timer_label")
@@ -274,23 +284,14 @@ theme_override_font_sizes/font_size = 10
 horizontal_alignment = 1
 
 [node name="Energy_bar" type="ProgressBar" parent="."]
-offset_left = 16.0
-offset_top = 101.0
-offset_right = 57.0
+offset_left = 13.0
+offset_top = 172.0
+offset_right = 42.0
 offset_bottom = 180.0
 theme_override_styles/background = SubResource("StyleBoxFlat_vgycg")
 theme_override_styles/fill = SubResource("StyleBoxFlat_k8wat")
-fill_mode = 3
 show_percentage = false
-
-[node name="Super_power_label" type="Label" parent="Energy_bar"]
-layout_mode = 0
-offset_top = -13.0
-offset_right = 40.0
-offset_bottom = 10.0
-theme_override_font_sizes/font_size = 5
-horizontal_alignment = 2
-autowrap_mode = 2
+metadata/_edit_group_ = true
 
 [node name="Super_power_count_label" type="Label" parent="Energy_bar"]
 layout_mode = 0
@@ -304,6 +305,33 @@ wait_time = 3.935
 one_shot = true
 autostart = true
 
+[node name="CanvasLayer" parent="." instance=ExtResource("9_npqyu")]
+
+[node name="Power_chain_lightning" parent="." instance=ExtResource("12_cg1qw")]
+position = Vector2(28, 164)
+scale = Vector2(0.75, 0.75)
+
+[node name="Power_static_shield" parent="." instance=ExtResource("15_tdffc")]
+position = Vector2(28, 134)
+scale = Vector2(0.75, 0.75)
+
+[node name="Power_shock" parent="." instance=ExtResource("14_t1s75")]
+position = Vector2(28, 119)
+scale = Vector2(0.75, 0.75)
+
+[node name="Power_energize" parent="." instance=ExtResource("13_mp4mw")]
+position = Vector2(28, 149)
+scale = Vector2(0.75, 0.75)
+
+[node name="Power_block" parent="." instance=ExtResource("10_br8mh")]
+position = Vector2(28, 104)
+scale = Vector2(0.75, 0.75)
+
+[node name="power_brawl" parent="." instance=ExtResource("11_mjch4")]
+position = Vector2(28, 89)
+scale = Vector2(0.75, 0.75)
+
 [connection signal="timeout" from="Symbol_Timers/Timer" to="." method="_spawn"]
+[connection signal="timeout" from="Symbol_Timers/Pre-turn" to="." method="_turn_timer_start"]
 [connection signal="timeout" from="Turn_Timer" to="." method="_turn_end"]
 [connection signal="timeout" from="Speed_demon_timer" to="." method="_speed_demon_disable"]

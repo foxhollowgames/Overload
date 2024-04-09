@@ -1,8 +1,8 @@
 @tool
 extends Control
 
-const BASE_XP: int = 50
-const STATS_FILE: String = "user://ridiculous_xp.ini"
+var BASE_XP: int = 50
+var STATS_FILE: String = "user://ridiculous_xp.ini"
 
 var explosions: bool = true
 var blips: bool = true

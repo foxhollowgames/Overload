@@ -1,0 +1,14 @@
+Label
+Button
+AudioStreamPlayer2D
+HSlider
+VSlider
+Sprite2D
+CheckBox
+CanvasLayer
+ColorRect
+Timer
+VisibleOnScreenNotifier2D
+ProgressBar
+HBoxContainer
+Panel

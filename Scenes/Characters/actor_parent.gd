@@ -11,7 +11,6 @@ var block = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	SignalBus.clicked.connect(_effect)
 	hp_label.text = str(hp)
 	hp_progress_bar_max.max_value = hp_max
 	hp_progress_bar_current.value = hp
@@ -21,7 +20,7 @@ func _ready():
 func _process(delta):
 	pass
 
-func _effect(damage, block, energize, super_power, magnet_chance, radius):
+func _effect(power_name):
 	pass
 
 func _block(block_increase):
@@ -39,6 +38,3 @@ func _damage(attack):
 	hp_label.text = str(hp)
 	hp_progress_bar_max.max_value = hp_max
 	hp_progress_bar_current.value = hp
-	
-	if hp <= 0:
-		pass
