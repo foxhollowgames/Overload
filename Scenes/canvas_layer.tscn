@@ -6,8 +6,8 @@
 
 [node name="Overlay_disable" type="ColorRect" parent="."]
 z_index = 1
-offset_right = 327.0
-offset_bottom = 181.0
+offset_right = 320.0
+offset_bottom = 180.0
 color = Color(0, 0, 0, 0.686275)
 
 [node name="turn_start_button" parent="." instance=ExtResource("1_onsqy")]

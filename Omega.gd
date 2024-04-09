@@ -6,3 +6,4 @@ extends villain
 func _ready():
 	villain_name = "Omega"
 	super()
+	hp = 1

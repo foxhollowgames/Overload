@@ -14,6 +14,7 @@ var ball_lightning = false
 @onready var turn_timer = $Turn_Timer
 @export var super_power_count_label : Label
 var game_over : = "res://Scenes/game_over.tscn"
+var game_end = "res://Scenes/game_end.tscn"
 var relic_choice_scene : = "res://Scenes/relic_choice.tscn"
 var barricade = false
 var thorns = false

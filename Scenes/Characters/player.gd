@@ -14,6 +14,7 @@ func _ready():
 	super()
 	energy_progress_bar.max_value = energy_max
 	SignalBus.power.connect(_effect)
+	$AnimatedSprite2D.play()
 
 func _process(delta):
 	if hp <= 0:

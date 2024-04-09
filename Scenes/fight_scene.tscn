@@ -1,11 +1,12 @@
-[gd_scene load_steps=21 format=3 uid="uid://c613om832wxoa"]
+[gd_scene load_steps=25 format=3 uid="uid://c613om832wxoa"]
 
 [ext_resource type="Script" path="res://Scenes/Symbols/Symbol_manager.gd" id="1_kgg8t"]
 [ext_resource type="Texture2D" uid="uid://dpw11vwgj3tns" path="res://Sprites/UI/Symbol_Background.png" id="2_rg6a3"]
 [ext_resource type="Texture2D" uid="uid://by5vtaow2njqc" path="res://Sprites/UI/Character_Stat_Background.png" id="3_qs4qy"]
-[ext_resource type="Texture2D" uid="uid://byvbf8lae0pxl" path="res://Sprites/UI/Character_graphic_background.png" id="4_o5114"]
+[ext_resource type="Texture2D" uid="uid://bsluopt61d5u4" path="res://Sprites/city_evening.png" id="4_tcofw"]
 [ext_resource type="Script" path="res://Scenes/Timers.gd" id="6_jybau"]
 [ext_resource type="PackedScene" uid="uid://dm886n4fygh66" path="res://Scenes/Characters/player.tscn" id="6_xhbep"]
+[ext_resource type="PackedScene" uid="uid://jy8715i7ail5" path="res://Scenes/Characters/v_omega.tscn" id="7_g8y2g"]
 [ext_resource type="PackedScene" uid="uid://dkuih8v60l230" path="res://Scenes/Characters/villain_parent.tscn" id="7_j38ax"]
 [ext_resource type="Script" path="res://Scenes/Turn_Timer.gd" id="8_u7unc"]
 [ext_resource type="PackedScene" uid="uid://du1f6yickomfp" path="res://Scenes/canvas_layer.tscn" id="9_npqyu"]
@@ -15,9 +16,12 @@
 [ext_resource type="PackedScene" uid="uid://ssulfiwung2b" path="res://Scenes/power_energize.tscn" id="13_mp4mw"]
 [ext_resource type="PackedScene" uid="uid://bxwlhou7vq1rh" path="res://Scenes/power_shock.tscn" id="14_t1s75"]
 [ext_resource type="PackedScene" uid="uid://b8vrlp4v6d34e" path="res://Scenes/power_static_shield.tscn" id="15_tdffc"]
+[ext_resource type="AudioStream" uid="uid://b88xfs4q105cd" path="res://Audio/kf011004-calculated-moves.wav" id="16_cekmf"]
+[ext_resource type="AudioStream" uid="uid://dys0dge5oh7xb" path="res://Audio/atmo-industrial-construction-site-vehicles-01.wav" id="17_wa8px"]
+[ext_resource type="AudioStream" uid="uid://8hy6asu6r3cx" path="res://Audio/atmo-urban-small-construction-site-01.wav" id="18_c7nba"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_orfkl"]
-size = Vector2(2.19231, 8.42307)
+size = Vector2(1.92308, 8.51923)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cj30m"]
 bg_color = Color(0.321569, 0, 0.0862745, 1)
@@ -41,34 +45,39 @@ super_power_count_label = NodePath("Energy_bar/Super_power_count_label")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="SymbolBackground" type="Sprite2D" parent="."]
-position = Vector2(164, 90)
+position = Vector2(164.5, 90.5)
+scale = Vector2(1, 1.00556)
 texture = ExtResource("2_rg6a3")
 
 [node name="CharacterStatBackground" type="Sprite2D" parent="."]
-position = Vector2(29, 119)
+position = Vector2(29.25, 119)
+scale = Vector2(1.00877, 1)
 texture = ExtResource("3_qs4qy")
 
 [node name="CharacterStatBackground2" type="Sprite2D" parent="."]
-position = Vector2(299, 119)
+position = Vector2(295.5, 119)
+scale = Vector2(0.859649, 1)
 texture = ExtResource("3_qs4qy")
 
-[node name="CharacterGraphicBackground" type="Sprite2D" parent="."]
-position = Vector2(29, 30)
-texture = ExtResource("4_o5114")
+[node name="CharacterGraphicBackground2" type="Sprite2D" parent="."]
+position = Vector2(295.456, 30)
+scale = Vector2(-0.217502, 0.249)
+texture = ExtResource("4_tcofw")
 
-[node name="CharacterGraphicBackground" type="Sprite2D" parent="CharacterGraphicBackground"]
-position = Vector2(270, 0)
-texture = ExtResource("4_o5114")
+[node name="CharacterGraphicBackground" type="Sprite2D" parent="."]
+position = Vector2(29.4937, 30)
+scale = Vector2(0.253389, 0.249)
+texture = ExtResource("4_tcofw")
 
 [node name="Area2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(28.5, 69.5)
+position = Vector2(33, 70)
 scale = Vector2(26, 26)
 shape = SubResource("RectangleShape2D_orfkl")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(299, 69)
+position = Vector2(296, 70.25)
 scale = Vector2(26, 26)
 shape = SubResource("RectangleShape2D_orfkl")
 
@@ -92,9 +101,8 @@ text = "OVERLOAD"
 horizontal_alignment = 1
 
 [node name="Player" parent="." node_paths=PackedStringArray("energy_progress_bar", "hp_label", "hp_progress_bar_max", "hp_progress_bar_current", "block_label") instance=ExtResource("6_xhbep")]
-position = Vector2(26, 48)
-rotation = 1.83259
-scale = Vector2(0.05, 0.05)
+position = Vector2(30, 38)
+scale = Vector2(0.195, 0.195)
 energy_progress_bar = NodePath("../Energy_bar")
 hp_label = NodePath("../Player_health_block/ProgressBar/hp_player_label")
 hp_progress_bar_max = NodePath("../Player_health_block/ProgressBar")
@@ -104,45 +112,60 @@ block_label = NodePath("../Player_health_block/Panel2/block_player_label")
 [node name="Villain_label" type="Label" parent="."]
 offset_left = 270.0
 offset_top = 62.0
-offset_right = 328.0
+offset_right = 320.0
 offset_bottom = 85.0
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 8
 text = "OVERLOAD"
 horizontal_alignment = 1
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 288.0
+offset_top = 78.0
+offset_right = 303.0
+offset_bottom = 79.0
+
+[node name="Intention_label" type="Label" parent="."]
+offset_left = 271.0
+offset_top = 82.0
+offset_right = 320.0
+offset_bottom = 122.0
+theme_override_font_sizes/font_size = 5
+horizontal_alignment = 1
+
+[node name="Value" type="Label" parent="Intention_label"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 1.0
+offset_bottom = 84.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+
 [node name="Villain_Parent" parent="." node_paths=PackedStringArray("intention_label", "intention_value_label", "villain_label", "hp_label", "hp_progress_bar_max", "hp_progress_bar_current", "block_label") instance=ExtResource("7_j38ax")]
-position = Vector2(303, 47)
-scale = Vector2(0.05, 0.05)
-intention_label = NodePath("Intention_label")
-intention_value_label = NodePath("Intention_label/Value")
+position = Vector2(299, 38)
+rotation = -3.14159
+scale = Vector2(0.195, -0.195)
+intention_label = NodePath("../Intention_label")
+intention_value_label = NodePath("../Intention_label/Value")
+villain_label = NodePath("../Villain_label")
+hp_label = NodePath("../Villain_health_block/ProgressBar/hp_villain_label")
+hp_progress_bar_max = NodePath("../Villain_health_block/ProgressBar")
+hp_progress_bar_current = NodePath("../Villain_health_block/ProgressBar")
+block_label = NodePath("../Player_health_block/Panel2/block_player_label")
+
+[node name="Omega" parent="." node_paths=PackedStringArray("intention_label", "intention_value_label", "villain_label", "hp_label", "hp_progress_bar_max", "hp_progress_bar_current", "block_label") instance=ExtResource("7_g8y2g")]
+visible = false
+position = Vector2(299, 38)
+rotation = 3.14159
+scale = Vector2(0.195, -0.195)
+intention_label = NodePath("../Intention_label")
+intention_value_label = NodePath("../Intention_label/Value")
 villain_label = NodePath("../Villain_label")
 hp_label = NodePath("../Villain_health_block/ProgressBar/hp_villain_label")
 hp_progress_bar_max = NodePath("../Villain_health_block/ProgressBar")
 hp_progress_bar_current = NodePath("../Villain_health_block/ProgressBar")
 block_label = NodePath("../Villain_health_block/Panel2/block_villain_label")
-
-[node name="Intention_label" type="Label" parent="Villain_Parent"]
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = -0.5
-offset_top = -15.0
-offset_right = 0.5
-offset_bottom = -3.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 8
-horizontal_alignment = 1
-
-[node name="Value" type="Label" parent="Villain_Parent/Intention_label"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = -0.5
-offset_top = -15.0
-offset_right = 0.5
-offset_bottom = -3.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 8
-horizontal_alignment = 1
 
 [node name="Turn_Timer" type="Timer" parent="." node_paths=PackedStringArray("timer_progress", "timer_label")]
 wait_time = 10.0
@@ -156,8 +179,8 @@ layout_direction = 2
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 270.0
-offset_right = 328.0
+offset_left = 271.0
+offset_right = 320.0
 offset_bottom = 14.0
 grow_horizontal = 0
 size_flags_horizontal = 3
@@ -203,7 +226,7 @@ show_percentage = false
 
 [node name="hp_villain_label" type="Label" parent="Villain_health_block/ProgressBar"]
 layout_mode = 0
-offset_right = 44.0
+offset_right = 36.0
 offset_bottom = 14.0
 theme_override_font_sizes/font_size = 6
 horizontal_alignment = 1
@@ -265,10 +288,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Timer_bar" type="ProgressBar" parent="."]
-offset_left = 270.0
-offset_top = 100.0
-offset_right = 311.0
-offset_bottom = 179.0
+offset_left = 271.0
+offset_top = 120.0
+offset_right = 320.0
+offset_bottom = 180.0
 theme_override_styles/background = SubResource("StyleBoxFlat_vgycg")
 theme_override_styles/fill = SubResource("StyleBoxFlat_k8wat")
 value = 100.0
@@ -277,9 +300,9 @@ show_percentage = false
 
 [node name="Timer_label" type="Label" parent="Timer_bar"]
 layout_mode = 0
-offset_top = -12.0
-offset_right = 40.0
-offset_bottom = 11.0
+offset_left = 1.0
+offset_right = 49.0
+offset_bottom = 23.0
 theme_override_font_sizes/font_size = 10
 horizontal_alignment = 1
 
@@ -330,6 +353,23 @@ scale = Vector2(0.75, 0.75)
 [node name="power_brawl" parent="." instance=ExtResource("11_mjch4")]
 position = Vector2(28, 89)
 scale = Vector2(0.75, 0.75)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+
+[node name="BG Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_cekmf")
+volume_db = -13.72
+autoplay = true
+
+[node name="BG Noise" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_wa8px")
+volume_db = -24.92
+autoplay = true
+
+[node name="BG Noise2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_c7nba")
+volume_db = -18.52
+autoplay = true
 
 [connection signal="timeout" from="Symbol_Timers/Timer" to="." method="_spawn"]
 [connection signal="timeout" from="Symbol_Timers/Pre-turn" to="." method="_turn_timer_start"]

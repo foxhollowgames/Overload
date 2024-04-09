@@ -18,9 +18,9 @@ var villain_name = "Ohm"
 func _ready():
 	SignalBus.power.connect(_effect_villian)
 	SignalBus.turn_end.connect(_villain_turn)
-	hp_max = 20
+	hp_max = 10
 	hp = hp_max
-	block_gain = 5
+	block_gain = 2
 	villain_label.text = villain_name
 	_r_intention()
 	super()
@@ -34,6 +34,7 @@ func _effect_villian(power_name):
 		SignalBus.villain_defeated.emit()
 
 func _villain_turn():
+	block = 0
 	match intention:
 		"Attack":
 			player._damage(attack)
@@ -57,6 +58,6 @@ func _r_intention():
 	if (intention == intention_options[0]):
 		intention_value = str(attack)
 	if (intention == intention_options[1]):
-		intention_value = str(block)
+		intention_value = str(block_gain)
 	intention_value_label.text = intention_value
 	intention_label.text = str(self.intention)

@@ -1,13 +1,59 @@
-[gd_scene load_steps=4 format=3 uid="uid://dm886n4fygh66"]
+[gd_scene load_steps=11 format=3 uid="uid://dm886n4fygh66"]
 
-[ext_resource type="Texture2D" uid="uid://cy07rsjwxy2r4" path="res://Sprites/Symbols/Block.svg" id="1_s40af"]
 [ext_resource type="Script" path="res://Scenes/Characters/player.gd" id="1_uvq1p"]
+[ext_resource type="Texture2D" uid="uid://c7hy1syvsnd7x" path="res://Sprites/Characters/Overload-Sheet.png" id="2_xnjgg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6dyb"]
+atlas = ExtResource("2_xnjgg")
+region = Rect2(0, 0, 138, 209)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mkta"]
+atlas = ExtResource("2_xnjgg")
+region = Rect2(138, 0, 138, 209)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wjyv"]
+atlas = ExtResource("2_xnjgg")
+region = Rect2(276, 0, 138, 209)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwqhd"]
+atlas = ExtResource("2_xnjgg")
+region = Rect2(414, 0, 138, 209)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jy3ct"]
+atlas = ExtResource("2_xnjgg")
+region = Rect2(552, 0, 138, 209)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqtpm"]
+atlas = ExtResource("2_xnjgg")
+region = Rect2(690, 0, 138, 209)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tate"]
+atlas = ExtResource("2_xnjgg")
+region = Rect2(828, 0, 138, 209)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_npvgw"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_s40af")
+"texture": SubResource("AtlasTexture_d6dyb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mkta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wjyv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jwqhd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jy3ct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqtpm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4tate")
 }],
 "loop": true,
 "name": &"Idle",
@@ -17,6 +63,8 @@ animations = [{
 [node name="Player" type="Node2D"]
 script = ExtResource("1_uvq1p")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, 0)
 sprite_frames = SubResource("SpriteFrames_npvgw")
 animation = &"Idle"
+frame_progress = 0.0548601
