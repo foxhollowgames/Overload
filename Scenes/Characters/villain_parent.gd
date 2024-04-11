@@ -1,4 +1,4 @@
-extends character
+extends characte
 class_name villain
 
 var board_interference = 0

@@ -1,4 +1,4 @@
-extends character
+extends characte
 
 var energy_max = 5
 var energy = 0
