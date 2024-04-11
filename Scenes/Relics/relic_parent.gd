@@ -11,7 +11,3 @@ func _ready():
 
 func _pressed():
 	SignalBus.relic_picked.emit(title)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

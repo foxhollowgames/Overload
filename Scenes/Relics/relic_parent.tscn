@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bhwmso830a1g1"]
 
-[ext_resource type="Texture2D" uid="uid://cy07rsjwxy2r4" path="res://Sprites/Symbols/Block.svg" id="1_1ijum"]
+[ext_resource type="Texture2D" uid="uid://bsh2jl25josyf" path="res://Sprites/Symbols/Magnet.svg" id="1_nktl1"]
 [ext_resource type="Script" path="res://Scenes/Relics/relic_parent.gd" id="2_oesyb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_topc0"]
@@ -8,13 +8,11 @@ line_spacing = 0.0
 font_size = 6
 
 [node name="Relic_parent" type="Button" node_paths=PackedStringArray("description_label")]
-offset_left = 33.0
-offset_top = 44.0
-offset_right = 109.0
-offset_bottom = 139.0
+offset_right = 90.0
+offset_bottom = 116.0
 toggle_mode = true
 text = "Thorns"
-icon = ExtResource("1_1ijum")
+icon = ExtResource("1_nktl1")
 icon_alignment = 1
 vertical_icon_alignment = 0
 script = ExtResource("2_oesyb")
@@ -22,10 +20,10 @@ description_label = NodePath("Description")
 
 [node name="Description" type="Label" parent="."]
 layout_mode = 0
-offset_left = 3.0
-offset_top = 66.0
-offset_right = 73.0
-offset_bottom = 89.0
+offset_left = 4.0
+offset_top = 87.0
+offset_right = 86.0
+offset_bottom = 110.0
 theme_override_font_sizes/font_size = 6
 label_settings = SubResource("LabelSettings_topc0")
 horizontal_alignment = 1

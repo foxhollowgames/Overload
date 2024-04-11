@@ -1,6 +1,5 @@
 extends Relic
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	description = 'Symbols are more effective for the first 2 seconds'

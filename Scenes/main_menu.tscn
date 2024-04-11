@@ -179,7 +179,7 @@ uppercase = true
 
 [connection signal="toggled" from="Full Screen" to="." method="_on_windowed_toggled"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="Tutorial" to="." method="_play"]
+[connection signal="pressed" from="Tutorial" to="." method="_tutorial"]
 [connection signal="pressed" from="Play" to="." method="_play"]
 [connection signal="mouse_exited" from="Audio_slider" to="." method="release_focus"]
 [connection signal="value_changed" from="Audio_slider" to="Audio_slider" method="_on_value_changed"]

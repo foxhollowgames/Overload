@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://covjiyru1hqbd"]
+[gd_scene load_steps=28 format=3 uid="uid://covjiyru1hqbd"]
 
 [ext_resource type="Script" path="res://Scenes/fight_scene_second.gd" id="1_8bep2"]
 [ext_resource type="Texture2D" uid="uid://dpw11vwgj3tns" path="res://Sprites/UI/Symbol_Background.png" id="2_avx61"]
@@ -21,6 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://8kssfchadklw" path="res://Audio/beam.wav" id="19_v8n35"]
 [ext_resource type="Script" path="res://Scenes/click_sound.gd" id="20_361vs"]
 [ext_resource type="AudioStream" uid="uid://b34qxrypwq4bc" path="res://Audio/transition.wav" id="21_mm4nc"]
+[ext_resource type="Script" path="res://Scenes/Characters/actor_parent.gd" id="22_jgkav"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_orfkl"]
 size = Vector2(1.92308, 8.51923)
@@ -137,22 +138,23 @@ horizontal_alignment = 1
 [node name="Omega" parent="." node_paths=PackedStringArray("intention_label", "intention_value_label", "villain_label", "hp_label", "hp_progress_bar_max", "hp_progress_bar_current", "block_label") instance=ExtResource("7_762hf")]
 position = Vector2(297, 38)
 scale = Vector2(-0.195, 0.195)
-intention_label = NodePath("")
-intention_value_label = NodePath("")
-villain_label = NodePath("")
-hp_label = NodePath("")
-hp_progress_bar_max = NodePath("")
-hp_progress_bar_current = NodePath("")
-block_label = NodePath("")
+intention_label = NodePath("../Intention_label")
+intention_value_label = NodePath("../Intention_label/Value")
+villain_label = NodePath("../Villain_label")
+hp_label = NodePath("../Villain_health_block/ProgressBar/hp_villain_label")
+hp_progress_bar_max = NodePath("../Villain_health_block/ProgressBar")
+hp_progress_bar_current = NodePath("../Villain_health_block/ProgressBar")
+block_label = NodePath("../Villain_health_block/Panel2/block_villain_label")
 
-[node name="Player" parent="." node_paths=PackedStringArray("energy_progress_bar", "hp_label", "hp_progress_bar_max", "hp_progress_bar_current", "block_label") instance=ExtResource("6_7ngi1")]
+[node name="Player" parent="." node_paths=PackedStringArray("energy_progress_bar", "super_power_label", "hp_label", "hp_progress_bar_max", "hp_progress_bar_current", "block_label") instance=ExtResource("6_7ngi1")]
 position = Vector2(30, 38)
 scale = Vector2(0.195, 0.195)
-energy_progress_bar = NodePath("")
-hp_label = NodePath("")
-hp_progress_bar_max = NodePath("")
-hp_progress_bar_current = NodePath("")
-block_label = NodePath("")
+energy_progress_bar = NodePath("../Energy_bar")
+super_power_label = NodePath("../Energy_bar/Super_power_count_label")
+hp_label = NodePath("../Player_health_block/ProgressBar/hp_player_label")
+hp_progress_bar_max = NodePath("../Player_health_block/ProgressBar")
+hp_progress_bar_current = NodePath("../Player_health_block/ProgressBar")
+block_label = NodePath("../Player_health_block/Panel2/block_player_label")
 
 [node name="Turn_Timer" type="Timer" parent="." node_paths=PackedStringArray("timer_progress", "timer_label")]
 wait_time = 10.0
@@ -365,6 +367,34 @@ script = ExtResource("20_361vs")
 
 [node name="relic_transition" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("21_mm4nc")
+
+[node name="actor_parent" type="Node2D" parent="." node_paths=PackedStringArray("hp_label", "hp_progress_bar_max", "hp_progress_bar_current", "block_label")]
+script = ExtResource("22_jgkav")
+hp_label = NodePath("actor_hp")
+hp_progress_bar_max = NodePath("actor_energy")
+hp_progress_bar_current = NodePath("actor_energy")
+block_label = NodePath("actor_block")
+
+[node name="actor_hp" type="Label" parent="actor_parent"]
+visible = false
+offset_left = 24.0
+offset_top = 197.0
+offset_right = 64.0
+offset_bottom = 220.0
+
+[node name="actor_block" type="Label" parent="actor_parent"]
+visible = false
+offset_left = 24.0
+offset_top = 197.0
+offset_right = 64.0
+offset_bottom = 220.0
+
+[node name="actor_energy" type="ProgressBar" parent="actor_parent"]
+visible = false
+offset_left = 38.0
+offset_top = 237.0
+offset_right = 42.0
+offset_bottom = 264.0
 
 [connection signal="timeout" from="Symbol_Timers/Timer" to="." method="_spawn"]
 [connection signal="timeout" from="Symbol_Timers/Pre-turn" to="." method="_turn_timer_start"]
