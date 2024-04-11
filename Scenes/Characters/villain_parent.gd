@@ -27,10 +27,6 @@ func _ready():
 	_r_intention()
 	super()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func _effect_villian():
 	if (hp <= 0):
 		SignalBus.villain_defeated.emit()
