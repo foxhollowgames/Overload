@@ -40,7 +40,7 @@ func _ready():
 	SignalBus.barricade.connect(_barricade_enabled)
 	SignalBus.thorns.connect(_thorns_enabled)
 	SignalBus.speed_demon.connect(_speed_demon_enabled)
-	$CanvasLayer/turn_start_button.pressed.connect(_turn_start)
+	SignalBus.turn_start_pressed.connect(_turn_start)
 	
 	for _i in range (Global.relics_acquired.size()):
 		match Global.relics_acquired[_i]:
@@ -51,36 +51,32 @@ func _ready():
 			"Speed Demon": 
 				SignalBus.speed_demon.emit()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 # Chain lightning power
 func _set_chain_lightning_charges():
-	ball_lightning_charges += 5
+	#ball_lightning_charges += 5
+	pass
 
 func _ball_lightning_check(power_name):
-	if ball_lightning_charges > 0:
-		ball_lightning = true
-		ball_lightning_charges -= 1
-		super_power_count_label.text = str(ball_lightning_charges)
-	else:
-		ball_lightning = false
+	#if ball_lightning_charges > 0:
+		#ball_lightning = true
+		#ball_lightning_charges -= 1
+		#super_power_count_label.text = str(ball_lightning_charges)
+	#else:
+		#ball_lightning = false
+	pass
 
 func _turn_ini():
 	add_child(TURN_START_UI.instantiate())
-	$CanvasLayer/turn_start_button.pressed.connect(_turn_start)
 
 func _turn_start():
 	_can_spawn()
 	$"Symbol_Timers/Pre-turn".start()
 	$Symbol_Timers/Timer.start()
-	$CanvasLayer/turn_start_button.queue_free()
+	$CanvasLayer.queue_free()
 
 func _turn_timer_start():
 	turn_timer.start()
 	$Speed_demon_timer.start()
-	$CanvasLayer.queue_free()
 
 # Turn timer end
 func _turn_end():
@@ -121,6 +117,8 @@ func _spawn_bouncy():
 	add_child(_interference_create)
 
 func _villain_defeated():
+	$relic_transition.play()
+	await get_tree().create_timer(2).timeout
 	get_tree().change_scene_to_file(relic_choice_scene)
 
 func _barricade_enabled():

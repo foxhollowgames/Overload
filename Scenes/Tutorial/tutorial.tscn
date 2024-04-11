@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://k8gce17aw0on"]
+
+[ext_resource type="Texture2D" uid="uid://dmt4mo3vjghe2" path="res://Scenes/Tutorial/Slide_1.png" id="1_tba42"]
+[ext_resource type="Script" path="res://Scenes/Tutorial/TextureButton.gd" id="2_lv6rn"]
+
+[sub_resource type="Theme" id="Theme_e7107"]
+
+[node name="Tutorial" type="Node2D"]
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_right = 320.0
+offset_bottom = 181.0
+theme = SubResource("Theme_e7107")
+texture_normal = ExtResource("1_tba42")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_lv6rn")
+
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]

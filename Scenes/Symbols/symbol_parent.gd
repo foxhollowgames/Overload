@@ -18,34 +18,40 @@ var thorns = false
 var speed_demon = false
 @onready var speed_demon_timer = get_parent().get_node("Speed_demon_timer")
 var symbol_type
+@onready var click_sound = $"../click_sound"
+var clicked = false
+
 
 func _ready():
-	#collision_shape_2d.disabled = true
 	SignalBus.turn_end.connect(_delete)
 	speed_demon_timer.timeout.connect(_speed_demon_disable)
 	symbol_type = Global.symbol_type.BRAWL
 
 func _unhandled_input(event):
+	if clicked:
+		return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and SYMBOL_PARENT.can_spawn:
-				if event.position.distance_to(global_position) < radius and not symbol_type == 3:
-					if speed_demon:
-						block *= 2
-						damage *= 2
-						energize *= 2
-					if thorns:
-						print(Global.thorns_count)
-						Global.thorns_count += 1
-						if Global.thorns_count >= 3:
-							damage += 1
-							print(damage)
-							Global.thorns_count = 0
-					Global.combo.append(symbol_type)
-					SignalBus.clicked.emit(symbol_type)
-					if SYMBOL_PARENT.ball_lightning:
-						_chain_lightning(ball_lightning_count)
-					else:
-						_delete()
-
+		if event.position.distance_to(global_position) < radius and not symbol_type == 3:
+			click_sound.pitch_scale = randf_range(0.8, 1.2)
+			click_sound.play()
+			if speed_demon:
+				block *= 2
+				damage *= 2
+				energize *= 2
+			if thorns:
+				print(Global.thorns_count)
+				Global.thorns_count += 1
+				if Global.thorns_count >= 3:
+					damage += 1
+					print(damage)
+					Global.thorns_count = 0
+			clicked = true
+			Global.combo.append(symbol_type)
+			SignalBus.clicked.emit(symbol_type)
+			#if SYMBOL_PARENT.ball_lightning:
+				#_chain_lightning(ball_lightning_count)
+			#else:
+			_delete()
 
 func _chain_lightning(count):
 	if count <= 0:
@@ -62,7 +68,9 @@ func _chain_lightning(count):
 		_delete()
 
 func _delete():
-	queue_free()
+	var tween = create_tween()
+	tween.tween_property(self, "scale:x", 0, .1)
+	tween.tween_callback(queue_free)
 
 func _barricade():
 	if not barricade: return

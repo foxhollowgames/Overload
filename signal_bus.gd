@@ -1,8 +1,8 @@
 extends Node
-class_name signal_bus
 
 signal clicked(power_name)
 signal power(_power_name)
+signal power_end()
 signal clear_combo()
 signal chain_lightning_enabled()
 signal turn_end()
@@ -13,6 +13,7 @@ signal relic_picked(title)
 signal barricade()
 signal thorns()
 signal speed_demon()
+signal turn_start_pressed()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

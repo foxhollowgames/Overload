@@ -50,7 +50,6 @@ func _power_check(symbol_type):
 			ui_symbols[_j].self_modulate.a = 0.5
 	
 	if Global.combo == POWER:
-		print("power.emit!")
 		SignalBus.power.emit(power_name.text)
 		active = false
 

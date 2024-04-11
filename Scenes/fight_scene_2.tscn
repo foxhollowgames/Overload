@@ -80,16 +80,6 @@ theme_override_font_sizes/font_size = 10
 text = "OVERLOAD"
 horizontal_alignment = 1
 
-[node name="Player" parent="." node_paths=PackedStringArray("energy_progress_bar", "super_power_label", "hp_label", "hp_progress_bar_max", "hp_progress_bar_current", "block_label") instance=ExtResource("6_scs16")]
-position = Vector2(30, 48)
-rotation = 1.83259
-energy_progress_bar = NodePath("../Energy_bar")
-super_power_label = NodePath("../Energy_bar/Super_power_label")
-hp_label = NodePath("../Player_health_block/ProgressBar/hp_player_label")
-hp_progress_bar_max = NodePath("../Player_health_block/ProgressBar")
-hp_progress_bar_current = NodePath("../Player_health_block/ProgressBar")
-block_label = NodePath("../Player_health_block/Panel2/block_player_label")
-
 [node name="Villain_label" type="Label" parent="."]
 offset_left = 270.0
 offset_top = 62.0
@@ -138,6 +128,16 @@ autostart = true
 script = ExtResource("8_3swn1")
 timer_progress = NodePath("../Timer_bar")
 timer_label = NodePath("../Timer_bar/Timer_label")
+
+[node name="Player" parent="." node_paths=PackedStringArray("energy_progress_bar", "super_power_label", "hp_label", "hp_progress_bar_max", "hp_progress_bar_current", "block_label") instance=ExtResource("6_scs16")]
+position = Vector2(30, 48)
+rotation = 1.83259
+energy_progress_bar = NodePath("../Energy_bar")
+super_power_label = NodePath("../Energy_bar/Super_power_label")
+hp_label = NodePath("../Player_health_block/ProgressBar/hp_player_label")
+hp_progress_bar_max = NodePath("../Player_health_block/ProgressBar")
+hp_progress_bar_current = NodePath("../Player_health_block/ProgressBar")
+block_label = NodePath("../Player_health_block/Panel2/block_player_label")
 
 [node name="Villain_health_block" type="HBoxContainer" parent="."]
 layout_direction = 2

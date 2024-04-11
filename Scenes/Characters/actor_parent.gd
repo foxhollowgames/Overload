@@ -16,12 +16,8 @@ func _ready():
 	hp_progress_bar_current.value = hp
 	block_label.text = str(block)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-func _effect(power_name):
-	pass
+#func _effect(power_name):
+	#pass
 
 func _block(block_increase):
 	block += block_increase

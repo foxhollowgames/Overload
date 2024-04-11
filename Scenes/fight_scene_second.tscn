@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://covjiyru1hqbd"]
+[gd_scene load_steps=27 format=3 uid="uid://covjiyru1hqbd"]
 
 [ext_resource type="Script" path="res://Scenes/fight_scene_second.gd" id="1_8bep2"]
 [ext_resource type="Texture2D" uid="uid://dpw11vwgj3tns" path="res://Sprites/UI/Symbol_Background.png" id="2_avx61"]
@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bsluopt61d5u4" path="res://Sprites/city_evening.png" id="4_10nk1"]
 [ext_resource type="Script" path="res://Scenes/Timers.gd" id="5_guihm"]
 [ext_resource type="PackedScene" uid="uid://dm886n4fygh66" path="res://Scenes/Characters/player.tscn" id="6_7ngi1"]
-[ext_resource type="PackedScene" uid="uid://dkuih8v60l230" path="res://Scenes/Characters/villain_parent.tscn" id="7_02131"]
+[ext_resource type="PackedScene" uid="uid://jy8715i7ail5" path="res://Scenes/Characters/v_omega.tscn" id="7_762hf"]
 [ext_resource type="Script" path="res://Scenes/Turn_Timer.gd" id="8_r6txa"]
 [ext_resource type="PackedScene" uid="uid://du1f6yickomfp" path="res://Scenes/canvas_layer.tscn" id="9_r5wa8"]
 [ext_resource type="PackedScene" uid="uid://7w26hdp67v7o" path="res://Scenes/power_chain_lightning.tscn" id="10_4ejro"]
@@ -18,6 +18,9 @@
 [ext_resource type="AudioStream" uid="uid://b88xfs4q105cd" path="res://Audio/kf011004-calculated-moves.wav" id="16_s78mt"]
 [ext_resource type="AudioStream" uid="uid://dys0dge5oh7xb" path="res://Audio/atmo-industrial-construction-site-vehicles-01.wav" id="17_hh1of"]
 [ext_resource type="AudioStream" uid="uid://8hy6asu6r3cx" path="res://Audio/atmo-urban-small-construction-site-01.wav" id="18_0b8pb"]
+[ext_resource type="AudioStream" uid="uid://8kssfchadklw" path="res://Audio/beam.wav" id="19_v8n35"]
+[ext_resource type="Script" path="res://Scenes/click_sound.gd" id="20_361vs"]
+[ext_resource type="AudioStream" uid="uid://b34qxrypwq4bc" path="res://Audio/transition.wav" id="21_mm4nc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_orfkl"]
 size = Vector2(1.92308, 8.51923)
@@ -37,9 +40,8 @@ bg_color = Color(0.45098, 0.376471, 0.0392157, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k8wat"]
 bg_color = Color(1, 0.803922, 0.160784, 1)
 
-[node name="Fight_scene" type="Node2D" node_paths=PackedStringArray("super_power_count_label")]
+[node name="Fight_scene" type="Node2D"]
 script = ExtResource("1_8bep2")
-super_power_count_label = NodePath("Energy_bar/Super_power_count_label")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
@@ -99,15 +101,6 @@ theme_override_font_sizes/font_size = 10
 text = "OVERLOAD"
 horizontal_alignment = 1
 
-[node name="Player" parent="." node_paths=PackedStringArray("energy_progress_bar", "hp_label", "hp_progress_bar_max", "hp_progress_bar_current", "block_label") instance=ExtResource("6_7ngi1")]
-position = Vector2(30, 38)
-scale = Vector2(0.195, 0.195)
-energy_progress_bar = NodePath("../Energy_bar")
-hp_label = NodePath("../Player_health_block/ProgressBar/hp_player_label")
-hp_progress_bar_max = NodePath("../Player_health_block/ProgressBar")
-hp_progress_bar_current = NodePath("../Player_health_block/ProgressBar")
-block_label = NodePath("../Player_health_block/Panel2/block_player_label")
-
 [node name="Villain_label" type="Label" parent="."]
 offset_left = 270.0
 offset_top = 62.0
@@ -141,16 +134,25 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 24
 horizontal_alignment = 1
 
-[node name="Villain_Parent" parent="." node_paths=PackedStringArray("intention_label", "intention_value_label", "villain_label", "hp_label", "hp_progress_bar_max", "hp_progress_bar_current", "block_label") instance=ExtResource("7_02131")]
-position = Vector2(299, 38)
+[node name="Omega" parent="." node_paths=PackedStringArray("intention_label", "intention_value_label", "villain_label", "hp_label", "hp_progress_bar_max", "hp_progress_bar_current", "block_label") instance=ExtResource("7_762hf")]
+position = Vector2(297, 38)
 scale = Vector2(-0.195, 0.195)
-intention_label = NodePath("../Intention_label")
-intention_value_label = NodePath("../Intention_label/Value")
-villain_label = NodePath("../Villain_label")
-hp_label = NodePath("../Villain_health_block/ProgressBar/hp_villain_label")
-hp_progress_bar_max = NodePath("../Villain_health_block/ProgressBar")
-hp_progress_bar_current = NodePath("../Villain_health_block/ProgressBar")
-block_label = NodePath("../Villain_health_block/Panel2/block_villain_label")
+intention_label = NodePath("")
+intention_value_label = NodePath("")
+villain_label = NodePath("")
+hp_label = NodePath("")
+hp_progress_bar_max = NodePath("")
+hp_progress_bar_current = NodePath("")
+block_label = NodePath("")
+
+[node name="Player" parent="." node_paths=PackedStringArray("energy_progress_bar", "hp_label", "hp_progress_bar_max", "hp_progress_bar_current", "block_label") instance=ExtResource("6_7ngi1")]
+position = Vector2(30, 38)
+scale = Vector2(0.195, 0.195)
+energy_progress_bar = NodePath("")
+hp_label = NodePath("")
+hp_progress_bar_max = NodePath("")
+hp_progress_bar_current = NodePath("")
+block_label = NodePath("")
 
 [node name="Turn_Timer" type="Timer" parent="." node_paths=PackedStringArray("timer_progress", "timer_label")]
 wait_time = 10.0
@@ -355,6 +357,14 @@ autoplay = true
 stream = ExtResource("18_0b8pb")
 volume_db = -18.52
 autoplay = true
+
+[node name="click_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_v8n35")
+volume_db = -18.455
+script = ExtResource("20_361vs")
+
+[node name="relic_transition" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_mm4nc")
 
 [connection signal="timeout" from="Symbol_Timers/Timer" to="." method="_spawn"]
 [connection signal="timeout" from="Symbol_Timers/Pre-turn" to="." method="_turn_timer_start"]

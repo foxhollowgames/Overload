@@ -16,12 +16,14 @@ var villain_name = "Ohm"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	SignalBus.power.connect(_effect_villian)
+	SignalBus.power_end.connect(_effect_villian)
 	SignalBus.turn_end.connect(_villain_turn)
 	hp_max = 10
 	hp = hp_max
 	block_gain = 2
 	villain_label.text = villain_name
+	Global.villain_name = self
+	print(Global.villain_name)
 	_r_intention()
 	super()
 
@@ -29,7 +31,7 @@ func _ready():
 func _process(delta):
 	pass
 
-func _effect_villian(power_name):
+func _effect_villian():
 	if (hp <= 0):
 		SignalBus.villain_defeated.emit()
 
