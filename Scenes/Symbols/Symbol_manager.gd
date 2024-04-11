@@ -119,7 +119,8 @@ func _spawn_bouncy():
 func _villain_defeated():
 	$relic_transition.play()
 	await get_tree().create_timer(2).timeout
-	get_tree().change_scene_to_file(relic_choice_scene)
+	#get_tree().change_scene_to_file(relic_choice_scene)
+	get_tree().change_scene_to_file("res://Scenes/game_end.tscn")
 
 func _barricade_enabled():
 	barricade = true

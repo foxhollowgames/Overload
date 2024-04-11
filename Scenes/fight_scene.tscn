@@ -88,7 +88,7 @@ shape = SubResource("RectangleShape2D_orfkl")
 script = ExtResource("6_jybau")
 
 [node name="Timer" type="Timer" parent="Symbol_Timers"]
-wait_time = 0.41
+wait_time = 0.25
 
 [node name="Pre-turn" type="Timer" parent="Symbol_Timers"]
 wait_time = 3.0
@@ -145,7 +145,7 @@ intention_value_label = NodePath("../Intention_label/Value")
 villain_label = NodePath("../Villain_label")
 hp_label = NodePath("../Villain_health_block/ProgressBar/hp_villain_label")
 hp_progress_bar_max = NodePath("../Villain_health_block/ProgressBar")
-hp_progress_bar_current = NodePath("../Player_health_block/ProgressBar")
+hp_progress_bar_current = NodePath("../Villain_health_block/ProgressBar")
 block_label = NodePath("../Villain_health_block/Panel2/block_villain_label")
 
 [node name="Player" parent="." node_paths=PackedStringArray("energy_progress_bar", "super_power_label", "hp_label", "hp_progress_bar_max", "hp_progress_bar_current", "block_label") instance=ExtResource("6_xhbep")]
@@ -159,7 +159,7 @@ hp_progress_bar_current = NodePath("../Player_health_block/ProgressBar")
 block_label = NodePath("../Player_health_block/Panel2/block_player_label")
 
 [node name="Turn_Timer" type="Timer" parent="." node_paths=PackedStringArray("timer_progress", "timer_label")]
-wait_time = 10.0
+wait_time = 15.0
 one_shot = true
 script = ExtResource("8_u7unc")
 timer_progress = NodePath("../Timer_bar")

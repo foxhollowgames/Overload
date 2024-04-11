@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://223otbmt7mab"]
+
+[ext_resource type="PackedScene" uid="uid://k8gce17aw0on" path="res://Scenes/Tutorial/tutorial.tscn" id="1_4xlrl"]
+[ext_resource type="Script" path="res://Scenes/Tutorial/slide_3.gd" id="2_hl11c"]
+[ext_resource type="Texture2D" uid="uid://cy1qa8vgu4mge" path="res://Scenes/Tutorial/slide_03.png" id="2_vncem"]
+
+[node name="Tutorial" instance=ExtResource("1_4xlrl")]
+
+[node name="TextureButton" parent="." index="0"]
+texture_normal = ExtResource("2_vncem")
+script = ExtResource("2_hl11c")

@@ -2,7 +2,7 @@ extends characte
 class_name villain
 
 var board_interference = 0
-var attack = 2
+var attack = 4
 var block_gain = 0
 var intention = 0
 var intention_options = ["Attack", "Block", "Board Interference"]
@@ -25,6 +25,7 @@ func _ready():
 	Global.villain_name = self
 	print(Global.villain_name)
 	_r_intention()
+	$AnimatedSprite2D.play()
 	super()
 
 func _effect_villian():

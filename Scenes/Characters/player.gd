@@ -18,7 +18,6 @@ func _ready():
 	energy_progress_bar.max_value = energy_max
 	SignalBus.power.connect(_effect)
 	$AnimatedSprite2D.play()
-	energy = 5
 
 func _process(delta):
 	if hp <= 0:
@@ -27,7 +26,7 @@ func _process(delta):
 func _effect(power_name):
 	match power_name:
 		"Brawl": 
-			villain_name._damage(10)
+			villain_name._damage(1)
 		"Block":
 			_block(1)
 		"Energize":
