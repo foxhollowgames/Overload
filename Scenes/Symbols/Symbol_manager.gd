@@ -1,6 +1,6 @@
 extends Node2D
 
-var can_spawn = true
+# Symbol loading
 var SYMBOL_BRAWL = load("res://Scenes/Symbols/symbol_brawl.tscn")
 var SYMBOL_BLOCK = load("res://Scenes/Symbols/symbol_block.tscn")
 var SYMBOL_ENERGIZE = load("res://Scenes/Symbols/symbol_energize.tscn")
@@ -9,19 +9,10 @@ var SYMBOL_SUPER_POWER = load("res://Scenes/Symbols/symbol_super_power.tscn")
 var SYMBOL_BOUNCY = load("res://Scenes/Symbols/bouncy_peg.tscn")
 var current_symbol_type = 0
 var symbol_type_array = [SYMBOL_BRAWL, SYMBOL_BLOCK, SYMBOL_ENERGIZE, SYMBOL_SUPER_POWER]
-var ball_lightning_charges = 0
-var ball_lightning = false
-@onready var turn_timer = $TurnTimer
-@export var super_power_count_label : Label
-var game_over : = "res://Scenes/game_over.tscn"
-var game_end = "res://Scenes/game_end.tscn"
-var relic_choice_scene : = "res://Scenes/relic_choice.tscn"
-var barricade = false
-var thorns = false
-var speed_demon = false
-@onready var speed_demon_timer = $SpeedDemonTimer
-var TURN_START_UI = load("res://Scenes/canvas_layer.tscn")
 
+var can_spawn = true
+
+# Powers
 @onready var power_chain_lightning = $PowerChainLightning
 @onready var power_static_shield = $PowerStaticShield
 @onready var power_shock = $PowerShock
@@ -29,6 +20,25 @@ var TURN_START_UI = load("res://Scenes/canvas_layer.tscn")
 @onready var power_block = $PowerBlock
 @onready var power_brawl = $PowerBrawl
 @onready var power_array = [power_chain_lightning, power_static_shield, power_shock, power_energize, power_block, power_brawl]
+
+# Depracated super power variables
+var ball_lightning_charges = 0
+var ball_lightning = false
+var barricade = false
+var thorns = false
+var speed_demon = false
+@export var super_power_count_label : Label
+
+# Timers
+@onready var turn_timer = $TurnTimer
+@onready var speed_demon_timer = $SpeedDemonTimer
+
+# Scene transitions
+var game_over : = "res://Scenes/game_over.tscn"
+var game_end = "res://Scenes/game_end.tscn"
+var relic_choice_scene : = "res://Scenes/relic_choice.tscn"
+var turn_start_ui = load("res://Scenes/canvas_layer.tscn")
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -66,7 +76,7 @@ func _ball_lightning_check(power_name):
 	pass
 
 func _turn_ini():
-	add_child(TURN_START_UI.instantiate())
+	add_child(turn_start_ui.instantiate())
 
 func _turn_start():
 	_can_spawn()
