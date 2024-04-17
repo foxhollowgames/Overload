@@ -1,35 +1,35 @@
 [gd_scene load_steps=12 format=3 uid="uid://dkuih8v60l230"]
 
-[ext_resource type="PackedScene" uid="uid://dm886n4fygh66" path="res://Scenes/Characters/player.tscn" id="1_5nglk"]
-[ext_resource type="Script" path="res://Scenes/Characters/villain_parent.gd" id="2_4w0ln"]
-[ext_resource type="Texture2D" uid="uid://bu6f13nus8um7" path="res://Sprites/Ohm-Sheet.png" id="3_smi1t"]
+[ext_resource type="PackedScene" uid="uid://dm886n4fygh66" path="res://scenes/characters/player.tscn" id="1_mx8sk"]
+[ext_resource type="Script" path="res://scenes/characters/villain_parent.gd" id="2_d6lx2"]
+[ext_resource type="Texture2D" uid="uid://bu6f13nus8um7" path="res://sprites/ohm-sheet.png" id="3_bg1y5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x6f1g"]
-atlas = ExtResource("3_smi1t")
+atlas = ExtResource("3_bg1y5")
 region = Rect2(0, 0, 138, 209)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u14tx"]
-atlas = ExtResource("3_smi1t")
+atlas = ExtResource("3_bg1y5")
 region = Rect2(138, 0, 138, 209)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4o6ca"]
-atlas = ExtResource("3_smi1t")
+atlas = ExtResource("3_bg1y5")
 region = Rect2(276, 0, 138, 209)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2f5db"]
-atlas = ExtResource("3_smi1t")
+atlas = ExtResource("3_bg1y5")
 region = Rect2(414, 0, 138, 209)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pi1lt"]
-atlas = ExtResource("3_smi1t")
+atlas = ExtResource("3_bg1y5")
 region = Rect2(552, 0, 138, 209)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w66os"]
-atlas = ExtResource("3_smi1t")
+atlas = ExtResource("3_bg1y5")
 region = Rect2(690, 0, 138, 209)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tgh0r"]
-atlas = ExtResource("3_smi1t")
+atlas = ExtResource("3_bg1y5")
 region = Rect2(828, 0, 138, 209)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dxbug"]
@@ -61,8 +61,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Villain_Parent" instance=ExtResource("1_5nglk")]
-script = ExtResource("2_4w0ln")
+[node name="VillainParent" instance=ExtResource("1_mx8sk")]
+script = ExtResource("2_d6lx2")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_dxbug")

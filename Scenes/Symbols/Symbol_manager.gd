@@ -11,7 +11,7 @@ var current_symbol_type = 0
 var symbol_type_array = [SYMBOL_BRAWL, SYMBOL_BLOCK, SYMBOL_ENERGIZE, SYMBOL_SUPER_POWER]
 var ball_lightning_charges = 0
 var ball_lightning = false
-@onready var turn_timer = $Turn_Timer
+@onready var turn_timer = $TurnTimer
 @export var super_power_count_label : Label
 var game_over : = "res://Scenes/game_over.tscn"
 var game_end = "res://Scenes/game_end.tscn"
@@ -19,15 +19,15 @@ var relic_choice_scene : = "res://Scenes/relic_choice.tscn"
 var barricade = false
 var thorns = false
 var speed_demon = false
-@onready var speed_demon_timer = $Speed_demon_timer
+@onready var speed_demon_timer = $SpeedDemonTimer
 var TURN_START_UI = load("res://Scenes/canvas_layer.tscn")
 
-@onready var power_chain_lightning = $Power_chain_lightning
-@onready var power_static_shield = $Power_static_shield
-@onready var power_shock = $Power_shock
-@onready var power_energize = $Power_energize
-@onready var power_block = $Power_block
-@onready var power_brawl = $power_brawl
+@onready var power_chain_lightning = $PowerChainLightning
+@onready var power_static_shield = $PowerStaticShield
+@onready var power_shock = $PowerShock
+@onready var power_energize = $PowerEnergize
+@onready var power_block = $PowerBlock
+@onready var power_brawl = $PowerBrawl
 @onready var power_array = [power_chain_lightning, power_static_shield, power_shock, power_energize, power_block, power_brawl]
 
 # Called when the node enters the scene tree for the first time.
@@ -70,13 +70,13 @@ func _turn_ini():
 
 func _turn_start():
 	_can_spawn()
-	$"Symbol_Timers/Pre-turn".start()
-	$Symbol_Timers/Timer.start()
+	$"SymbolTimers/PreTurn".start()
+	$SymbolTimers/Timer.start()
 	$CanvasLayer.queue_free()
 
 func _turn_timer_start():
 	turn_timer.start()
-	$Speed_demon_timer.start()
+	$SpeedDemonTimer.start()
 
 # Turn timer end
 func _turn_end():
@@ -86,7 +86,7 @@ func _turn_end():
 # Spawn in symbols
 func _can_spawn():
 	can_spawn = true
-	
+
 func _cannot_spawn():
 	can_spawn = false
 
@@ -117,7 +117,7 @@ func _spawn_bouncy():
 	add_child(_interference_create)
 
 func _villain_defeated():
-	$relic_transition.play()
+	$RelicTransition.play()
 	await get_tree().create_timer(2).timeout
 	#get_tree().change_scene_to_file(relic_choice_scene)
 	get_tree().change_scene_to_file("res://Scenes/game_end.tscn")

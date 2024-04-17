@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cbsgee73h55ns"
-path="res://.godot/imported/136542__joelaudio__electric_zap_001.wav-9a9edfcfcf6ca5ebaebb26e7c51af588.sample"
+path="res://.godot/imported/136542__joelaudio__electric_zap_001.wav-7b2509d3d34b7b5b9c9e7b8cb0ab7458.sample"
 
 [deps]
 
-source_file="res://Audio/136542__joelaudio__electric_zap_001.wav"
-dest_files=["res://.godot/imported/136542__joelaudio__electric_zap_001.wav-9a9edfcfcf6ca5ebaebb26e7c51af588.sample"]
+source_file="res://audio/136542__joelaudio__electric_zap_001.wav"
+dest_files=["res://.godot/imported/136542__joelaudio__electric_zap_001.wav-7b2509d3d34b7b5b9c9e7b8cb0ab7458.sample"]
 
 [params]
 

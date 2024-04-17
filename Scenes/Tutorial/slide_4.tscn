@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bdjldd0b177rk"]
 
-[ext_resource type="PackedScene" uid="uid://k8gce17aw0on" path="res://Scenes/Tutorial/tutorial.tscn" id="1_wbiqn"]
-[ext_resource type="Script" path="res://Scenes/Tutorial/slide_4.gd" id="2_nub0p"]
-[ext_resource type="Texture2D" uid="uid://b0hja5ryo8gy1" path="res://Scenes/Tutorial/slide_04.png" id="2_sk5ex"]
+[ext_resource type="PackedScene" uid="uid://k8gce17aw0on" path="res://scenes/tutorial/tutorial.tscn" id="1_wbiqn"]
+[ext_resource type="Script" path="res://scenes/tutorial/slide_4.gd" id="2_nub0p"]
+[ext_resource type="Texture2D" uid="uid://b0hja5ryo8gy1" path="res://scenes/tutorial/slide_04.png" id="2_sk5ex"]
 
 [node name="Tutorial" instance=ExtResource("1_wbiqn")]
 

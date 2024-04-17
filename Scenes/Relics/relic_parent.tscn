@@ -1,18 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://bhwmso830a1g1"]
 
-[ext_resource type="Texture2D" uid="uid://bsh2jl25josyf" path="res://Sprites/Symbols/Magnet.svg" id="1_nktl1"]
-[ext_resource type="Script" path="res://Scenes/Relics/relic_parent.gd" id="2_oesyb"]
+[ext_resource type="Texture2D" uid="uid://bsh2jl25josyf" path="res://sprites/symbols/magnet.svg" id="1_dyaiw"]
+[ext_resource type="Script" path="res://scenes/relics/relic_parent.gd" id="2_oesyb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_topc0"]
 line_spacing = 0.0
 font_size = 6
 
-[node name="Relic_parent" type="Button" node_paths=PackedStringArray("description_label")]
+[node name="RelicParent" type="Button" node_paths=PackedStringArray("description_label")]
 offset_right = 90.0
 offset_bottom = 116.0
 toggle_mode = true
 text = "Thorns"
-icon = ExtResource("1_nktl1")
+icon = ExtResource("1_dyaiw")
 icon_alignment = 1
 vertical_icon_alignment = 0
 script = ExtResource("2_oesyb")

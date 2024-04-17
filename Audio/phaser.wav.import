@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bh48rapogqsyd"
-path="res://.godot/imported/phaser.wav-b5b5a13feb49a00788c785e7c7e2747b.sample"
+path="res://.godot/imported/phaser.wav-9984b04e4e2d0adb4e3fe677c86a311b.sample"
 
 [deps]
 
-source_file="res://Audio/phaser.wav"
-dest_files=["res://.godot/imported/phaser.wav-b5b5a13feb49a00788c785e7c7e2747b.sample"]
+source_file="res://audio/phaser.wav"
+dest_files=["res://.godot/imported/phaser.wav-9984b04e4e2d0adb4e3fe677c86a311b.sample"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cvjsu0vn0ir8o"
-path="res://.godot/imported/lightning_sparks.wav-08e052a0d5eaeea62efc88ed9be59b7c.sample"
+path="res://.godot/imported/lightning_sparks.wav-f643c9f8253fd3ad38820270dff756bc.sample"
 
 [deps]
 
-source_file="res://Audio/lightning_sparks.wav"
-dest_files=["res://.godot/imported/lightning_sparks.wav-08e052a0d5eaeea62efc88ed9be59b7c.sample"]
+source_file="res://audio/lightning_sparks.wav"
+dest_files=["res://.godot/imported/lightning_sparks.wav-f643c9f8253fd3ad38820270dff756bc.sample"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl66seg4oen80"
-path="res://.godot/imported/Go button.png-e4d1f6e0b4c858bf906208ae1e6fa0ec.ctex"
+uid="uid://bbke8eicfh0rj"
+path="res://.godot/imported/overload_big.png-c9df7eef12ee10e37defc980f50de3a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Sprites/UI/Go button.png"
-dest_files=["res://.godot/imported/Go button.png-e4d1f6e0b4c858bf906208ae1e6fa0ec.ctex"]
+source_file="res://sprites/overload_big.png"
+dest_files=["res://.godot/imported/overload_big.png-c9df7eef12ee10e37defc980f50de3a9.ctex"]
 
 [params]
 

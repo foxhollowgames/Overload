@@ -16,9 +16,9 @@ var SymbolManager = load("res://Scenes/Symbols/Symbol_manager.gd")
 var barricade = false
 var thorns = false
 var speed_demon = false
-@onready var speed_demon_timer = get_parent().get_node("Speed_demon_timer")
+@onready var speed_demon_timer = get_parent().get_node("SpeedDemonTimer")
 var symbol_type
-@onready var click_sound = $"../click_sound"
+@onready var click_sound = $"../ClickSound"
 var clicked = false
 
 

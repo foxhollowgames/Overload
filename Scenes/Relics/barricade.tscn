@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cc0erg7e46aol"]
 
-[ext_resource type="PackedScene" uid="uid://bhwmso830a1g1" path="res://Scenes/Relics/relic_parent.tscn" id="1_jtvim"]
-[ext_resource type="Script" path="res://Scenes/Relics/barricade.gd" id="2_yqhvu"]
+[ext_resource type="PackedScene" uid="uid://bhwmso830a1g1" path="res://scenes/relics/relic_parent.tscn" id="1_jtvim"]
+[ext_resource type="Script" path="res://scenes/relics/barricade.gd" id="2_yqhvu"]
 
 [node name="Barricade" instance=ExtResource("1_jtvim")]
 text = "Barricade"

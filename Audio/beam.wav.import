@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://8kssfchadklw"
-path="res://.godot/imported/beam.wav-d76d335b1955e51f48ed96bff601093c.sample"
+path="res://.godot/imported/beam.wav-688679649047c180dc88651c29ce1d6c.sample"
 
 [deps]
 
-source_file="res://Audio/beam.wav"
-dest_files=["res://.godot/imported/beam.wav-d76d335b1955e51f48ed96bff601093c.sample"]
+source_file="res://audio/beam.wav"
+dest_files=["res://.godot/imported/beam.wav-688679649047c180dc88651c29ce1d6c.sample"]
 
 [params]
 

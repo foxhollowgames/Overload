@@ -10,7 +10,7 @@ var speed_demon = false
 @export var super_power_label : Label
 #@onready var parent = $".."
 @onready var villain_name = Global.villain_name
-@onready var turn_timer = $"../Turn_Timer"
+@onready var turn_timer = $"../TurnTimer"
 
 func _ready():
 	super()

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://3douki6prjh"
-path="res://.godot/imported/Block.svg-8c049237f0c854e2307021b2b0b921fb.ctex"
+path="res://.godot/imported/block.svg-e132c745520b45996b8a7bd534839710.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Sprites/Symbols/Block.svg"
-dest_files=["res://.godot/imported/Block.svg-8c049237f0c854e2307021b2b0b921fb.ctex"]
+source_file="res://scenes/sprites/symbols/block.svg"
+dest_files=["res://.godot/imported/block.svg-e132c745520b45996b8a7bd534839710.ctex"]
 
 [params]
 

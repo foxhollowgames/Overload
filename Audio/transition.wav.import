@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b34qxrypwq4bc"
-path="res://.godot/imported/transition.wav-a096630ddc16481267a510d3702fef3b.sample"
+path="res://.godot/imported/transition.wav-7a11af907553ffd4acb6c1051cb63d21.sample"
 
 [deps]
 
-source_file="res://Audio/transition.wav"
-dest_files=["res://.godot/imported/transition.wav-a096630ddc16481267a510d3702fef3b.sample"]
+source_file="res://audio/transition.wav"
+dest_files=["res://.godot/imported/transition.wav-7a11af907553ffd4acb6c1051cb63d21.sample"]
 
 [params]
 

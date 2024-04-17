@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://t7orkkp1wfm5"
-path="res://.godot/imported/fizzle_blast.wav-545df8458a9a587fa1f8ec7ebf274978.sample"
+path="res://.godot/imported/fizzle_blast.wav-f852203f49ea1089465e3a6fd9de1de0.sample"
 
 [deps]
 
-source_file="res://Audio/fizzle_blast.wav"
-dest_files=["res://.godot/imported/fizzle_blast.wav-545df8458a9a587fa1f8ec7ebf274978.sample"]
+source_file="res://audio/fizzle_blast.wav"
+dest_files=["res://.godot/imported/fizzle_blast.wav-f852203f49ea1089465e3a6fd9de1de0.sample"]
 
 [params]
 

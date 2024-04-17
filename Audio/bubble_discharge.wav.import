@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://lrjhgrddqmn4"
-path="res://.godot/imported/bubble_discharge.wav-b0e30095ec98e308e526712e8ebc0e00.sample"
+path="res://.godot/imported/bubble_discharge.wav-f629ae1a26cbf35008bc2f5cfaf7c857.sample"
 
 [deps]
 
-source_file="res://Audio/bubble_discharge.wav"
-dest_files=["res://.godot/imported/bubble_discharge.wav-b0e30095ec98e308e526712e8ebc0e00.sample"]
+source_file="res://audio/bubble_discharge.wav"
+dest_files=["res://.godot/imported/bubble_discharge.wav-f629ae1a26cbf35008bc2f5cfaf7c857.sample"]
 
 [params]
 

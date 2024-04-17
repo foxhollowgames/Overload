@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://djedpjs7kor1k"
-path="res://.godot/imported/busy_street.wav-55d32db8703cf40002f02d6fa0dc3bea.sample"
+path="res://.godot/imported/busy_street.wav-770a5bbe914b2fb3beeb9f0d4a074f3e.sample"
 
 [deps]
 
-source_file="res://Audio/busy_street.wav"
-dest_files=["res://.godot/imported/busy_street.wav-55d32db8703cf40002f02d6fa0dc3bea.sample"]
+source_file="res://audio/busy_street.wav"
+dest_files=["res://.godot/imported/busy_street.wav-770a5bbe914b2fb3beeb9f0d4a074f3e.sample"]
 
 [params]
 

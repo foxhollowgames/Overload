@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://jy8715i7ail5"]
 
-[ext_resource type="PackedScene" uid="uid://dkuih8v60l230" path="res://Scenes/Characters/villain_parent.tscn" id="1_sh6rj"]
-[ext_resource type="Script" path="res://Omega.gd" id="2_kljir"]
+[ext_resource type="PackedScene" uid="uid://dkuih8v60l230" path="res://scenes/characters/villain_parent.tscn" id="1_sh6rj"]
+[ext_resource type="Script" path="res://omega.gd" id="2_kljir"]
 
 [node name="Omega" instance=ExtResource("1_sh6rj")]
 script = ExtResource("2_kljir")

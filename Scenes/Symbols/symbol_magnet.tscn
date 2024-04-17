@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b0k5v652unlfj"]
 
-[ext_resource type="PackedScene" uid="uid://me6ierptsfv2" path="res://Scenes/Symbols/symbol_parent.tscn" id="1_wdfw5"]
-[ext_resource type="Texture2D" uid="uid://bsh2jl25josyf" path="res://Sprites/Symbols/Magnet.svg" id="3_m16qt"]
+[ext_resource type="PackedScene" uid="uid://me6ierptsfv2" path="res://scenes/symbols/symbol_parent.tscn" id="1_wdfw5"]
+[ext_resource type="Texture2D" uid="uid://bsh2jl25josyf" path="res://sprites/symbols/magnet.svg" id="3_m16qt"]
 
 [node name="symbol_magnet" instance=ExtResource("1_wdfw5")]
 

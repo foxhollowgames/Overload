@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bpygs61gf6w32"
-path="res://.godot/imported/city_evening 1.png-0795e0d843e2c7ff849819d532b28a7c.ctex"
+path="res://.godot/imported/city_evening 1.png-c618bf30dca93d72e42b2d7c93ef56bb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/city_evening 1.png"
-dest_files=["res://.godot/imported/city_evening 1.png-0795e0d843e2c7ff849819d532b28a7c.ctex"]
+source_file="res://sprites/city_evening 1.png"
+dest_files=["res://.godot/imported/city_evening 1.png-c618bf30dca93d72e42b2d7c93ef56bb.ctex"]
 
 [params]
 

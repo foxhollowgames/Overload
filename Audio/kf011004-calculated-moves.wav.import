@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b88xfs4q105cd"
-path="res://.godot/imported/kf011004-calculated-moves.wav-1373de6c09567abb79e18ee5ba11cbd3.sample"
+path="res://.godot/imported/kf011004-calculated-moves.wav-dec4df0a3cefbe71f1c164c9bfacb59d.sample"
 
 [deps]
 
-source_file="res://Audio/kf011004-calculated-moves.wav"
-dest_files=["res://.godot/imported/kf011004-calculated-moves.wav-1373de6c09567abb79e18ee5ba11cbd3.sample"]
+source_file="res://audio/kf011004-calculated-moves.wav"
+dest_files=["res://.godot/imported/kf011004-calculated-moves.wav-dec4df0a3cefbe71f1c164c9bfacb59d.sample"]
 
 [params]
 

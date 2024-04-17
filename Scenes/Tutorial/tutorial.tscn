@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://k8gce17aw0on"]
 
-[ext_resource type="Texture2D" uid="uid://dmt4mo3vjghe2" path="res://Scenes/Tutorial/Slide_1.png" id="1_tba42"]
-[ext_resource type="Script" path="res://Scenes/Tutorial/TextureButton.gd" id="2_lv6rn"]
+[ext_resource type="Texture2D" uid="uid://dmt4mo3vjghe2" path="res://scenes/tutorial/slide_1.png" id="1_tba42"]
+[ext_resource type="Script" path="res://scenes/tutorial/texture_button.gd" id="2_lv6rn"]
 
 [sub_resource type="Theme" id="Theme_e7107"]
 

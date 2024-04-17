@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="Overload"
-run/main_scene="res://Scenes/main_menu.tscn"
+run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 
 [autoload]
 
 SignalBus="*res://signal_bus.gd"
-Global="*res://Global.gd"
+Global="*res://global.gd"
 
 [display]
 
