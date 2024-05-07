@@ -1,4 +1,4 @@
-extends characte
+extends actor
 
 var energy_max = 5
 var energy = 0
@@ -6,39 +6,43 @@ var super_power_cost = 5
 var barricade = false
 var thorns = false
 var speed_demon = false
+
+var damage = 1
+var energize = 1
+
 @export var energy_progress_bar : ProgressBar
 @export var super_power_label : Label
 #@onready var parent = $".."
 @onready var villain_name = Global.villain_name
-@onready var turn_timer = $"../TurnTimer"
 
 func _ready():
 	super()
-	print(villain_name)
+	signal_setup()
 	energy_progress_bar.max_value = energy_max
-	SignalBus.power.connect(_effect)
 	$AnimatedSprite2D.play()
 
 func _process(delta):
+	debug_commands()
+	
 	if hp <= 0:
 		get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
 
 func _effect(power_name):
 	match power_name:
 		"Brawl": 
-			villain_name._damage(1)
+			villain_name._damage(damage)
 		"Block":
-			_block(1)
+			_block(block)
 		"Energize":
-			_energize(1)
+			_energize(energize)
 		"Chain Lightning":
 			_super_power()
 		"Shock":
-			villain_name._damage(1)
-			_energize(1)
+			villain_name._damage(damage)
+			_energize(energize)
 		"Static Shield":
-			_block(1)
-			_energize(1)
+			_block(block)
+			_energize(energize)
 	SignalBus.power_end.emit()
 
 func _energize(energize):
@@ -55,5 +59,17 @@ func _super_power():
 		#turn_timer.set_wait_time(turn_timer.time_left + 10)
 		#turn_timer.stop()
 		#await get_tree().create_timer(10).timeout
-		turn_timer.start()
-		
+		SignalBus.turn_timer_start.emit()
+
+func signal_setup():
+	SignalBus.player_damage.connect(_damage)
+	SignalBus.power.connect(_effect)
+
+func debug_commands():
+	if Input.is_action_just_pressed("debug_energize_full"):
+		energy = 1000
+	if Input.is_action_just_pressed("debug_player_damage_up"):
+		damage = 1000
+	if Input.is_action_just_pressed("debug_player_health_up"):
+		hp_max = 1000
+		hp = 1000

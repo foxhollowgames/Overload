@@ -18,10 +18,7 @@ var active = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	SignalBus.clicked.connect(_power_check)
-	SignalBus.turn_end.connect(_clear_combo)
-	SignalBus.power.connect(_clear_combo)
-	SignalBus.clear_combo.connect(_clear_combo)
+	signal_setup()
 
 func _power_check(symbol_type):
 	#print("Power section: ")
@@ -53,10 +50,17 @@ func _power_check(symbol_type):
 		SignalBus.power.emit(power_name.text)
 		active = false
 
-func _clear_combo(_power_name = ""):
+#(_power_name = "")
+func _clear_combo():
 	Global.combo.clear()
 	power_state = false
 	for _j in POWER.size():
 		array_state[_j] = false
 		$Power_name.self_modulate.a = 1
 		ui_symbols[_j].self_modulate.a = 1
+
+func signal_setup():
+	SignalBus.clicked.connect(_power_check)
+	SignalBus.turn_end.connect(_clear_combo)
+	SignalBus.power.connect(_clear_combo)
+	SignalBus.clear_combo.connect(_clear_combo)

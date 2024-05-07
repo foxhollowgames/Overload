@@ -1,17 +1,17 @@
 [gd_scene load_steps=8 format=3 uid="uid://xvmpdjc024mj"]
 
 [ext_resource type="PackedScene" uid="uid://cc0erg7e46aol" path="res://scenes/relics/barricade.tscn" id="1_i52ge"]
-[ext_resource type="Script" path="res://scenes/relic_choice.gd" id="1_yemlt"]
+[ext_resource type="Script" path="res://scripts/relic_choice.gd" id="1_yemlt"]
 [ext_resource type="PackedScene" uid="uid://baeeuaw3nbgat" path="res://scenes/relics/speed_demon.tscn" id="2_bjfpd"]
 [ext_resource type="PackedScene" uid="uid://eouy7nh7ifmu" path="res://scenes/relics/thorns.tscn" id="3_t1jsy"]
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_wbcm6"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_438im"]
 allow_unpress = true
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_lxw7a"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_nefwv"]
 allow_unpress = true
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_knxhx"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_6kpxg"]
 allow_unpress = true
 
 [node name="RelicChoice" type="Node2D"]
@@ -22,7 +22,7 @@ offset_left = 13.0
 offset_top = 53.0
 offset_right = 103.0
 offset_bottom = 169.0
-button_group = SubResource("ButtonGroup_wbcm6")
+button_group = SubResource("ButtonGroup_438im")
 
 [node name="Relic2" parent="." instance=ExtResource("2_bjfpd")]
 offset_left = 115.0
@@ -30,14 +30,14 @@ offset_top = 53.0
 offset_right = 205.0
 offset_bottom = 169.0
 theme_override_font_sizes/font_size = 10
-button_group = SubResource("ButtonGroup_lxw7a")
+button_group = SubResource("ButtonGroup_nefwv")
 
 [node name="Relic3" parent="." instance=ExtResource("3_t1jsy")]
 offset_left = 215.0
 offset_top = 53.0
 offset_right = 305.0
 offset_bottom = 169.0
-button_group = SubResource("ButtonGroup_knxhx")
+button_group = SubResource("ButtonGroup_6kpxg")
 
 [node name="Power Up!" type="Label" parent="."]
 offset_left = 113.0

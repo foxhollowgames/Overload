@@ -1,0 +1,107 @@
+[gd_scene load_steps=12 format=3 uid="uid://brrvyjhqs5aa"]
+
+[ext_resource type="Texture2D" uid="uid://dpw11vwgj3tns" path="res://sprites/ui/Symbol_Background.png" id="1_43a5r"]
+[ext_resource type="Script" path="res://scripts/symbol_container.gd" id="2_0xu77"]
+[ext_resource type="Texture2D" uid="uid://by5vtaow2njqc" path="res://sprites/ui/Character_Stat_Background.png" id="2_vhg54"]
+[ext_resource type="Texture2D" uid="uid://bsluopt61d5u4" path="res://sprites/city_evening.png" id="3_icxxx"]
+[ext_resource type="Script" path="res://scripts/timers.gd" id="3_qeqai"]
+[ext_resource type="Script" path="res://scripts/speed_demon_timer.gd" id="6_ghi6k"]
+[ext_resource type="Script" path="res://scripts/turn_timer.gd" id="7_gtq5o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_orfkl"]
+size = Vector2(2.23077, 9.76923)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4o8wk"]
+size = Vector2(1.84615, 9.69231)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vgycg"]
+bg_color = Color(0.45098, 0.376471, 0.0392157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k8wat"]
+bg_color = Color(1, 0.803922, 0.160784, 1)
+
+[node name="FightUI" type="Node"]
+
+[node name="SymbolBorders" type="StaticBody2D" parent="."]
+
+[node name="LeftBorder" type="CollisionShape2D" parent="SymbolBorders"]
+position = Vector2(29, 53)
+scale = Vector2(26, 26)
+shape = SubResource("RectangleShape2D_orfkl")
+
+[node name="RightBorder" type="CollisionShape2D" parent="SymbolBorders"]
+position = Vector2(295, 54)
+scale = Vector2(26, 26)
+shape = SubResource("RectangleShape2D_4o8wk")
+
+[node name="SymbolContainer" type="Sprite2D" parent="."]
+position = Vector2(164.5, 89.9998)
+texture = ExtResource("1_43a5r")
+script = ExtResource("2_0xu77")
+
+[node name="SymbolTimers" type="Node" parent="SymbolContainer"]
+script = ExtResource("3_qeqai")
+
+[node name="SpawnTimer" type="Timer" parent="SymbolContainer/SymbolTimers"]
+wait_time = 0.25
+
+[node name="PreTurn" type="Timer" parent="SymbolContainer/SymbolTimers"]
+wait_time = 3.0
+one_shot = true
+
+[node name="CharacterStatBackgroundVillain" type="Sprite2D" parent="."]
+position = Vector2(295.5, 119)
+scale = Vector2(0.859649, 1)
+texture = ExtResource("2_vhg54")
+
+[node name="CharacterGraphicBackgroundVillain" type="Sprite2D" parent="."]
+position = Vector2(295.456, 30)
+rotation = 3.14159
+scale = Vector2(0.217502, -0.249)
+texture = ExtResource("3_icxxx")
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="SpeedDemonTimer" type="Timer" parent="Timers"]
+wait_time = 3.935
+one_shot = true
+autostart = true
+script = ExtResource("6_ghi6k")
+
+[node name="TurnTimer" type="Timer" parent="Timers" node_paths=PackedStringArray("timer_progress", "timer_label")]
+wait_time = 15.0
+one_shot = true
+script = ExtResource("7_gtq5o")
+timer_progress = NodePath("../../TimerBar")
+timer_label = NodePath("../../TimerBar/TimerLabel")
+
+[node name="TimerBar" type="ProgressBar" parent="."]
+offset_left = 271.0
+offset_top = 120.0
+offset_right = 320.0
+offset_bottom = 180.0
+theme_override_styles/background = SubResource("StyleBoxFlat_vgycg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_k8wat")
+value = 100.0
+fill_mode = 3
+show_percentage = false
+
+[node name="TimerLabel" type="Label" parent="TimerBar"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 49.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+
+[node name="CharacterStatBackground" type="Sprite2D" parent="TimerBar"]
+position = Vector2(-241.75, -1)
+scale = Vector2(1.00877, 1)
+texture = ExtResource("2_vhg54")
+
+[node name="CharacterGraphicBackground" type="Sprite2D" parent="TimerBar"]
+position = Vector2(-242, -89.0062)
+scale = Vector2(0.257778, 0.257833)
+texture = ExtResource("3_icxxx")
+
+[connection signal="timeout" from="Timers/TurnTimer" to="Timers/TurnTimer" method="_turn_end"]

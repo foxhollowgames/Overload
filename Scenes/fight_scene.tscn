@@ -1,356 +1,46 @@
-[gd_scene load_steps=29 format=3 uid="uid://c613om832wxoa"]
+[gd_scene load_steps=11 format=3 uid="uid://c613om832wxoa"]
 
-[ext_resource type="Script" path="res://scenes/symbols/Symbol_manager.gd" id="1_kgg8t"]
-[ext_resource type="Texture2D" uid="uid://dpw11vwgj3tns" path="res://sprites/ui/Symbol_Background.png" id="2_rg6a3"]
-[ext_resource type="Texture2D" uid="uid://by5vtaow2njqc" path="res://sprites/ui/Character_Stat_Background.png" id="3_qs4qy"]
-[ext_resource type="Texture2D" uid="uid://bsluopt61d5u4" path="res://sprites/city_evening.png" id="4_tcofw"]
-[ext_resource type="Script" path="res://scenes/timers.gd" id="6_jybau"]
-[ext_resource type="PackedScene" uid="uid://dm886n4fygh66" path="res://scenes/characters/player.tscn" id="6_xhbep"]
-[ext_resource type="PackedScene" uid="uid://dkuih8v60l230" path="res://scenes/characters/villain_parent.tscn" id="7_j38ax"]
-[ext_resource type="Script" path="res://scenes/turn_timer.gd" id="8_u7unc"]
-[ext_resource type="PackedScene" uid="uid://du1f6yickomfp" path="res://scenes/canvas_layer.tscn" id="9_npqyu"]
-[ext_resource type="PackedScene" uid="uid://0y7eb3miu478" path="res://scenes/power_block.tscn" id="10_br8mh"]
-[ext_resource type="PackedScene" uid="uid://bvw5trm5by4kj" path="res://scenes/power_brawl.tscn" id="11_mjch4"]
-[ext_resource type="PackedScene" uid="uid://7w26hdp67v7o" path="res://scenes/power_chain_lightning.tscn" id="12_cg1qw"]
-[ext_resource type="PackedScene" uid="uid://ssulfiwung2b" path="res://scenes/power_energize.tscn" id="13_mp4mw"]
-[ext_resource type="PackedScene" uid="uid://bxwlhou7vq1rh" path="res://scenes/power_shock.tscn" id="14_t1s75"]
-[ext_resource type="PackedScene" uid="uid://b8vrlp4v6d34e" path="res://scenes/power_static_shield.tscn" id="15_tdffc"]
+[ext_resource type="Script" path="res://scenes/symbols/fight.gd" id="1_kgg8t"]
+[ext_resource type="PackedScene" uid="uid://brrvyjhqs5aa" path="res://scenes/fight_ui.tscn" id="2_1swm4"]
+[ext_resource type="PackedScene" uid="uid://cj3dqw7vbhtvu" path="res://scenes/villain.tscn" id="3_1ihjc"]
+[ext_resource type="PackedScene" uid="uid://d26ven2j33kvd" path="res://scenes/player.tscn" id="4_hq5mo"]
+[ext_resource type="PackedScene" uid="uid://du1f6yickomfp" path="res://scenes/turn_start_ui.tscn" id="9_npqyu"]
 [ext_resource type="AudioStream" uid="uid://b88xfs4q105cd" path="res://audio/kf011004-calculated-moves.wav" id="16_cekmf"]
 [ext_resource type="AudioStream" uid="uid://dys0dge5oh7xb" path="res://audio/atmo-industrial-construction-site-vehicles-01.wav" id="17_wa8px"]
 [ext_resource type="AudioStream" uid="uid://8hy6asu6r3cx" path="res://audio/atmo-urban-small-construction-site-01.wav" id="18_c7nba"]
-[ext_resource type="AudioStream" uid="uid://8kssfchadklw" path="res://audio/beam.wav" id="19_mhc6c"]
-[ext_resource type="Script" path="res://scenes/click_sound.gd" id="20_6gbei"]
 [ext_resource type="AudioStream" uid="uid://b34qxrypwq4bc" path="res://audio/transition.wav" id="21_x2hhb"]
 [ext_resource type="Script" path="res://scenes/characters/actor_parent.gd" id="22_1bcvg"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_orfkl"]
-size = Vector2(2.23077, 9.76923)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4o8wk"]
-size = Vector2(1.84615, 9.69231)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cj30m"]
-bg_color = Color(0.321569, 0, 0.0862745, 1)
-shadow_color = Color(0, 0, 0, 0.14902)
-shadow_size = 1
-shadow_offset = Vector2(0, 0.1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q03k6"]
-bg_color = Color(0.701961, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vgycg"]
-bg_color = Color(0.45098, 0.376471, 0.0392157, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k8wat"]
-bg_color = Color(1, 0.803922, 0.160784, 1)
-
-[node name="FightScene" type="Node2D" node_paths=PackedStringArray("super_power_count_label")]
+[node name="Fight" type="Node2D"]
 script = ExtResource("1_kgg8t")
-super_power_count_label = NodePath("EnergyBar/SuperPowerCountLabel")
 
-[node name="SymbolBorders" type="StaticBody2D" parent="."]
+[node name="FightUI" parent="." instance=ExtResource("2_1swm4")]
+unique_name_in_owner = true
 
-[node name="LeftBorder" type="CollisionShape2D" parent="SymbolBorders"]
-position = Vector2(29, 53)
-scale = Vector2(26, 26)
-shape = SubResource("RectangleShape2D_orfkl")
+[node name="Villain" parent="." instance=ExtResource("3_1ihjc")]
 
-[node name="RightBorder" type="CollisionShape2D" parent="SymbolBorders"]
-position = Vector2(295, 54)
-scale = Vector2(26, 26)
-shape = SubResource("RectangleShape2D_4o8wk")
+[node name="Player" parent="." instance=ExtResource("4_hq5mo")]
 
-[node name="SymbolBackground" type="Sprite2D" parent="."]
-position = Vector2(164.5, 89.9998)
-scale = Vector2(1, 1)
-texture = ExtResource("2_rg6a3")
+[node name="TurnStartUI" parent="." instance=ExtResource("9_npqyu")]
 
-[node name="CharacterStatBackgroundVillain" type="Sprite2D" parent="."]
-position = Vector2(295.5, 119)
-scale = Vector2(0.859649, 1)
-texture = ExtResource("3_qs4qy")
+[node name="Audio" type="Node" parent="."]
 
-[node name="CharacterGraphicBackgroundVillain" type="Sprite2D" parent="."]
-position = Vector2(295.456, 30)
-rotation = 3.14159
-scale = Vector2(0.217502, -0.249)
-texture = ExtResource("4_tcofw")
-
-[node name="VillainHealthBlock" type="HBoxContainer" parent="."]
-layout_direction = 2
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = 271.0
-offset_right = 320.0
-offset_bottom = 14.0
-grow_horizontal = 0
-size_flags_horizontal = 3
-theme_override_constants/separation = 0
-alignment = 2
-
-[node name="BlockPanelVillain" type="Panel" parent="VillainHealthBlock"]
-custom_minimum_size = Vector2(14, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="ColorRect" type="ColorRect" parent="VillainHealthBlock/BlockPanelVillain"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.262745, 0.52549, 0.94902, 1)
-
-[node name="BlockVillainLabel" type="Label" parent="VillainHealthBlock/BlockPanelVillain"]
-layout_mode = 0
-offset_right = 14.0
-offset_bottom = 14.0
-theme_override_font_sizes/font_size = 6
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ProgressBar" type="ProgressBar" parent="VillainHealthBlock"]
-layout_direction = 2
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-size_flags_stretch_ratio = 4.0
-theme_override_font_sizes/font_size = 10
-theme_override_styles/background = SubResource("StyleBoxFlat_cj30m")
-theme_override_styles/fill = SubResource("StyleBoxFlat_q03k6")
-max_value = 50.0
-step = 0.1
-value = 50.0
-fill_mode = 1
-show_percentage = false
-
-[node name="HpVillainLabel" type="Label" parent="VillainHealthBlock/ProgressBar"]
-layout_mode = 0
-offset_right = 36.0
-offset_bottom = 14.0
-theme_override_font_sizes/font_size = 6
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="VillainLabel" type="Label" parent="."]
-offset_left = 270.0
-offset_top = 62.0
-offset_right = 320.0
-offset_bottom = 85.0
-theme_override_font_sizes/font_size = 8
-text = "OVERLOAD"
-horizontal_alignment = 1
-
-[node name="VillainNameBottomBorder" type="ColorRect" parent="."]
-offset_left = 288.0
-offset_top = 78.0
-offset_right = 303.0
-offset_bottom = 79.0
-
-[node name="IntentionLabel" type="Label" parent="."]
-offset_left = 271.0
-offset_top = 82.0
-offset_right = 320.0
-offset_bottom = 122.0
-theme_override_font_sizes/font_size = 5
-horizontal_alignment = 1
-
-[node name="Value" type="Label" parent="IntentionLabel"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = 1.0
-offset_bottom = 84.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 24
-horizontal_alignment = 1
-
-[node name="VillainParent" parent="." node_paths=PackedStringArray("intention_label", "intention_value_label", "villain_label", "hp_label", "hp_progress_bar_max", "hp_progress_bar_current", "block_label") instance=ExtResource("7_j38ax")]
-position = Vector2(299, 38)
-rotation = -3.14159
-scale = Vector2(0.195, -0.195)
-intention_label = NodePath("../IntentionLabel")
-intention_value_label = NodePath("../IntentionLabel/Value")
-villain_label = NodePath("../VillainLabel")
-hp_label = NodePath("../VillainHealthBlock/ProgressBar/HpVillainLabel")
-hp_progress_bar_max = NodePath("../VillainHealthBlock/ProgressBar")
-hp_progress_bar_current = NodePath("../VillainHealthBlock/ProgressBar")
-block_label = NodePath("../VillainHealthBlock/BlockPanelVillain/BlockVillainLabel")
-
-[node name="TimerBar" type="ProgressBar" parent="."]
-offset_left = 271.0
-offset_top = 120.0
-offset_right = 320.0
-offset_bottom = 180.0
-theme_override_styles/background = SubResource("StyleBoxFlat_vgycg")
-theme_override_styles/fill = SubResource("StyleBoxFlat_k8wat")
-value = 100.0
-fill_mode = 3
-show_percentage = false
-
-[node name="TimerLabel" type="Label" parent="TimerBar"]
-layout_mode = 0
-offset_left = 1.0
-offset_right = 49.0
-offset_bottom = 23.0
-theme_override_font_sizes/font_size = 10
-horizontal_alignment = 1
-
-[node name="TurnTimer" type="Timer" parent="." node_paths=PackedStringArray("timer_progress", "timer_label")]
-wait_time = 15.0
-one_shot = true
-script = ExtResource("8_u7unc")
-timer_progress = NodePath("../TimerBar")
-timer_label = NodePath("../TimerBar/TimerLabel")
-
-[node name="CharacterStatBackground" type="Sprite2D" parent="."]
-position = Vector2(29.25, 119)
-scale = Vector2(1.00877, 1)
-texture = ExtResource("3_qs4qy")
-
-[node name="CharacterGraphicBackground" type="Sprite2D" parent="."]
-position = Vector2(29, 30.9938)
-scale = Vector2(0.257778, 0.257833)
-texture = ExtResource("4_tcofw")
-
-[node name="PlayerLabel" type="Label" parent="."]
-offset_left = -2.02186
-offset_top = 66.1999
-offset_right = 55.9781
-offset_bottom = 89.1999
-theme_override_font_sizes/font_size = 8
-text = "Overload"
-horizontal_alignment = 1
-
-[node name="PowerChainLightning" parent="." instance=ExtResource("12_cg1qw")]
-position = Vector2(28, 164)
-scale = Vector2(0.75, 0.75)
-
-[node name="PowerStaticShield" parent="." instance=ExtResource("15_tdffc")]
-position = Vector2(28, 134)
-scale = Vector2(0.75, 0.75)
-
-[node name="PowerShock" parent="." instance=ExtResource("14_t1s75")]
-position = Vector2(28, 119)
-scale = Vector2(0.75, 0.75)
-
-[node name="PowerEnergize" parent="." instance=ExtResource("13_mp4mw")]
-position = Vector2(28, 149)
-scale = Vector2(0.75, 0.75)
-
-[node name="PowerBlock" parent="." instance=ExtResource("10_br8mh")]
-position = Vector2(28, 104)
-scale = Vector2(0.75, 0.75)
-
-[node name="PowerBrawl" parent="." instance=ExtResource("11_mjch4")]
-position = Vector2(28, 89)
-scale = Vector2(0.75, 0.75)
-
-[node name="Player" parent="." node_paths=PackedStringArray("energy_progress_bar", "super_power_label", "hp_label", "hp_progress_bar_max", "hp_progress_bar_current", "block_label") instance=ExtResource("6_xhbep")]
-position = Vector2(30, 38)
-scale = Vector2(0.195, 0.195)
-energy_progress_bar = NodePath("../EnergyBar")
-super_power_label = NodePath("../EnergyBar/SuperPowerCountLabel")
-hp_label = NodePath("../PlayerHealthBlock/ProgressBar/HpPlayerLabel")
-hp_progress_bar_max = NodePath("../PlayerHealthBlock/ProgressBar")
-hp_progress_bar_current = NodePath("../PlayerHealthBlock/ProgressBar")
-block_label = NodePath("../PlayerHealthBlock/BlockPanelPlayer/BlockPlayerLabel")
-
-[node name="PlayerHealthBlock" type="HBoxContainer" parent="."]
-layout_direction = 2
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_right = 58.0
-offset_bottom = 14.0
-grow_vertical = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 0
-alignment = 2
-
-[node name="ProgressBar" type="ProgressBar" parent="PlayerHealthBlock"]
-layout_direction = 2
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-size_flags_stretch_ratio = 4.0
-theme_override_font_sizes/font_size = 10
-theme_override_styles/background = SubResource("StyleBoxFlat_cj30m")
-theme_override_styles/fill = SubResource("StyleBoxFlat_q03k6")
-max_value = 50.0
-step = 0.1
-value = 50.0
-show_percentage = false
-
-[node name="HpPlayerLabel" type="Label" parent="PlayerHealthBlock/ProgressBar"]
-layout_mode = 0
-offset_right = 44.0
-offset_bottom = 14.0
-theme_override_font_sizes/font_size = 6
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="BlockPanelPlayer" type="Panel" parent="PlayerHealthBlock"]
-custom_minimum_size = Vector2(14, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="ColorRect" type="ColorRect" parent="PlayerHealthBlock/BlockPanelPlayer"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.262745, 0.52549, 0.94902, 1)
-
-[node name="BlockPlayerLabel" type="Label" parent="PlayerHealthBlock/BlockPanelPlayer"]
-layout_mode = 0
-offset_right = 14.0
-offset_bottom = 14.0
-theme_override_font_sizes/font_size = 6
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="EnergyBar" type="ProgressBar" parent="."]
-offset_left = 13.0
-offset_top = 172.0
-offset_right = 42.0
-offset_bottom = 180.0
-theme_override_styles/background = SubResource("StyleBoxFlat_vgycg")
-theme_override_styles/fill = SubResource("StyleBoxFlat_k8wat")
-show_percentage = false
-metadata/_edit_group_ = true
-
-[node name="SuperPowerCountLabel" type="Label" parent="EnergyBar"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = -8.0
-offset_right = 41.0
-offset_bottom = 15.0
-
-[node name="BgMusic" type="AudioStreamPlayer2D" parent="."]
+[node name="BgMusic" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource("16_cekmf")
 volume_db = -13.72
 autoplay = true
 
-[node name="BgNoise" type="AudioStreamPlayer2D" parent="."]
+[node name="BgNoise" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource("17_wa8px")
 volume_db = -24.92
 autoplay = true
 
-[node name="BgNoise2" type="AudioStreamPlayer2D" parent="."]
+[node name="BgNoise2" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource("18_c7nba")
 volume_db = -18.52
 autoplay = true
 
-[node name="ClickSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("19_mhc6c")
-volume_db = -18.455
-script = ExtResource("20_6gbei")
-
-[node name="RelicTransition" type="AudioStreamPlayer2D" parent="."]
+[node name="RelicTransition" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource("21_x2hhb")
 volume_db = -15.2
 
@@ -383,24 +73,9 @@ offset_top = 36.0
 offset_right = 2.0
 offset_bottom = 63.0
 
-[node name="SymbolTimers" type="Node" parent="."]
-script = ExtResource("6_jybau")
+[connection signal="timeout" from="FightUI/SymbolContainer/SymbolTimers/SpawnTimer" to="FightUI/SymbolContainer" method="_spawn"]
 
-[node name="Timer" type="Timer" parent="SymbolTimers"]
-wait_time = 0.25
-
-[node name="PreTurn" type="Timer" parent="SymbolTimers"]
-wait_time = 3.0
-one_shot = true
-
-[node name="SpeedDemonTimer" type="Timer" parent="."]
-wait_time = 3.935
-one_shot = true
-autostart = true
-
-[node name="CanvasLayer" parent="." instance=ExtResource("9_npqyu")]
-
-[connection signal="timeout" from="TurnTimer" to="." method="_turn_end"]
-[connection signal="timeout" from="SymbolTimers/Timer" to="." method="_spawn"]
-[connection signal="timeout" from="SymbolTimers/PreTurn" to="." method="_turn_timer_start"]
-[connection signal="timeout" from="SpeedDemonTimer" to="." method="_speed_demon_disable"]
+[editable path="FightUI"]
+[editable path="Villain"]
+[editable path="Player"]
+[editable path="TurnStartUI"]

@@ -1,5 +1,5 @@
 extends Node2D
-class_name characte
+class_name actor
 
 @export var hp_max = 10
 @export var hp = hp_max

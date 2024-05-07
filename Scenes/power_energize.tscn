@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ssulfiwung2b"]
 
 [ext_resource type="PackedScene" uid="uid://4kvyxrhchcci" path="res://scenes/power_parent.tscn" id="1_mjbda"]
-[ext_resource type="Script" path="res://scenes/power_energize.gd" id="2_s1gjc"]
+[ext_resource type="Script" path="res://scripts/power_energize.gd" id="2_s1gjc"]
 [ext_resource type="Texture2D" uid="uid://csvntsja5boly" path="res://sprites/symbols/energy.svg" id="3_b2xed"]
 [ext_resource type="Texture2D" uid="uid://csdjxk6je0lmx" path="res://sprites/symbols/power.svg" id="4_xh1a1"]
 

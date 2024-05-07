@@ -1,13 +1,13 @@
 [gd_scene load_steps=19 format=3 uid="uid://dnls7ka4l7b5a"]
 
-[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_oaecy"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_oaecy"]
 [ext_resource type="Texture2D" uid="uid://bpygs61gf6w32" path="res://sprites/city_evening 1.png" id="2_s222d"]
 [ext_resource type="Texture2D" uid="uid://c7hy1syvsnd7x" path="res://sprites/characters/overload-sheet.png" id="3_3eqb3"]
-[ext_resource type="Script" path="res://scenes/overload_sprite.gd" id="4_f1m2s"]
+[ext_resource type="Script" path="res://scripts/overload_sprite.gd" id="4_f1m2s"]
 [ext_resource type="Theme" uid="uid://t0wxi4glmp58" path="res://scenes/themes/secondary_button.tres" id="5_eeki2"]
 [ext_resource type="Theme" uid="uid://dw0rluyc80d2v" path="res://scenes/themes/tertiary_button.tres" id="5_g5pd2"]
 [ext_resource type="Theme" uid="uid://7815ofi1e1rn" path="res://scenes/themes/primary_button.tres" id="5_i1bj7"]
-[ext_resource type="Script" path="res://scenes/audio_slider.gd" id="5_sil5v"]
+[ext_resource type="Script" path="res://scripts/audio_slider.gd" id="5_sil5v"]
 [ext_resource type="Theme" uid="uid://bh864guwec6wm" path="res://scenes/themes/slider_primary.tres" id="8_n7lpm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0vje7"]

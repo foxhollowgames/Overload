@@ -1,36 +1,39 @@
 extends RigidBody2D
 class_name symbol_parent
 
+@onready var radius = $CollisionShape2D.shape.radius
+
+@onready var symbol_manager = get_parent()
+
+@onready var speed_demon_timer = get_parent().get_parent().get_node("Timers/SpeedDemonTimer")
+var symbol_type
+@onready var click_sound = $ClickSound
+var clicked = false
+
+# Deprecated variables
 @export var damage = 0
 @export var block = 0.0
 @export var energize = 0
-@export var super_power = false 
 @export var magnet_chance = 0
-@onready var radius = $CollisionShape2D.shape.radius
-@onready var area_2d = $Area2D
-@onready var collision_shape_2d = $Area2D/CollisionShape2D
-@onready var SYMBOL_PARENT = get_parent()
 var BOUNCY_PEG = load("res://Scenes/Symbols/bouncy_peg.tscn")
 var ball_lightning_count = 3
-var SymbolManager = load("res://Scenes/Symbols/Symbol_manager.gd")
+
 var barricade = false
 var thorns = false
 var speed_demon = false
-@onready var speed_demon_timer = get_parent().get_node("SpeedDemonTimer")
-var symbol_type
-@onready var click_sound = $"../ClickSound"
-var clicked = false
-
+# area_2d was for chain lightning which has been removed from the game
+@export var super_power = false 
+@onready var area_2d = $Area2D
+@onready var collision_shape_2d = $Area2D/CollisionShape2D
 
 func _ready():
-	SignalBus.turn_end.connect(_delete)
-	speed_demon_timer.timeout.connect(_speed_demon_disable)
+	signal_setup()
 	symbol_type = Global.symbol_type.BRAWL
 
 func _unhandled_input(event):
 	if clicked:
 		return
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and SYMBOL_PARENT.can_spawn:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and symbol_manager.can_spawn:
 		if event.position.distance_to(global_position) < radius and not symbol_type == 3:
 			click_sound.pitch_scale = randf_range(0.8, 1.2)
 			click_sound.play()
@@ -48,7 +51,7 @@ func _unhandled_input(event):
 			clicked = true
 			Global.combo.append(symbol_type)
 			SignalBus.clicked.emit(symbol_type)
-			#if SYMBOL_PARENT.ball_lightning:
+			#if symbol_manager.ball_lightning:
 				#_chain_lightning(ball_lightning_count)
 			#else:
 			_delete()
@@ -56,9 +59,7 @@ func _unhandled_input(event):
 func _chain_lightning(count):
 	if count <= 0:
 		return
-
 	var _overlapping = area_2d.get_overlapping_bodies()
-
 	if not _overlapping:
 		return
 
@@ -81,3 +82,7 @@ func _barricade():
 
 func _speed_demon_disable():
 	speed_demon = false
+
+func signal_setup():
+	SignalBus.turn_end.connect(_delete)
+	speed_demon_timer.timeout.connect(_speed_demon_disable)

@@ -38,11 +38,11 @@ var villain_name = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	SignalBus.relic_picked.connect(_relic_add)
-
-func _relic_add(title):
-	relics_acquired.append(title)
-	print_debug(relics_acquired)
+	pass
+	#SignalBus.relic_picked.connect(_relic_add)
+#
+#func _relic_add(title):
+	#relics_acquired.append(title)
 
 func _pitch(sound):
 	sound.AudioEffectPitchShift
