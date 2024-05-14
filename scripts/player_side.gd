@@ -47,7 +47,7 @@ func _is_power_active(power_name):
 			is_active = true
 	
 	if not is_active:
-		SignalBus.clear_combo.emit()
+		SignalBus.clear_combo.emit(power_name)
 
 #func relic_setup():
 	#for _i in range (Global.relics_acquired.size()):
@@ -74,8 +74,8 @@ func _ball_lightning_check(power_name):
 	pass
 	
 func signal_setup():
-	SignalBus.chain_lightning_enabled.connect(_set_chain_lightning_charges)
-	SignalBus.clicked.connect(_ball_lightning_check)
+	#SignalBus.chain_lightning_enabled.connect(_set_chain_lightning_charges)
+	#SignalBus.clicked.connect(_ball_lightning_check)
 	SignalBus.clicked.connect(_is_power_active)
 	SignalBus.barricade.connect(_barricade_enabled)
 	SignalBus.thorns.connect(_thorns_enabled)

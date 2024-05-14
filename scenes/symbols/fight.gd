@@ -2,7 +2,6 @@ extends Node2D
 
 @onready var transition_audio = $Audio/RelicTransition
 
-
 # Scene transitions
 #var game_over : = "res://Scenes/game_over.tscn"
 #var game_end = "res://Scenes/game_end.tscn"
@@ -21,7 +20,7 @@ func villain_defeated():
 	#get_tree().change_scene_to_file(relic_choice_scene)
 	get_tree().change_scene_to_file("res://Scenes/game_end.tscn")
 
-
 func signal_setup():
 	SignalBus.villain_turn_end.connect(_turn_ini)
 	SignalBus.villain_defeated.connect(villain_defeated)
+

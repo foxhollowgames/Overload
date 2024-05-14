@@ -47,11 +47,10 @@ func _power_check(symbol_type):
 			ui_symbols[_j].self_modulate.a = 0.5
 	
 	if Global.combo == POWER:
-		SignalBus.power.emit(power_name.text)
+		SignalBus.power.emit(power_name)
 		active = false
 
-#(_power_name = "")
-func _clear_combo():
+func _clear_combo(_clear_combo = ""):
 	Global.combo.clear()
 	power_state = false
 	for _j in POWER.size():

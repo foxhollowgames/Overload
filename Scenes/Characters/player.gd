@@ -6,7 +6,7 @@ var super_power_cost = 5
 var barricade = false
 var thorns = false
 var speed_demon = false
-
+var block_increase = 1
 var damage = 1
 var energize = 1
 
@@ -28,11 +28,12 @@ func _process(delta):
 		get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
 
 func _effect(power_name):
-	match power_name:
+	print(power_name.text)
+	match power_name.text:
 		"Brawl": 
 			villain_name._damage(damage)
 		"Block":
-			_block(block)
+			_block(block_increase)
 		"Energize":
 			_energize(energize)
 		"Chain Lightning":
@@ -41,7 +42,7 @@ func _effect(power_name):
 			villain_name._damage(damage)
 			_energize(energize)
 		"Static Shield":
-			_block(block)
+			_block(block_increase)
 			_energize(energize)
 	SignalBus.power_end.emit()
 

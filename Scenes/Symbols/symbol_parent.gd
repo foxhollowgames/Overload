@@ -2,8 +2,10 @@ extends RigidBody2D
 class_name symbol_parent
 
 @onready var radius = $CollisionShape2D.shape.radius
-
+@onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var symbol_manager = get_parent()
+@onready var sprite_2d = $Sprite2D
+@onready var animation_player = $AnimationPlayer
 
 @onready var speed_demon_timer = get_parent().get_parent().get_node("Timers/SpeedDemonTimer")
 var symbol_type
@@ -51,6 +53,7 @@ func _unhandled_input(event):
 			clicked = true
 			Global.combo.append(symbol_type)
 			SignalBus.clicked.emit(symbol_type)
+			clicked_vfx()
 			#if symbol_manager.ball_lightning:
 				#_chain_lightning(ball_lightning_count)
 			#else:
@@ -70,7 +73,7 @@ func _chain_lightning(count):
 
 func _delete():
 	var tween = create_tween()
-	tween.tween_property(self, "scale:x", 0, .1)
+	tween.tween_property(sprite_2d, "scale:x", 0, .1)
 	tween.tween_callback(queue_free)
 
 func _barricade():
@@ -86,3 +89,29 @@ func _speed_demon_disable():
 func signal_setup():
 	SignalBus.turn_end.connect(_delete)
 	speed_demon_timer.timeout.connect(_speed_demon_disable)
+
+func clicked_vfx():
+	var vfx_array = Array(animated_sprite_2d.sprite_frames.get_animation_names())
+	vfx_array.erase("idle")
+	var random_animation = vfx_array.pick_random()
+	animated_sprite_2d.self_modulate.a = .75
+	var color = Vector4(1.0, 1.0, 1.0, 1.0)
+	match symbol_type:
+		Global.symbol_type.BRAWL:
+			color = Vector4(0.95, 0.28, 0.13, 1.0)
+		Global.symbol_type.BLOCK:
+			color = Vector4(13.0/255, 153.0/255, 255.0/255, 1.0)
+		Global.symbol_type.ENERGIZE:
+			color = Vector4(255.0/255, 205.0/255, 41.0/255, 1.0)
+		Global.symbol_type.SUPER_POWER:
+			color = Vector4(255.0/255, 0.0/255, 214.0/255, 1.0)
+	#print("Symbol Color: " + str(animated_sprite_2d.material.get_shader_parameter("symbol_color")))
+	animated_sprite_2d.material.set_shader_parameter("symbol_color", color)
+	#print("Symbol Color: " + str(animated_sprite_2d.material.get_shader_parameter("symbol_color")))
+	if (randi_range(0, 1)):
+		animated_sprite_2d.flip_h
+	if (randi_range(0, 1)):
+		animated_sprite_2d.flip_v
+	animated_sprite_2d.play(random_animation)
+
+	animation_player.play("click_flash")

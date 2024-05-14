@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://brrvyjhqs5aa"]
+[gd_scene load_steps=17 format=3 uid="uid://brrvyjhqs5aa"]
 
 [ext_resource type="Texture2D" uid="uid://dpw11vwgj3tns" path="res://sprites/ui/Symbol_Background.png" id="1_43a5r"]
+[ext_resource type="Script" path="res://scripts/fight_ui.gd" id="1_uu6ea"]
 [ext_resource type="Script" path="res://scripts/symbol_container.gd" id="2_0xu77"]
 [ext_resource type="Texture2D" uid="uid://by5vtaow2njqc" path="res://sprites/ui/Character_Stat_Background.png" id="2_vhg54"]
 [ext_resource type="Texture2D" uid="uid://bsluopt61d5u4" path="res://sprites/city_evening.png" id="3_icxxx"]
@@ -20,7 +21,86 @@ bg_color = Color(0.45098, 0.376471, 0.0392157, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k8wat"]
 bg_color = Color(1, 0.803922, 0.160784, 1)
 
+[sub_resource type="Animation" id="Animation_4tni4"]
+resource_name = "FullScreenFlash"
+length = 0.1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.08),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.0470588), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.08),
+"transitions": PackedFloat32Array(1, 0.615572, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.105882), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rynxv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jpj13"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p0nif"]
+_data = {
+"FullScreenFlash": SubResource("Animation_4tni4"),
+"Idle": SubResource("Animation_jpj13"),
+"RESET": SubResource("Animation_rynxv")
+}
+
 [node name="FightUI" type="Node"]
+script = ExtResource("1_uu6ea")
 
 [node name="SymbolBorders" type="StaticBody2D" parent="."]
 
@@ -60,21 +140,6 @@ rotation = 3.14159
 scale = Vector2(0.217502, -0.249)
 texture = ExtResource("3_icxxx")
 
-[node name="Timers" type="Node" parent="."]
-
-[node name="SpeedDemonTimer" type="Timer" parent="Timers"]
-wait_time = 3.935
-one_shot = true
-autostart = true
-script = ExtResource("6_ghi6k")
-
-[node name="TurnTimer" type="Timer" parent="Timers" node_paths=PackedStringArray("timer_progress", "timer_label")]
-wait_time = 15.0
-one_shot = true
-script = ExtResource("7_gtq5o")
-timer_progress = NodePath("../../TimerBar")
-timer_label = NodePath("../../TimerBar/TimerLabel")
-
 [node name="TimerBar" type="ProgressBar" parent="."]
 offset_left = 271.0
 offset_top = 120.0
@@ -94,14 +159,43 @@ offset_bottom = 23.0
 theme_override_font_sizes/font_size = 10
 horizontal_alignment = 1
 
-[node name="CharacterStatBackground" type="Sprite2D" parent="TimerBar"]
-position = Vector2(-241.75, -1)
-scale = Vector2(1.00877, 1)
-texture = ExtResource("2_vhg54")
-
 [node name="CharacterGraphicBackground" type="Sprite2D" parent="TimerBar"]
 position = Vector2(-242, -89.0062)
 scale = Vector2(0.257778, 0.257833)
 texture = ExtResource("3_icxxx")
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="SpeedDemonTimer" type="Timer" parent="Timers"]
+wait_time = 3.935
+one_shot = true
+autostart = true
+script = ExtResource("6_ghi6k")
+
+[node name="TurnTimer" type="Timer" parent="Timers" node_paths=PackedStringArray("timer_progress", "timer_label")]
+wait_time = 15.0
+one_shot = true
+script = ExtResource("7_gtq5o")
+timer_progress = NodePath("../../TimerBar")
+timer_label = NodePath("../../TimerBar/TimerLabel")
+
+[node name="CharacterStatBackground" type="Sprite2D" parent="."]
+position = Vector2(29, 120)
+scale = Vector2(1.00877, 1)
+texture = ExtResource("2_vhg54")
+
+[node name="ScreenFlash" type="ColorRect" parent="."]
+offset_left = 1.0
+offset_right = 41.0
+offset_bottom = 40.0
+scale = Vector2(7.9947, 4.49951)
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ScreenFlash"]
+libraries = {
+"": SubResource("AnimationLibrary_p0nif")
+}
+autoplay = "Idle"
 
 [connection signal="timeout" from="Timers/TurnTimer" to="Timers/TurnTimer" method="_turn_end"]
