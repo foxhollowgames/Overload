@@ -24,8 +24,8 @@ script = ExtResource("1_rfqno")
 super_power_count_label = NodePath("EnergyBar/SuperPowerCountLabel")
 
 [node name="Player" parent="." node_paths=PackedStringArray("energy_progress_bar", "hp_label", "hp_progress_bar_max", "hp_progress_bar_current", "block_label") instance=ExtResource("1_epv0t")]
-position = Vector2(30, 38)
-scale = Vector2(0.195, 0.195)
+position = Vector2(46, 112)
+scale = Vector2(0.64614, 0.64614)
 energy_progress_bar = NodePath("../EnergyBar")
 hp_label = NodePath("../PlayerHealthBlock/ProgressBar/HpPlayerLabel")
 hp_progress_bar_max = NodePath("../PlayerHealthBlock/ProgressBar")
@@ -33,12 +33,13 @@ hp_progress_bar_current = NodePath("../PlayerHealthBlock/ProgressBar")
 block_label = NodePath("../PlayerHealthBlock/BlockPanelPlayer/BlockPlayerLabel")
 
 [node name="Powers" parent="." instance=ExtResource("2_3uh34")]
+position = Vector2(-14, -149)
 
 [node name="EnergyBar" type="ProgressBar" parent="."]
-offset_left = 14.0
-offset_top = 172.0
-offset_right = 43.0
-offset_bottom = 180.0
+offset_left = 64.0
+offset_top = 23.0
+offset_right = 247.0
+offset_bottom = 31.0
 theme_override_styles/background = SubResource("StyleBoxFlat_ns3r8")
 theme_override_styles/fill = SubResource("StyleBoxFlat_y5b86")
 show_percentage = false
@@ -55,8 +56,9 @@ offset_bottom = 15.0
 layout_direction = 2
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_right = 58.0
-offset_bottom = -166.0
+offset_left = 46.0
+offset_right = 104.0
+offset_bottom = -173.0
 grow_vertical = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
@@ -112,10 +114,10 @@ anchor_left = 0.035
 anchor_top = 0.362
 anchor_right = 0.035
 anchor_bottom = 0.362
-offset_left = -11.2
-offset_top = -2.16
-offset_right = 46.8
-offset_bottom = 20.8399
+offset_left = -6.2
+offset_top = 143.84
+offset_right = 51.8
+offset_bottom = 166.84
 theme_override_font_sizes/font_size = 8
 text = "Overload"
 horizontal_alignment = 1

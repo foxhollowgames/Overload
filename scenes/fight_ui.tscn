@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://brrvyjhqs5aa"]
+[gd_scene load_steps=19 format=3 uid="uid://brrvyjhqs5aa"]
 
 [ext_resource type="Texture2D" uid="uid://dpw11vwgj3tns" path="res://sprites/ui/Symbol_Background.png" id="1_43a5r"]
 [ext_resource type="Script" path="res://scripts/fight_ui.gd" id="1_uu6ea"]
@@ -8,18 +8,12 @@
 [ext_resource type="Script" path="res://scripts/timers.gd" id="3_qeqai"]
 [ext_resource type="Script" path="res://scripts/speed_demon_timer.gd" id="6_ghi6k"]
 [ext_resource type="Script" path="res://scripts/turn_timer.gd" id="7_gtq5o"]
+[ext_resource type="PackedScene" uid="uid://cj3dqw7vbhtvu" path="res://scenes/villain.tscn" id="9_c08je"]
+[ext_resource type="PackedScene" uid="uid://d26ven2j33kvd" path="res://scenes/player.tscn" id="10_nhhe8"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_orfkl"]
-size = Vector2(2.23077, 9.76923)
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_tw1ar"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4o8wk"]
-size = Vector2(1.84615, 9.69231)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vgycg"]
-bg_color = Color(0.45098, 0.376471, 0.0392157, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k8wat"]
-bg_color = Color(1, 0.803922, 0.160784, 1)
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_8u83p"]
 
 [sub_resource type="Animation" id="Animation_4tni4"]
 resource_name = "FullScreenFlash"
@@ -99,23 +93,34 @@ _data = {
 "RESET": SubResource("Animation_rynxv")
 }
 
-[node name="FightUI" type="Node"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vgycg"]
+bg_color = Color(0.45098, 0.376471, 0.0392157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k8wat"]
+bg_color = Color(1, 0.803922, 0.160784, 1)
+
+[node name="FightUI" type="Node2D"]
 script = ExtResource("1_uu6ea")
 
 [node name="SymbolBorders" type="StaticBody2D" parent="."]
+position = Vector2(-31, 21)
+skew = -0.427606
 
 [node name="LeftBorder" type="CollisionShape2D" parent="SymbolBorders"]
-position = Vector2(29, 53)
-scale = Vector2(26, 26)
-shape = SubResource("RectangleShape2D_orfkl")
+position = Vector2(56.8619, -40.6611)
+scale = Vector2(1, 26)
+shape = SubResource("SegmentShape2D_tw1ar")
 
 [node name="RightBorder" type="CollisionShape2D" parent="SymbolBorders"]
-position = Vector2(295, 54)
-scale = Vector2(26, 26)
-shape = SubResource("RectangleShape2D_4o8wk")
+position = Vector2(271.599, -134.072)
+scale = Vector2(1, 36.8)
+shape = SubResource("SegmentShape2D_8u83p")
 
 [node name="SymbolContainer" type="Sprite2D" parent="."]
-position = Vector2(164.5, 89.9998)
+modulate = Color(0, 0, 0, 0.458824)
+position = Vector2(172.046, 106.557)
+scale = Vector2(1.42977, 0.922595)
+skew = -0.427606
 texture = ExtResource("1_43a5r")
 script = ExtResource("2_0xu77")
 
@@ -130,38 +135,30 @@ wait_time = 3.0
 one_shot = true
 
 [node name="CharacterStatBackgroundVillain" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(295.5, 119)
 scale = Vector2(0.859649, 1)
 texture = ExtResource("2_vhg54")
 
+[node name="CharacterStatBackground" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(29, 120)
+scale = Vector2(1.00877, 1)
+texture = ExtResource("2_vhg54")
+
 [node name="CharacterGraphicBackgroundVillain" type="Sprite2D" parent="."]
-position = Vector2(295.456, 30)
+visible = false
+z_index = -1
+position = Vector2(291.204, 32.9923)
 rotation = 3.14159
-scale = Vector2(0.217502, -0.249)
+scale = Vector2(1.2434, -1.34227)
 texture = ExtResource("3_icxxx")
 
-[node name="TimerBar" type="ProgressBar" parent="."]
-offset_left = 271.0
-offset_top = 120.0
-offset_right = 320.0
-offset_bottom = 180.0
-theme_override_styles/background = SubResource("StyleBoxFlat_vgycg")
-theme_override_styles/fill = SubResource("StyleBoxFlat_k8wat")
-value = 100.0
-fill_mode = 3
-show_percentage = false
-
-[node name="TimerLabel" type="Label" parent="TimerBar"]
-layout_mode = 0
-offset_left = 1.0
-offset_right = 49.0
-offset_bottom = 23.0
-theme_override_font_sizes/font_size = 10
-horizontal_alignment = 1
-
-[node name="CharacterGraphicBackground" type="Sprite2D" parent="TimerBar"]
-position = Vector2(-242, -89.0062)
-scale = Vector2(0.257778, 0.257833)
+[node name="CharacterGraphicBackground" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(29, 30.9938)
+scale = Vector2(1.26581, 1.31303)
 texture = ExtResource("3_icxxx")
 
 [node name="Timers" type="Node" parent="."]
@@ -179,12 +176,8 @@ script = ExtResource("7_gtq5o")
 timer_progress = NodePath("../../TimerBar")
 timer_label = NodePath("../../TimerBar/TimerLabel")
 
-[node name="CharacterStatBackground" type="Sprite2D" parent="."]
-position = Vector2(29, 120)
-scale = Vector2(1.00877, 1)
-texture = ExtResource("2_vhg54")
-
 [node name="ScreenFlash" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
 offset_left = 1.0
 offset_right = 41.0
 offset_bottom = 40.0
@@ -201,5 +194,37 @@ autoplay = "Idle"
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(160, 90)
 position_smoothing_enabled = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -2
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(7.97895, 4.51807)
+color = Color(0, 0, 0, 0.635294)
+
+[node name="TimerBar" type="ProgressBar" parent="."]
+offset_left = 110.0
+offset_top = -1.0
+offset_right = 159.0
+offset_bottom = 59.0
+scale = Vector2(1.66872, 0.092991)
+theme_override_styles/background = SubResource("StyleBoxFlat_vgycg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_k8wat")
+value = 100.0
+show_percentage = false
+
+[node name="TimerLabel" type="Label" parent="TimerBar"]
+visible = false
+layout_mode = 0
+offset_left = 1.0
+offset_right = 49.0
+offset_bottom = 23.0
+scale = Vector2(0.921014, 4.58366)
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+
+[node name="VillainNodes" parent="." instance=ExtResource("9_c08je")]
+
+[node name="PlayerSide" parent="." instance=ExtResource("10_nhhe8")]
 
 [connection signal="timeout" from="Timers/TurnTimer" to="Timers/TurnTimer" method="_turn_end"]

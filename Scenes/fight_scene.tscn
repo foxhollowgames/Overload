@@ -14,12 +14,63 @@
 [node name="Fight" type="Node2D"]
 script = ExtResource("1_kgg8t")
 
-[node name="FightUI" parent="." instance=ExtResource("2_1swm4")]
-unique_name_in_owner = true
-
 [node name="Villain" parent="." instance=ExtResource("3_1ihjc")]
 
+[node name="VillainParent" parent="Villain" index="0"]
+visible = false
+
+[node name="VillainHealthBlock" parent="Villain" index="1"]
+visible = false
+
+[node name="BlockPanelVillain" parent="Villain/VillainHealthBlock" index="0"]
+visible = false
+
+[node name="ColorRect" parent="Villain/VillainHealthBlock/BlockPanelVillain" index="0"]
+visible = false
+
+[node name="BlockVillainLabel" parent="Villain/VillainHealthBlock/BlockPanelVillain" index="1"]
+visible = false
+
+[node name="ProgressBar" parent="Villain/VillainHealthBlock" index="1"]
+visible = false
+
+[node name="HpVillainLabel" parent="Villain/VillainHealthBlock/ProgressBar" index="0"]
+visible = false
+
+[node name="IntentionLabel" parent="Villain" index="4"]
+visible = false
+
+[node name="Value" parent="Villain/IntentionLabel" index="0"]
+visible = false
+
 [node name="Player" parent="." instance=ExtResource("4_hq5mo")]
+
+[node name="Player" parent="Player" index="0"]
+visible = false
+
+[node name="Powers" parent="Player" index="1"]
+visible = false
+
+[node name="EnergyBar" parent="Player" index="2"]
+visible = false
+
+[node name="PlayerHealthBlock" parent="Player" index="3"]
+visible = false
+
+[node name="ProgressBar" parent="Player/PlayerHealthBlock" index="0"]
+visible = false
+
+[node name="HpPlayerLabel" parent="Player/PlayerHealthBlock/ProgressBar" index="0"]
+visible = false
+
+[node name="BlockPanelPlayer" parent="Player/PlayerHealthBlock" index="1"]
+visible = false
+
+[node name="ColorRect" parent="Player/PlayerHealthBlock/BlockPanelPlayer" index="0"]
+visible = false
+
+[node name="BlockPlayerLabel" parent="Player/PlayerHealthBlock/BlockPanelPlayer" index="1"]
+visible = false
 
 [node name="TurnStartUI" parent="." instance=ExtResource("9_npqyu")]
 
@@ -43,6 +94,8 @@ autoplay = true
 [node name="RelicTransition" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource("21_x2hhb")
 volume_db = -15.2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ActorParent" type="Node2D" parent="." node_paths=PackedStringArray("hp_label", "hp_progress_bar_max", "hp_progress_bar_current", "block_label")]
 visible = false
@@ -74,9 +127,13 @@ offset_top = 36.0
 offset_right = 2.0
 offset_bottom = 63.0
 
+[node name="FightUI" parent="." instance=ExtResource("2_1swm4")]
+unique_name_in_owner = true
+z_index = 2
+
 [connection signal="timeout" from="FightUI/SymbolContainer/SymbolTimers/SpawnTimer" to="FightUI/SymbolContainer" method="_spawn"]
 
-[editable path="FightUI"]
 [editable path="Villain"]
 [editable path="Player"]
 [editable path="TurnStartUI"]
+[editable path="FightUI"]
