@@ -35,15 +35,20 @@ func _effect_villian():
 
 func _villain_turn():
 	block = 0
+	await get_tree().create_timer(0.2).timeout
 	match intention:
 		"Attack":
 			SignalBus.player_damage.emit(attack)
+			animation_player.play("attack_slide")
 		"Block":
 			self._block(block_gain)
 		"Board Interference":
 			_board_interference()
 	
 	_r_intention()
+	squish_squash()
+	#TODO MAKE THIS NOT A TIMER YUCKITY YUCKITY YUCK DRUCKS MCDUCKS
+	await get_tree().create_timer(0.5).timeout
 	_villain_turn_end()
 
 func _villain_turn_end():

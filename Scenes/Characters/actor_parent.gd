@@ -9,8 +9,12 @@ class_name actor
 var block = 0
 @export var block_label : Label
 
+@onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var animation_player = $AnimationPlayer
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	signal_setup_actor()
 	hp_label.text = str(hp)
 	hp_progress_bar_max.max_value = hp_max
 	hp_progress_bar_current.value = hp
@@ -34,3 +38,13 @@ func _damage(attack):
 	hp_label.text = str(hp)
 	hp_progress_bar_max.max_value = hp_max
 	hp_progress_bar_current.value = hp
+	animation_player.play("take_damage")
+
+func squish_squash():
+	#DUNNY
+	var tween := get_tree().create_tween()
+	tween.tween_property(animated_sprite_2d, "scale", Vector2(randf_range(1.05, 1.2), randf_range(1.2, 1.3)), 0.3)
+	tween.tween_property(animated_sprite_2d, "scale", Vector2(1, 1), 0.1)
+
+func signal_setup_actor():
+	pass

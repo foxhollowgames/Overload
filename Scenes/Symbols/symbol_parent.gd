@@ -73,7 +73,8 @@ func _chain_lightning(count):
 
 func _delete():
 	var tween = create_tween()
-	tween.tween_property(sprite_2d, "scale:x", 0, .1)
+	#TODO: Replace with dissolving shader
+	tween.tween_property(sprite_2d, "scale:x", 0, .3)
 	tween.tween_callback(queue_free)
 
 func _barricade():
@@ -91,6 +92,10 @@ func signal_setup():
 	speed_demon_timer.timeout.connect(_speed_demon_disable)
 
 func clicked_vfx():
+	var tween := get_tree().create_tween()
+	tween.tween_property(self, "gravity_scale", 0, 0).set_trans(Tween.TRANS_BOUNCE)
+	tween.tween_property(self, "constant_force", Vector2(randi_range(-2500, 2500), randi_range(-5000, -5000)), 1).set_trans(Tween.TRANS_BOUNCE)
+	
 	var vfx_array = Array(animated_sprite_2d.sprite_frames.get_animation_names())
 	vfx_array.erase("idle")
 	var random_animation = vfx_array.pick_random()

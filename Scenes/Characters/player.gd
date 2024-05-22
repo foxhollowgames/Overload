@@ -32,6 +32,7 @@ func _effect(power_name):
 	match power_name.text:
 		"Brawl": 
 			villain_name._damage(damage)
+			animation_player.play("attack_slide")
 		"Block":
 			_block(block_increase)
 		"Energize":
@@ -41,15 +42,16 @@ func _effect(power_name):
 		"Shock":
 			villain_name._damage(damage)
 			_energize(energize)
+			animation_player.play("attack_slide")
 		"Static Shield":
 			_block(block_increase)
 			_energize(energize)
 	SignalBus.power_end.emit()
+	squish_squash()
 
 func _energize(energize):
 	energy += energize
 	energy_progress_bar.value = energy
-
 
 func _super_power():
 	if energy >= super_power_cost:

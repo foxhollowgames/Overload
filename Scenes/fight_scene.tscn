@@ -45,6 +45,7 @@ stream = ExtResource("21_x2hhb")
 volume_db = -15.2
 
 [node name="ActorParent" type="Node2D" parent="." node_paths=PackedStringArray("hp_label", "hp_progress_bar_max", "hp_progress_bar_current", "block_label")]
+visible = false
 position = Vector2(40, 201)
 script = ExtResource("22_1bcvg")
 hp_label = NodePath("ActorHP")

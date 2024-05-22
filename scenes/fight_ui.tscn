@@ -198,4 +198,8 @@ libraries = {
 }
 autoplay = "Idle"
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(160, 90)
+position_smoothing_enabled = true
+
 [connection signal="timeout" from="Timers/TurnTimer" to="Timers/TurnTimer" method="_turn_end"]
