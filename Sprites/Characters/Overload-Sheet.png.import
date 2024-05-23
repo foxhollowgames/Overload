@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c7hy1syvsnd7x"
-path="res://.godot/imported/overload-sheet.png-435cf064d3dd6bb52225b49d5eec62fd.ctex"
+path="res://.godot/imported/Overload-Sheet.png-ec1911ddd895dabc9ed997feb5314c8c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/characters/overload-sheet.png"
-dest_files=["res://.godot/imported/overload-sheet.png-435cf064d3dd6bb52225b49d5eec62fd.ctex"]
+source_file="res://sprites/characters/Overload-Sheet.png"
+dest_files=["res://.godot/imported/Overload-Sheet.png-ec1911ddd895dabc9ed997feb5314c8c.ctex"]
 
 [params]
 

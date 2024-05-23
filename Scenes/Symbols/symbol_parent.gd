@@ -17,7 +17,7 @@ var clicked = false
 @export var block = 0.0
 @export var energize = 0
 @export var magnet_chance = 0
-var BOUNCY_PEG = load("res://Scenes/Symbols/bouncy_peg.tscn")
+var BOUNCY_PEG = load("res://scenes/symbols/bouncy_peg.tscn")
 var ball_lightning_count = 3
 
 var barricade = false

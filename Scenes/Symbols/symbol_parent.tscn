@@ -1,6 +1,6 @@
 [gd_scene load_steps=78 format=3 uid="uid://me6ierptsfv2"]
 
-[ext_resource type="Texture2D" uid="uid://cy07rsjwxy2r4" path="res://sprites/symbols/block.svg" id="1_0myvf"]
+[ext_resource type="Texture2D" uid="uid://cy07rsjwxy2r4" path="res://sprites/symbols/Block.svg" id="1_0myvf"]
 [ext_resource type="Script" path="res://scenes/symbols/symbol_parent.gd" id="1_pxmun"]
 [ext_resource type="Shader" path="res://shaders/color_shift.gdshader" id="2_piwye"]
 [ext_resource type="AudioStream" uid="uid://8kssfchadklw" path="res://audio/beam.wav" id="3_d41ph"]
