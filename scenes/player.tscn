@@ -1,28 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://d26ven2j33kvd"]
+[gd_scene load_steps=3 format=3 uid="uid://d26ven2j33kvd"]
 
 [ext_resource type="PackedScene" uid="uid://dm886n4fygh66" path="res://scenes/characters/player.tscn" id="1_epv0t"]
 [ext_resource type="Script" path="res://scripts/player_side.gd" id="1_rfqno"]
-[ext_resource type="PackedScene" uid="uid://iknl7oitt5ck" path="res://scenes/powers.tscn" id="2_3uh34"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ns3r8"]
-bg_color = Color(0.45098, 0.376471, 0.0392157, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y5b86"]
-bg_color = Color(1, 0.803922, 0.160784, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cj30m"]
-bg_color = Color(0.321569, 0, 0.0862745, 1)
-shadow_color = Color(0, 0, 0, 0.14902)
-shadow_size = 1
-shadow_offset = Vector2(0, 0.1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q03k6"]
-bg_color = Color(0.701961, 0, 0, 1)
-
-[node name="PlayerSide" type="Node" node_paths=PackedStringArray("super_power_count_label")]
+[node name="PlayerSide" type="Node"]
 script = ExtResource("1_rfqno")
-super_power_count_label = NodePath("EnergyBar/SuperPowerCountLabel")
 
+<<<<<<< Updated upstream
 [node name="Player" parent="." node_paths=PackedStringArray("energy_progress_bar", "hp_label", "hp_progress_bar_max", "hp_progress_bar_current", "block_label") instance=ExtResource("1_epv0t")]
 position = Vector2(30, 38)
 scale = Vector2(0.195, 0.195)
@@ -105,6 +89,11 @@ offset_bottom = 14.0
 theme_override_font_sizes/font_size = 6
 horizontal_alignment = 1
 vertical_alignment = 1
+=======
+[node name="Player" parent="." instance=ExtResource("1_epv0t")]
+position = Vector2(46, 112)
+scale = Vector2(0.64614, 0.64614)
+>>>>>>> Stashed changes
 
 [node name="PlayerLabel" type="Label" parent="."]
 anchors_preset = -1

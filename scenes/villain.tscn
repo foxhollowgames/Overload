@@ -1,25 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://cj3dqw7vbhtvu"]
+[gd_scene load_steps=2 format=3 uid="uid://cj3dqw7vbhtvu"]
 
 [ext_resource type="PackedScene" uid="uid://dkuih8v60l230" path="res://scenes/characters/villain_parent.tscn" id="2_5g7dl"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cj30m"]
-bg_color = Color(0.321569, 0, 0.0862745, 1)
-shadow_color = Color(0, 0, 0, 0.14902)
-shadow_size = 1
-shadow_offset = Vector2(0, 0.1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q03k6"]
-bg_color = Color(0.701961, 0, 0, 1)
-
 [node name="VillainNodes" type="Node"]
 
+<<<<<<< Updated upstream
 [node name="VillainParent" parent="." node_paths=PackedStringArray("intention_label", "intention_value_label", "villain_label", "hp_label", "hp_progress_bar_max", "hp_progress_bar_current", "block_label") instance=ExtResource("2_5g7dl")]
 position = Vector2(299, 38)
+=======
+[node name="VillainParent" parent="." node_paths=PackedStringArray("intention_label", "intention_value_label", "villain_label") instance=ExtResource("2_5g7dl")]
+position = Vector2(281, 119)
+>>>>>>> Stashed changes
 rotation = -3.14159
 scale = Vector2(0.195, -0.195)
 intention_label = NodePath("../IntentionLabel")
 intention_value_label = NodePath("../IntentionLabel/Value")
 villain_label = NodePath("../VillainLabel")
+<<<<<<< Updated upstream
 hp_label = NodePath("../VillainHealthBlock/ProgressBar/HpVillainLabel")
 hp_progress_bar_max = NodePath("../VillainHealthBlock/ProgressBar")
 hp_progress_bar_current = NodePath("../VillainHealthBlock/ProgressBar")
@@ -81,6 +78,8 @@ offset_bottom = 14.0
 theme_override_font_sizes/font_size = 6
 horizontal_alignment = 1
 vertical_alignment = 1
+=======
+>>>>>>> Stashed changes
 
 [node name="VillainLabel" type="Label" parent="."]
 offset_left = 270.0

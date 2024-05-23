@@ -5,9 +5,32 @@ extends Node
 @onready var camera_2d = $Camera2D
 var screen_shake = false
 
+@export var player_info: Actor_Resource
+@export var villain_info: Actor_Resource
+
+@export var player_hp_label : Label
+@export var player_hp_progress_bar : ProgressBar
+@export var player_block_label : Label
+@export var energy : Label
+
+@export var villain_hp_label : Label
+@export var villain_hp_progress_bar : ProgressBar
+@export var villain_block_label : Label
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	signal_setup()
+	player_hp_label.text = str(player_info.hp)
+	player_hp_progress_bar.max_value = player_info.hp_max
+	player_hp_progress_bar.value = player_info.hp
+	player_block_label.text = str(player_info.block)
+	energy.text = str(player_info.energy)
+	
+	villain_hp_label.text = str(villain_info.hp)
+	villain_hp_progress_bar.max_value = villain_info.hp_max
+	villain_hp_progress_bar.value = villain_info.hp
+	villain_block_label.text = str(villain_info.block)
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -466,6 +466,21 @@ radius = 9.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_yql04"]
 radius = 26.46
 
+[sub_resource type="Animation" id="Animation_8nun2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/flash_percent")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_iex4l"]
 resource_name = "click_flash"
 length = 0.3
@@ -482,21 +497,6 @@ tracks/0/keys = {
 "values": [0.0, 1.0, 0.0]
 }
 
-[sub_resource type="Animation" id="Animation_8nun2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:material:shader_parameter/flash_percent")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_820mk"]
 _data = {
 "RESET": SubResource("Animation_8nun2"),
@@ -505,6 +505,7 @@ _data = {
 
 [node name="SymbolParent" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_r851i")
+constant_force = Vector2(11.165, 30)
 script = ExtResource("1_pxmun")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -520,6 +521,7 @@ scale = Vector2(0.055958, 0.0539521)
 texture = ExtResource("1_0myvf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1, 0.96)
 shape = SubResource("CircleShape2D_3v31g")
 
 [node name="Area2D" type="Area2D" parent="."]

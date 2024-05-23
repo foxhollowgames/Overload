@@ -1,13 +1,24 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=17 format=3 uid="uid://brrvyjhqs5aa"]
+=======
+[gd_scene load_steps=30 format=3 uid="uid://brrvyjhqs5aa"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Texture2D" uid="uid://dpw11vwgj3tns" path="res://sprites/ui/Symbol_Background.png" id="1_43a5r"]
 [ext_resource type="Script" path="res://scripts/fight_ui.gd" id="1_uu6ea"]
 [ext_resource type="Script" path="res://scripts/symbol_container.gd" id="2_0xu77"]
+[ext_resource type="Resource" uid="uid://cchv8cqbjck5m" path="res://scenes/resources/player_info.tres" id="2_8fwi5"]
 [ext_resource type="Texture2D" uid="uid://by5vtaow2njqc" path="res://sprites/ui/Character_Stat_Background.png" id="2_vhg54"]
 [ext_resource type="Texture2D" uid="uid://bsluopt61d5u4" path="res://sprites/city_evening.png" id="3_icxxx"]
 [ext_resource type="Script" path="res://scripts/timers.gd" id="3_qeqai"]
+[ext_resource type="Resource" uid="uid://d27jtug240fqw" path="res://scenes/resources/villain_info.tres" id="3_s5w15"]
 [ext_resource type="Script" path="res://scripts/speed_demon_timer.gd" id="6_ghi6k"]
 [ext_resource type="Script" path="res://scripts/turn_timer.gd" id="7_gtq5o"]
+<<<<<<< Updated upstream
+=======
+[ext_resource type="PackedScene" uid="uid://iknl7oitt5ck" path="res://scenes/powers.tscn" id="10_rfeqw"]
+[ext_resource type="PackedScene" uid="uid://b8tuqq1rr0kxd" path="res://scenes/symbols/bouncy_peg.tscn" id="11_xdvgt"]
+>>>>>>> Stashed changes
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_orfkl"]
 size = Vector2(2.23077, 9.76923)
@@ -50,6 +61,21 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.105882), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_jpj13"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_rynxv"]
 length = 0.001
 tracks/0/type = "value"
@@ -77,21 +103,6 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_jpj13"]
-resource_name = "Idle"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.1),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p0nif"]
 _data = {
 "FullScreenFlash": SubResource("Animation_4tni4"),
@@ -99,12 +110,65 @@ _data = {
 "RESET": SubResource("Animation_rynxv")
 }
 
+<<<<<<< Updated upstream
 [node name="FightUI" type="Node"]
+=======
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vgycg"]
+bg_color = Color(0.45098, 0.376471, 0.0392157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k8wat"]
+bg_color = Color(1, 0.803922, 0.160784, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_o47hn"]
+font_size = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pho5g"]
+bg_color = Color(0.321569, 0, 0.0862745, 1)
+shadow_color = Color(0, 0, 0, 0.14902)
+shadow_size = 1
+shadow_offset = Vector2(0, 0.1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_owvoh"]
+bg_color = Color(0.701961, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7ce18"]
+font_size = 9
+
+[sub_resource type="LabelSettings" id="LabelSettings_2l2c2"]
+font_size = 9
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5bhop"]
+bg_color = Color(0.321569, 0, 0.0862745, 1)
+shadow_color = Color(0, 0, 0, 0.14902)
+shadow_size = 1
+shadow_offset = Vector2(0, 0.1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pfaxy"]
+bg_color = Color(0.701961, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0wpm8"]
+font_size = 9
+
+[sub_resource type="LabelSettings" id="LabelSettings_1fdpr"]
+font_size = 9
+
+[node name="FightUI" type="Node2D" node_paths=PackedStringArray("player_hp_label", "player_hp_progress_bar", "player_block_label", "energy", "villain_hp_label", "villain_hp_progress_bar", "villain_block_label")]
+>>>>>>> Stashed changes
 script = ExtResource("1_uu6ea")
+player_info = ExtResource("2_8fwi5")
+villain_info = ExtResource("3_s5w15")
+player_hp_label = NodePath("PlayerHealthBlock/ProgressBar/HpPlayerLabel")
+player_hp_progress_bar = NodePath("VillainHealthBlock/ProgressBar")
+player_block_label = NodePath("PlayerHealthBlock/BlockPanelPlayer/BlockPlayerLabel")
+energy = NodePath("ColorRect3/Energy")
+villain_hp_label = NodePath("VillainHealthBlock/ProgressBar/HpVillainLabel")
+villain_hp_progress_bar = NodePath("VillainHealthBlock/ProgressBar")
+villain_block_label = NodePath("VillainHealthBlock/BlockPanelVillain/BlockVillainLabel")
 
 [node name="SymbolBorders" type="StaticBody2D" parent="."]
 
 [node name="LeftBorder" type="CollisionShape2D" parent="SymbolBorders"]
+<<<<<<< Updated upstream
 position = Vector2(29, 53)
 scale = Vector2(26, 26)
 shape = SubResource("RectangleShape2D_orfkl")
@@ -129,17 +193,34 @@ wait_time = 0.25
 wait_time = 3.0
 one_shot = true
 
+=======
+position = Vector2(46.3826, -102.202)
+scale = Vector2(1, 37.92)
+shape = SubResource("SegmentShape2D_tw1ar")
+
+[node name="RightBorder" type="CollisionShape2D" parent="SymbolBorders"]
+position = Vector2(282.156, -145.061)
+scale = Vector2(1, 36.8)
+shape = SubResource("SegmentShape2D_8u83p")
+
+>>>>>>> Stashed changes
 [node name="CharacterStatBackgroundVillain" type="Sprite2D" parent="."]
 position = Vector2(295.5, 119)
 scale = Vector2(0.859649, 1)
 texture = ExtResource("2_vhg54")
 
 [node name="CharacterGraphicBackgroundVillain" type="Sprite2D" parent="."]
+<<<<<<< Updated upstream
 position = Vector2(295.456, 30)
+=======
+z_index = -1
+position = Vector2(287, 30)
+>>>>>>> Stashed changes
 rotation = 3.14159
 scale = Vector2(0.217502, -0.249)
 texture = ExtResource("3_icxxx")
 
+<<<<<<< Updated upstream
 [node name="TimerBar" type="ProgressBar" parent="."]
 offset_left = 271.0
 offset_top = 120.0
@@ -162,6 +243,12 @@ horizontal_alignment = 1
 [node name="CharacterGraphicBackground" type="Sprite2D" parent="TimerBar"]
 position = Vector2(-242, -89.0062)
 scale = Vector2(0.257778, 0.257833)
+=======
+[node name="CharacterGraphicBackground" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(29, 30.9938)
+scale = Vector2(1.26581, 1.31303)
+>>>>>>> Stashed changes
 texture = ExtResource("3_icxxx")
 
 [node name="Timers" type="Node" parent="."]
@@ -185,6 +272,11 @@ scale = Vector2(1.00877, 1)
 texture = ExtResource("2_vhg54")
 
 [node name="ScreenFlash" type="ColorRect" parent="."]
+<<<<<<< Updated upstream
+=======
+modulate = Color(1, 1, 1, 0)
+z_index = -2
+>>>>>>> Stashed changes
 offset_left = 1.0
 offset_right = 41.0
 offset_bottom = 40.0
@@ -202,4 +294,209 @@ autoplay = "Idle"
 position = Vector2(160, 90)
 position_smoothing_enabled = true
 
+<<<<<<< Updated upstream
+=======
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -13
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(7.97895, 4.51807)
+color = Color(0, 0, 0, 0.635294)
+
+[node name="MenuBackground" type="ColorRect" parent="."]
+offset_left = -1.0
+offset_right = 39.0
+offset_bottom = 29.0
+scale = Vector2(9.97184, 0.827534)
+color = Color(0, 0, 0, 1)
+
+[node name="TimerBar" type="ProgressBar" parent="."]
+offset_left = 111.0
+offset_right = 160.0
+offset_bottom = 75.0
+scale = Vector2(1.66872, 0.092991)
+theme_override_styles/background = SubResource("StyleBoxFlat_vgycg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_k8wat")
+value = 100.0
+show_percentage = false
+
+[node name="TimerLabel" type="Label" parent="TimerBar"]
+visible = false
+layout_mode = 0
+offset_left = 1.0
+offset_right = 49.0
+offset_bottom = 23.0
+scale = Vector2(0.921014, 4.58366)
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+
+[node name="Bouncy Peg" parent="." instance=ExtResource("11_xdvgt")]
+position = Vector2(165, 85)
+
+[node name="Powers" parent="." instance=ExtResource("10_rfeqw")]
+position = Vector2(-3, 8)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_left = 132.0
+offset_top = 23.0
+offset_right = 172.0
+offset_bottom = 63.0
+scale = Vector2(0.973535, 0.277861)
+color = Color(0, 0.580392, 0.580392, 1)
+
+[node name="Energy" type="Label" parent="ColorRect3"]
+layout_mode = 0
+offset_left = 13.3534
+offset_top = 3.59892
+offset_right = 27.3534
+offset_bottom = 37.5989
+text = "5"
+label_settings = SubResource("LabelSettings_o47hn")
+horizontal_alignment = 1
+
+[node name="VillainHealthBlock" type="HBoxContainer" parent="."]
+layout_direction = 2
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 193.0
+offset_right = 242.0
+offset_bottom = 7.0
+grow_horizontal = 0
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+alignment = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="VillainHealthBlock"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 4.0
+theme_override_font_sizes/font_size = 10
+theme_override_styles/background = SubResource("StyleBoxFlat_pho5g")
+theme_override_styles/fill = SubResource("StyleBoxFlat_owvoh")
+max_value = 50.0
+step = 1.0
+value = 50.0
+fill_mode = 1
+show_percentage = false
+
+[node name="HpVillainLabel" type="Label" parent="VillainHealthBlock/ProgressBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "10"
+label_settings = SubResource("LabelSettings_7ce18")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BlockPanelVillain" type="Panel" parent="VillainHealthBlock"]
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorRect" type="ColorRect" parent="VillainHealthBlock/BlockPanelVillain"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.262745, 0.52549, 0.94902, 1)
+
+[node name="BlockVillainLabel" type="Label" parent="VillainHealthBlock/BlockPanelVillain"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+label_settings = SubResource("LabelSettings_2l2c2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerHealthBlock" type="HBoxContainer" parent="."]
+layout_direction = 2
+offset_left = 53.0
+offset_right = 111.0
+offset_bottom = 7.0
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+alignment = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="PlayerHealthBlock"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 4.0
+theme_override_styles/background = SubResource("StyleBoxFlat_5bhop")
+theme_override_styles/fill = SubResource("StyleBoxFlat_pfaxy")
+max_value = 50.0
+step = 1.0
+value = 50.0
+show_percentage = false
+
+[node name="HpPlayerLabel" type="Label" parent="PlayerHealthBlock/ProgressBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "10"
+label_settings = SubResource("LabelSettings_0wpm8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BlockPanelPlayer" type="Panel" parent="PlayerHealthBlock"]
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorRect" type="ColorRect" parent="PlayerHealthBlock/BlockPanelPlayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.262745, 0.52549, 0.94902, 1)
+
+[node name="BlockPlayerLabel" type="Label" parent="PlayerHealthBlock/BlockPanelPlayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 6
+text = "0"
+label_settings = SubResource("LabelSettings_1fdpr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SymbolContainer" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.458824)
+z_index = -1
+position = Vector2(170.223, 102.557)
+scale = Vector2(1.0903, 0.971435)
+skew = -0.427606
+texture = ExtResource("1_43a5r")
+script = ExtResource("2_0xu77")
+
+[node name="SymbolTimers" type="Node" parent="SymbolContainer"]
+script = ExtResource("3_qeqai")
+
+[node name="SpawnTimer" type="Timer" parent="SymbolContainer/SymbolTimers"]
+wait_time = 0.25
+
+[node name="PreTurn" type="Timer" parent="SymbolContainer/SymbolTimers"]
+wait_time = 3.0
+one_shot = true
+
+>>>>>>> Stashed changes
 [connection signal="timeout" from="Timers/TurnTimer" to="Timers/TurnTimer" method="_turn_end"]

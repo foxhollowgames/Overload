@@ -19,6 +19,20 @@ unique_name_in_owner = true
 
 [node name="Villain" parent="." instance=ExtResource("3_1ihjc")]
 
+<<<<<<< Updated upstream
+=======
+[node name="VillainParent" parent="Villain" index="0" node_paths=PackedStringArray("intention_label", "intention_value_label", "villain_label")]
+intention_label = NodePath("../IntentionLabel/Value")
+intention_value_label = NodePath("../../Player/PlayerLabel")
+villain_label = NodePath("../IntentionLabel")
+
+[node name="VillainLabel" parent="Villain" index="1"]
+visible = true
+
+[node name="VillainNameBottomBorder" parent="Villain" index="2"]
+visible = true
+
+>>>>>>> Stashed changes
 [node name="Player" parent="." instance=ExtResource("4_hq5mo")]
 
 [node name="TurnStartUI" parent="." instance=ExtResource("9_npqyu")]
@@ -44,14 +58,14 @@ autoplay = true
 stream = ExtResource("21_x2hhb")
 volume_db = -15.2
 
+<<<<<<< Updated upstream
 [node name="ActorParent" type="Node2D" parent="." node_paths=PackedStringArray("hp_label", "hp_progress_bar_max", "hp_progress_bar_current", "block_label")]
+=======
+[node name="ActorParent" type="Node2D" parent="."]
+>>>>>>> Stashed changes
 visible = false
 position = Vector2(40, 201)
 script = ExtResource("22_1bcvg")
-hp_label = NodePath("ActorHP")
-hp_progress_bar_max = NodePath("ActorEnergy")
-hp_progress_bar_current = NodePath("ActorEnergy")
-block_label = NodePath("ActorBlock")
 
 [node name="ActorHP" type="Label" parent="ActorParent"]
 visible = false

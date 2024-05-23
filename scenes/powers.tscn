@@ -10,6 +10,7 @@
 [node name="Powers" type="Node"]
 
 [node name="PowerChainLightning" parent="." instance=ExtResource("1_7apve")]
+<<<<<<< Updated upstream
 position = Vector2(28, 164)
 scale = Vector2(0.75, 0.75)
 
@@ -31,4 +32,27 @@ scale = Vector2(0.75, 0.75)
 
 [node name="PowerBrawl" parent="." instance=ExtResource("6_i8ydi")]
 position = Vector2(28, 89)
+=======
+position = Vector2(236, 8)
+scale = Vector2(0.75, 0.75)
+
+[node name="PowerStaticShield" parent="." instance=ExtResource("2_yk8w8")]
+position = Vector2(205, 8)
+scale = Vector2(0.75, 0.75)
+
+[node name="PowerShock" parent="." instance=ExtResource("3_hu2dt")]
+position = Vector2(174, 8)
+scale = Vector2(0.75, 0.75)
+
+[node name="PowerEnergize" parent="." instance=ExtResource("4_rf55f")]
+position = Vector2(142, 8)
+scale = Vector2(0.75, 0.75)
+
+[node name="PowerBlock" parent="." instance=ExtResource("5_rosv5")]
+position = Vector2(111, 8)
+scale = Vector2(0.75, 0.75)
+
+[node name="PowerBrawl" parent="." instance=ExtResource("6_i8ydi")]
+position = Vector2(79, 8)
+>>>>>>> Stashed changes
 scale = Vector2(0.75, 0.75)

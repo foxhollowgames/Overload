@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bu6f13nus8um7"
-path="res://.godot/imported/ohm-sheet.png-9d8b130572cbfcf8a5e8af88684bbe05.ctex"
+path="res://.godot/imported/ohm-sheet.png-abba45e599b9cf28e2ac12ad0993a2d8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/ohm-sheet.png"
-dest_files=["res://.godot/imported/ohm-sheet.png-9d8b130572cbfcf8a5e8af88684bbe05.ctex"]
+source_file="res://sprites/characters/ohm-sheet.png"
+dest_files=["res://.godot/imported/ohm-sheet.png-abba45e599b9cf28e2ac12ad0993a2d8.ctex"]
 
 [params]
 
