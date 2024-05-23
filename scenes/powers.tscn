@@ -7,52 +7,28 @@
 [ext_resource type="PackedScene" uid="uid://0y7eb3miu478" path="res://scenes/power_block.tscn" id="5_rosv5"]
 [ext_resource type="PackedScene" uid="uid://bvw5trm5by4kj" path="res://scenes/power_brawl.tscn" id="6_i8ydi"]
 
-[node name="Powers" type="Node"]
+[node name="Powers" type="Node2D"]
 
 [node name="PowerChainLightning" parent="." instance=ExtResource("1_7apve")]
-<<<<<<< Updated upstream
-position = Vector2(28, 164)
+position = Vector2(248, 164)
 scale = Vector2(0.75, 0.75)
 
 [node name="PowerStaticShield" parent="." instance=ExtResource("2_yk8w8")]
-position = Vector2(28, 134)
+position = Vector2(217, 164)
 scale = Vector2(0.75, 0.75)
 
 [node name="PowerShock" parent="." instance=ExtResource("3_hu2dt")]
-position = Vector2(28, 119)
+position = Vector2(186, 164)
 scale = Vector2(0.75, 0.75)
 
 [node name="PowerEnergize" parent="." instance=ExtResource("4_rf55f")]
-position = Vector2(28, 149)
+position = Vector2(155, 164)
 scale = Vector2(0.75, 0.75)
 
 [node name="PowerBlock" parent="." instance=ExtResource("5_rosv5")]
-position = Vector2(28, 104)
+position = Vector2(124, 164)
 scale = Vector2(0.75, 0.75)
 
 [node name="PowerBrawl" parent="." instance=ExtResource("6_i8ydi")]
-position = Vector2(28, 89)
-=======
-position = Vector2(236, 8)
-scale = Vector2(0.75, 0.75)
-
-[node name="PowerStaticShield" parent="." instance=ExtResource("2_yk8w8")]
-position = Vector2(205, 8)
-scale = Vector2(0.75, 0.75)
-
-[node name="PowerShock" parent="." instance=ExtResource("3_hu2dt")]
-position = Vector2(174, 8)
-scale = Vector2(0.75, 0.75)
-
-[node name="PowerEnergize" parent="." instance=ExtResource("4_rf55f")]
-position = Vector2(142, 8)
-scale = Vector2(0.75, 0.75)
-
-[node name="PowerBlock" parent="." instance=ExtResource("5_rosv5")]
-position = Vector2(111, 8)
-scale = Vector2(0.75, 0.75)
-
-[node name="PowerBrawl" parent="." instance=ExtResource("6_i8ydi")]
-position = Vector2(79, 8)
->>>>>>> Stashed changes
+position = Vector2(93, 164)
 scale = Vector2(0.75, 0.75)
