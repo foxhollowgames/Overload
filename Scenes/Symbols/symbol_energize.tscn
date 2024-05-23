@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://me6ierptsfv2" path="res://scenes/symbols/symbol_parent.tscn" id="1_ahe4a"]
 [ext_resource type="Script" path="res://scenes/symbols/symbol_energize.gd" id="2_yyujc"]
-[ext_resource type="Texture2D" uid="uid://csvntsja5boly" path="res://sprites/symbols/energy.svg" id="3_yrjfl"]
+[ext_resource type="Texture2D" uid="uid://csvntsja5boly" path="res://sprites/symbols/Energy.svg" id="3_yrjfl"]
 
 [node name="symbol_energize" instance=ExtResource("1_ahe4a")]
 script = ExtResource("2_yyujc")

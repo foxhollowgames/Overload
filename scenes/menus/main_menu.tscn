@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_oaecy"]
 [ext_resource type="Texture2D" uid="uid://bpygs61gf6w32" path="res://sprites/city_evening 1.png" id="2_s222d"]
-[ext_resource type="Texture2D" uid="uid://c7hy1syvsnd7x" path="res://sprites/characters/overload-sheet.png" id="3_3eqb3"]
+[ext_resource type="Texture2D" uid="uid://c7hy1syvsnd7x" path="res://sprites/characters/Overload-Sheet.png" id="3_3eqb3"]
 [ext_resource type="Script" path="res://scripts/overload_sprite.gd" id="4_f1m2s"]
 [ext_resource type="Theme" uid="uid://t0wxi4glmp58" path="res://scenes/themes/secondary_button.tres" id="5_eeki2"]
 [ext_resource type="Theme" uid="uid://dw0rluyc80d2v" path="res://scenes/themes/tertiary_button.tres" id="5_g5pd2"]

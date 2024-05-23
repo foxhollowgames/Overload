@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dm886n4fygh66" path="res://scenes/characters/player.tscn" id="1_mx8sk"]
 [ext_resource type="Script" path="res://scripts/villain_parent.gd" id="2_d6lx2"]
-[ext_resource type="Texture2D" uid="uid://bu6f13nus8um7" path="res://sprites/Characters/ohm-sheet.png" id="3_bg1y5"]
+[ext_resource type="Texture2D" uid="uid://bu6f13nus8um7" path="res://sprites/characters/ohm-sheet.png" id="3_bg1y5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x6f1g"]
 atlas = ExtResource("3_bg1y5")

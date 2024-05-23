@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://clfn0kmoxsc5s"
-path="res://.godot/imported/Blue Lightning Ball_C_spritesheet.png-38965cbdb7b4bca1f2ed9d02aef49f81.ctex"
+path="res://.godot/imported/Blue Lightning Ball_C_spritesheet.png-8d23965ed883af31d314bdee7a8f2628.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Symbols/vfx/Blue Lightning Ball_C_spritesheet.png"
-dest_files=["res://.godot/imported/Blue Lightning Ball_C_spritesheet.png-38965cbdb7b4bca1f2ed9d02aef49f81.ctex"]
+source_file="res://sprites/symbols/vfx/Blue Lightning Ball_C_spritesheet.png"
+dest_files=["res://.godot/imported/Blue Lightning Ball_C_spritesheet.png-8d23965ed883af31d314bdee7a8f2628.ctex"]
 
 [params]
 

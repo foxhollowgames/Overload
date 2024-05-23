@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c8t34m5ec5c7t"
-path="res://.godot/imported/Blue Lightning Strike v2_B_Impact_spritesheet.png-055e6487442a835601f54b1953545c65.ctex"
+path="res://.godot/imported/Blue Lightning Strike v2_B_Impact_spritesheet.png-14ee0b4c5440c51cd7725b94352779f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Symbols/vfx/Blue Lightning Strike v2_B_Impact_spritesheet.png"
-dest_files=["res://.godot/imported/Blue Lightning Strike v2_B_Impact_spritesheet.png-055e6487442a835601f54b1953545c65.ctex"]
+source_file="res://sprites/symbols/vfx/Blue Lightning Strike v2_B_Impact_spritesheet.png"
+dest_files=["res://.godot/imported/Blue Lightning Strike v2_B_Impact_spritesheet.png-14ee0b4c5440c51cd7725b94352779f7.ctex"]
 
 [params]
 

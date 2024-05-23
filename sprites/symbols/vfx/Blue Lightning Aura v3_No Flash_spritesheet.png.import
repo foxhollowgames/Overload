@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dm5vkw0s2728p"
-path="res://.godot/imported/Blue Lightning Aura v3_No Flash_spritesheet.png-8dff15c376d86b4778c4aa4211a700eb.ctex"
+path="res://.godot/imported/Blue Lightning Aura v3_No Flash_spritesheet.png-71c670607bf76c350eca35c98fa7e47b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Symbols/vfx/Blue Lightning Aura v3_No Flash_spritesheet.png"
-dest_files=["res://.godot/imported/Blue Lightning Aura v3_No Flash_spritesheet.png-8dff15c376d86b4778c4aa4211a700eb.ctex"]
+source_file="res://sprites/symbols/vfx/Blue Lightning Aura v3_No Flash_spritesheet.png"
+dest_files=["res://.godot/imported/Blue Lightning Aura v3_No Flash_spritesheet.png-71c670607bf76c350eca35c98fa7e47b.ctex"]
 
 [params]
 

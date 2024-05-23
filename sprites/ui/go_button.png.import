@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://uxi3knum3o8p"
-path="res://.godot/imported/Go button.png-abf3c2822609eae48fa2cdf4f2800e4b.ctex"
+path="res://.godot/imported/go_button.png-1be5981eab8754f7133bfb66943468ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/UI/Go button.png"
-dest_files=["res://.godot/imported/Go button.png-abf3c2822609eae48fa2cdf4f2800e4b.ctex"]
+source_file="res://sprites/ui/go_button.png"
+dest_files=["res://.godot/imported/go_button.png-1be5981eab8754f7133bfb66943468ba.ctex"]
 
 [params]
 

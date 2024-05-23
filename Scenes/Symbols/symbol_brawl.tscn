@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://me6ierptsfv2" path="res://scenes/symbols/symbol_parent.tscn" id="1_8k0k3"]
 [ext_resource type="Script" path="res://scenes/symbols/symbol_brawl.gd" id="2_dywm7"]
-[ext_resource type="Texture2D" uid="uid://dnne1wfk5o8cj" path="res://sprites/symbols/brawl.svg" id="3_ueg5l"]
+[ext_resource type="Texture2D" uid="uid://dnne1wfk5o8cj" path="res://sprites/symbols/Brawl.svg" id="3_ueg5l"]
 
 [node name="SymbolBrawl" instance=ExtResource("1_8k0k3")]
 script = ExtResource("2_dywm7")

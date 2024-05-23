@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b8tuqq1rr0kxd"]
 
 [ext_resource type="Script" path="res://scenes/symbols/bouncy_peg.gd" id="1_cap6a"]
-[ext_resource type="Texture2D" uid="uid://bsh2jl25josyf" path="res://sprites/symbols/magnet.svg" id="2_rvnpq"]
+[ext_resource type="Texture2D" uid="uid://bsh2jl25josyf" path="res://sprites/symbols/Magnet.svg" id="2_rvnpq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0o4p5"]
 bounce = 13.25

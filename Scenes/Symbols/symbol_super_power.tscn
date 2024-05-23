@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://me6ierptsfv2" path="res://scenes/symbols/symbol_parent.tscn" id="1_7chx0"]
 [ext_resource type="Script" path="res://scenes/symbols/symbol_super_power.gd" id="2_dmup1"]
-[ext_resource type="Texture2D" uid="uid://csdjxk6je0lmx" path="res://sprites/symbols/power.svg" id="3_t8r55"]
+[ext_resource type="Texture2D" uid="uid://csdjxk6je0lmx" path="res://sprites/symbols/Power.svg" id="3_t8r55"]
 
 [node name="symbol_super_power" instance=ExtResource("1_7chx0")]
 script = ExtResource("2_dmup1")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bhwmso830a1g1"]
 
-[ext_resource type="Texture2D" uid="uid://bsh2jl25josyf" path="res://sprites/symbols/magnet.svg" id="1_dyaiw"]
+[ext_resource type="Texture2D" uid="uid://bsh2jl25josyf" path="res://sprites/symbols/Magnet.svg" id="1_dyaiw"]
 [ext_resource type="Script" path="res://scenes/relics/relic_parent.gd" id="2_oesyb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_topc0"]
