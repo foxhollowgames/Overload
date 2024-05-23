@@ -7,8 +7,6 @@ var speed_demon = false
 var block_increase = 1
 var energize = 1
 
-@export var super_power_label : Label
-
 func _ready():
 	super()
 	signal_setup()
@@ -18,7 +16,7 @@ func _process(delta):
 	debug_commands()
 	
 	if PLAYER_INFO.hp <= 0:
-		get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
+		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 
 func _effect(power_name):
 	print(power_name.text)

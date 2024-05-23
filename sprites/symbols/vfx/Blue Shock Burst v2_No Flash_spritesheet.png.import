@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://8uw5oyhkxffg"
-path="res://.godot/imported/Blue Shock Burst v2_No Flash_spritesheet.png-c6e2c1b7cac140e98c5db923d167ae4d.ctex"
+path="res://.godot/imported/Blue Shock Burst v2_No Flash_spritesheet.png-4cf482dff2a65e775147c8f656b1ebbc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/symbols/vfx/Blue Shock Burst v2_No Flash_spritesheet.png"
-dest_files=["res://.godot/imported/Blue Shock Burst v2_No Flash_spritesheet.png-c6e2c1b7cac140e98c5db923d167ae4d.ctex"]
+source_file="res://sprites/Symbols/vfx/Blue Shock Burst v2_No Flash_spritesheet.png"
+dest_files=["res://.godot/imported/Blue Shock Burst v2_No Flash_spritesheet.png-4cf482dff2a65e775147c8f656b1ebbc.ctex"]
 
 [params]
 

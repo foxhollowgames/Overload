@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cngi2q2xbt52m"
-path="res://.godot/imported/Blue Lightning Strike Barrage v5_A_spritesheet.png-3124d366ab53ba06a087790329b89d9c.ctex"
+path="res://.godot/imported/Blue Lightning Strike Barrage v5_A_spritesheet.png-a32c77721fc19bf8442620d47a2782b2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/symbols/vfx/Blue Lightning Strike Barrage v5_A_spritesheet.png"
-dest_files=["res://.godot/imported/Blue Lightning Strike Barrage v5_A_spritesheet.png-3124d366ab53ba06a087790329b89d9c.ctex"]
+source_file="res://sprites/Symbols/vfx/Blue Lightning Strike Barrage v5_A_spritesheet.png"
+dest_files=["res://.godot/imported/Blue Lightning Strike Barrage v5_A_spritesheet.png-a32c77721fc19bf8442620d47a2782b2.ctex"]
 
 [params]
 

@@ -31,13 +31,6 @@ func _ready():
 	villain_hp_progress_bar.value = villain_info.hp
 	villain_block_label.text = str(villain_info.block)
 
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	#print("Flash.a: " + str(color_rect.color.a))
-	pass
-
 func screen_vfx(power_name):
 	animation_player.play("FullScreenFlash")
 	screen_shake = true;

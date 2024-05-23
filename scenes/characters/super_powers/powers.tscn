@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://iknl7oitt5ck"]
 
-[ext_resource type="PackedScene" uid="uid://7w26hdp67v7o" path="res://scenes/power_chain_lightning.tscn" id="1_7apve"]
-[ext_resource type="PackedScene" uid="uid://b8vrlp4v6d34e" path="res://scenes/power_static_shield.tscn" id="2_yk8w8"]
-[ext_resource type="PackedScene" uid="uid://bxwlhou7vq1rh" path="res://scenes/power_shock.tscn" id="3_hu2dt"]
-[ext_resource type="PackedScene" uid="uid://ssulfiwung2b" path="res://scenes/power_energize.tscn" id="4_rf55f"]
-[ext_resource type="PackedScene" uid="uid://0y7eb3miu478" path="res://scenes/power_block.tscn" id="5_rosv5"]
-[ext_resource type="PackedScene" uid="uid://bvw5trm5by4kj" path="res://scenes/power_brawl.tscn" id="6_i8ydi"]
+[ext_resource type="PackedScene" uid="uid://7w26hdp67v7o" path="res://scenes/characters/super_powers/power_chain_lightning.tscn" id="1_7apve"]
+[ext_resource type="PackedScene" uid="uid://b8vrlp4v6d34e" path="res://scenes/characters/super_powers/power_static_shield.tscn" id="2_yk8w8"]
+[ext_resource type="PackedScene" uid="uid://bxwlhou7vq1rh" path="res://scenes/characters/super_powers/power_shock.tscn" id="3_hu2dt"]
+[ext_resource type="PackedScene" uid="uid://ssulfiwung2b" path="res://scenes/characters/super_powers/power_energize.tscn" id="4_rf55f"]
+[ext_resource type="PackedScene" uid="uid://0y7eb3miu478" path="res://scenes/characters/super_powers/power_block.tscn" id="5_rosv5"]
+[ext_resource type="PackedScene" uid="uid://bvw5trm5by4kj" path="res://scenes/characters/super_powers/power_brawl.tscn" id="6_i8ydi"]
 
 [node name="Powers" type="Node2D"]
 

@@ -1,15 +1,15 @@
 [gd_scene load_steps=11 format=3 uid="uid://c613om832wxoa"]
 
-[ext_resource type="Script" path="res://scenes/symbols/fight.gd" id="1_kgg8t"]
-[ext_resource type="PackedScene" uid="uid://brrvyjhqs5aa" path="res://scenes/fight_ui.tscn" id="2_1swm4"]
-[ext_resource type="PackedScene" uid="uid://cj3dqw7vbhtvu" path="res://scenes/villain.tscn" id="3_1ihjc"]
-[ext_resource type="PackedScene" uid="uid://d26ven2j33kvd" path="res://scenes/player.tscn" id="4_hq5mo"]
-[ext_resource type="PackedScene" uid="uid://du1f6yickomfp" path="res://scenes/turn_start_ui.tscn" id="9_npqyu"]
+[ext_resource type="Script" path="res://scenes/symbols/symbol_parent.gd" id="1_kgg8t"]
+[ext_resource type="PackedScene" path="res://scenes/ui/fight_ui.tscn" id="2_1swm4"]
+[ext_resource type="PackedScene" uid="uid://dkuih8v60l230" path="res://scenes/characters/villain_parent.tscn" id="3_1ihjc"]
+[ext_resource type="PackedScene" uid="uid://dm886n4fygh66" path="res://scenes/characters/player.tscn" id="4_hq5mo"]
+[ext_resource type="PackedScene" uid="uid://du1f6yickomfp" path="res://scenes/ui/turn_start_ui.tscn" id="9_npqyu"]
 [ext_resource type="AudioStream" uid="uid://b88xfs4q105cd" path="res://audio/kf011004-calculated-moves.wav" id="16_cekmf"]
 [ext_resource type="AudioStream" uid="uid://dys0dge5oh7xb" path="res://audio/atmo-industrial-construction-site-vehicles-01.wav" id="17_wa8px"]
 [ext_resource type="AudioStream" uid="uid://8hy6asu6r3cx" path="res://audio/atmo-urban-small-construction-site-01.wav" id="18_c7nba"]
 [ext_resource type="AudioStream" uid="uid://b34qxrypwq4bc" path="res://audio/transition.wav" id="21_x2hhb"]
-[ext_resource type="Script" path="res://scenes/characters/actor_parent.gd" id="22_1bcvg"]
+[ext_resource type="Script" path="res://scripts/actor_parent.gd" id="22_1bcvg"]
 
 [node name="Fight" type="Node2D"]
 script = ExtResource("1_kgg8t")

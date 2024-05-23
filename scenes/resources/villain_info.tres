@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Actor_Resource" load_steps=3 format=3 uid="uid://d27jtug240fqw"]
 
 [ext_resource type="Script" path="res://scripts/actor_resource.gd" id="1_b7r13"]
-[ext_resource type="Texture2D" uid="uid://bu6f13nus8um7" path="res://sprites/characters/ohm-sheet.png" id="2_nur63"]
+[ext_resource type="Texture2D" uid="uid://bu6f13nus8um7" path="res://sprites/Characters/ohm-sheet.png" id="2_nur63"]
 
 [resource]
 script = ExtResource("1_b7r13")

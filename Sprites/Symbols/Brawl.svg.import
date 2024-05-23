@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dnne1wfk5o8cj"
-path="res://.godot/imported/brawl.svg-af725ae18e12d4e3eb48567e3e337c98.ctex"
+path="res://.godot/imported/Brawl.svg-e8b05afe6733ad67d2ae7fcc9f791c94.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/symbols/brawl.svg"
-dest_files=["res://.godot/imported/brawl.svg-af725ae18e12d4e3eb48567e3e337c98.ctex"]
+source_file="res://sprites/Symbols/Brawl.svg"
+dest_files=["res://.godot/imported/Brawl.svg-e8b05afe6733ad67d2ae7fcc9f791c94.ctex"]
 
 [params]
 

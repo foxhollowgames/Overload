@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://caq34gyr68k4v"
-path="res://.godot/imported/Blue Lightning Aura v8_C_Big Spark_spritesheet.png-f832f0be25f3e4e74b4d225f94d55724.ctex"
+path="res://.godot/imported/Blue Lightning Aura v8_C_Big Spark_spritesheet.png-a723eb38c99830868e720bbcc402cd06.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/symbols/vfx/Blue Lightning Aura v8_C_Big Spark_spritesheet.png"
-dest_files=["res://.godot/imported/Blue Lightning Aura v8_C_Big Spark_spritesheet.png-f832f0be25f3e4e74b4d225f94d55724.ctex"]
+source_file="res://sprites/Symbols/vfx/Blue Lightning Aura v8_C_Big Spark_spritesheet.png"
+dest_files=["res://.godot/imported/Blue Lightning Aura v8_C_Big Spark_spritesheet.png-a723eb38c99830868e720bbcc402cd06.ctex"]
 
 [params]
 

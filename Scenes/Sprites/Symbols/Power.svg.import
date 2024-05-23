@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://un85d4dtuech"
-path="res://.godot/imported/power.svg-a9a816feafed0086823dd830d10829d2.ctex"
+path="res://.godot/imported/Power.svg-6b9112de91a8306e2fe1c7e5623c8d2d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/sprites/symbols/power.svg"
-dest_files=["res://.godot/imported/power.svg-a9a816feafed0086823dd830d10829d2.ctex"]
+source_file="res://scenes/sprites/Symbols/Power.svg"
+dest_files=["res://.godot/imported/Power.svg-6b9112de91a8306e2fe1c7e5623c8d2d.ctex"]
 
 [params]
 
