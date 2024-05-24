@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://bvesjuxc23m46"]
+
+[ext_resource type="PackedScene" uid="uid://boxhnujlf2lc0" path="res://scenes/power_parent.tscn" id="1_tsrh3"]
+[ext_resource type="Script" path="res://scripts/Power_shock.gd" id="2_4fldv"]
+[ext_resource type="Texture2D" uid="uid://cu8kp8md3jqiu" path="res://sprites/symbols/brawl.svg" id="3_ojeau"]
+[ext_resource type="Texture2D" uid="uid://crxfpe2sqhblx" path="res://sprites/symbols/energy.svg" id="4_4amb4"]
+[ext_resource type="Texture2D" uid="uid://un85d4dtuech" path="res://sprites/symbols/power.svg" id="5_j1x0y"]
+
+[node name="Power_shock" instance=ExtResource("1_tsrh3")]
+script = ExtResource("2_4fldv")
+
+[node name="1" parent="." index="2"]
+texture = ExtResource("3_ojeau")
+
+[node name="2" parent="." index="3"]
+texture = ExtResource("3_ojeau")
+
+[node name="3" parent="." index="4"]
+texture = ExtResource("4_4amb4")
+
+[node name="4" parent="." index="5"]
+texture = ExtResource("4_4amb4")
+
+[node name="5" parent="." index="6"]
+texture = ExtResource("5_j1x0y")

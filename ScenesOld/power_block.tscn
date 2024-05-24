@@ -1,7 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://0y7eb3miu478"]
-
-[ext_resource type="PackedScene" uid="uid://4kvyxrhchcci" path="res://scenes/power_parent.tscn" id="1_7fuel"]
-[ext_resource type="Script" path="res://scripts/power_block.gd" id="2_woyr4"]
-
-[node name="Power_block" instance=ExtResource("1_7fuel")]
-script = ExtResource("2_woyr4")

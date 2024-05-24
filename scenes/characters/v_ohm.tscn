@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cg6o47lj7h4do"]
+
+[ext_resource type="Script" path="res://scenes/characters/v_ohm.gd" id="1_b30tn"]
+[ext_resource type="Texture2D" uid="uid://un85d4dtuech" path="res://sprites/symbols/power.svg" id="2_sa6nu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8hasa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_sa6nu")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="V_Ohm" type="Node2D"]
+script = ExtResource("1_b30tn")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8hasa")
+animation = &"Idle"

@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://dioor6tngoudo"]
+
+[ext_resource type="PackedScene" uid="uid://c4hp2chlqyd02" path="res://scenes/symbols/symbol_parent.tscn" id="1_ohydy"]
+[ext_resource type="Script" path="res://scenes/symbols/symbol_block.gd" id="2_t7p7e"]
+[ext_resource type="Shader" path="res://shaders/color_shift.gdshader" id="3_70x37"]
+[ext_resource type="Shader" path="res://shaders/color_white.gdshader" id="4_37j6g"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5rh47"]
+resource_local_to_scene = true
+shader = ExtResource("3_70x37")
+shader_parameter/mix_percent = 0.0
+shader_parameter/symbol_color = Color(0, 0.745098, 0.909804, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_776nf"]
+resource_local_to_scene = true
+shader = ExtResource("4_37j6g")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_percent = 0.0
+
+[node name="symbol_block" instance=ExtResource("1_ohydy")]
+script = ExtResource("2_t7p7e")
+block = 1.0
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_5rh47")
+
+[node name="Sprite2D" parent="." index="1"]
+material = SubResource("ShaderMaterial_776nf")
+scale = Vector2(0.06, 0.06)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_barricade"]

@@ -1,11 +1,11 @@
 extends Sprite2D
 
 # Symbol loading
-var SYMBOL_BRAWL = load("res://Scenes/Symbols/symbol_brawl.tscn")
-var SYMBOL_BLOCK = load("res://Scenes/Symbols/symbol_block.tscn")
-var SYMBOL_ENERGIZE = load("res://Scenes/Symbols/symbol_energize.tscn")
-var SYMBOL_SUPER_POWER = load("res://Scenes/Symbols/symbol_super_power.tscn")
-var SYMBOL_BOUNCY = load("res://Scenes/Symbols/bouncy_peg.tscn")
+var SYMBOL_BRAWL = load("res://scenes/symbols/symbol_brawl.tscn")
+var SYMBOL_BLOCK = load("res://scenes/symbols/symbol_block.tscn")
+var SYMBOL_ENERGIZE = load("res://scenes/symbols/symbol_energize.tscn")
+var SYMBOL_SUPER_POWER = load("res://scenes/symbols/symbol_super_power.tscn")
+var SYMBOL_BOUNCY = load("res://scenes/symbols/bouncy_peg.tscn")
 var current_symbol_type = 0
 var symbol_type_array = [SYMBOL_BRAWL, SYMBOL_BLOCK, SYMBOL_ENERGIZE, SYMBOL_SUPER_POWER]
 

@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://o3kd8f53vblb"]
+
+[ext_resource type="PackedScene" uid="uid://c4hp2chlqyd02" path="res://scenes/symbols/symbol_parent.tscn" id="1_xq5su"]
+[ext_resource type="Script" path="res://scenes/symbols/symbol_super_power.gd" id="2_dj2eh"]
+[ext_resource type="Shader" path="res://shaders/color_shift.gdshader" id="3_iy0gw"]
+[ext_resource type="Shader" path="res://shaders/color_white.gdshader" id="4_esdmy"]
+[ext_resource type="Texture2D" uid="uid://un85d4dtuech" path="res://sprites/symbols/power.svg" id="5_kwrpe"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dmmnj"]
+resource_local_to_scene = true
+shader = ExtResource("3_iy0gw")
+shader_parameter/mix_percent = 0.0
+shader_parameter/symbol_color = Color(0, 0.745098, 0.909804, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yoqw0"]
+resource_local_to_scene = true
+shader = ExtResource("4_esdmy")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_percent = 0.0
+
+[node name="symbol_super_power" instance=ExtResource("1_xq5su")]
+script = ExtResource("2_dj2eh")
+super_power = true
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_dmmnj")
+
+[node name="Sprite2D" parent="." index="1"]
+material = SubResource("ShaderMaterial_yoqw0")
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("5_kwrpe")

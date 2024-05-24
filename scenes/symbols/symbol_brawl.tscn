@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://cgkt8qmx5hvx"]
+
+[ext_resource type="PackedScene" uid="uid://c4hp2chlqyd02" path="res://scenes/symbols/symbol_parent.tscn" id="1_tt3co"]
+[ext_resource type="Script" path="res://scenes/symbols/symbol_brawl.gd" id="2_bg4f2"]
+[ext_resource type="Shader" path="res://shaders/color_shift.gdshader" id="3_mt1o6"]
+[ext_resource type="Shader" path="res://shaders/color_white.gdshader" id="4_sry62"]
+[ext_resource type="Texture2D" uid="uid://cu8kp8md3jqiu" path="res://sprites/symbols/brawl.svg" id="5_7j70w"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eyke4"]
+resource_local_to_scene = true
+shader = ExtResource("3_mt1o6")
+shader_parameter/mix_percent = 0.0
+shader_parameter/symbol_color = Color(0, 0.745098, 0.909804, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_plloa"]
+resource_local_to_scene = true
+shader = ExtResource("4_sry62")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_percent = 0.0
+
+[node name="SymbolBrawl" instance=ExtResource("1_tt3co")]
+script = ExtResource("2_bg4f2")
+damage = 1
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_eyke4")
+
+[node name="Sprite2D" parent="." index="1"]
+material = SubResource("ShaderMaterial_plloa")
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("5_7j70w")

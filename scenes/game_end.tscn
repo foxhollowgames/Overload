@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://bodqp4ol4qh0e"]
+
+[ext_resource type="Script" path="res://scripts/game_over.gd" id="1_lyob4"]
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource("1_lyob4")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 75.0
+offset_top = 72.0
+offset_right = 256.0
+offset_bottom = 120.0
+text = "Thank you for playing!!!"
+
+[node name="ReturnToMainMenu" type="Button" parent="."]
+offset_left = 124.0
+offset_top = 98.0
+offset_right = 220.0
+offset_bottom = 129.0
+text = "Main Menu"
+
+[connection signal="pressed" from="ReturnToMainMenu" to="." method="_return_to_main_menu"]

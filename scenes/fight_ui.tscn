@@ -1,15 +1,14 @@
-[gd_scene load_steps=19 format=3 uid="uid://brrvyjhqs5aa"]
+[gd_scene load_steps=29 format=3 uid="uid://brrvyjhqs5aa"]
 
-[ext_resource type="Texture2D" uid="uid://dpw11vwgj3tns" path="res://sprites/ui/Symbol_Background.png" id="1_43a5r"]
+[ext_resource type="Texture2D" uid="uid://1xh4bs40wlfa" path="res://sprites/ui/Symbol_Background.png" id="1_43a5r"]
 [ext_resource type="Script" path="res://scripts/fight_ui.gd" id="1_uu6ea"]
 [ext_resource type="Script" path="res://scripts/symbol_container.gd" id="2_0xu77"]
-[ext_resource type="Texture2D" uid="uid://by5vtaow2njqc" path="res://sprites/ui/Character_Stat_Background.png" id="2_vhg54"]
+[ext_resource type="Texture2D" uid="uid://cp6k7d021m3mw" path="res://sprites/ui/Character_Stat_Background.png" id="2_vhg54"]
 [ext_resource type="Texture2D" uid="uid://bsluopt61d5u4" path="res://sprites/city_evening.png" id="3_icxxx"]
 [ext_resource type="Script" path="res://scripts/timers.gd" id="3_qeqai"]
 [ext_resource type="Script" path="res://scripts/speed_demon_timer.gd" id="6_ghi6k"]
 [ext_resource type="Script" path="res://scripts/turn_timer.gd" id="7_gtq5o"]
-[ext_resource type="PackedScene" uid="uid://cj3dqw7vbhtvu" path="res://scenes/villain.tscn" id="9_c08je"]
-[ext_resource type="PackedScene" uid="uid://d26ven2j33kvd" path="res://scenes/player.tscn" id="10_nhhe8"]
+[ext_resource type="PackedScene" uid="uid://iknl7oitt5ck" path="res://scenes/powers.tscn" id="9_ttpp5"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_tw1ar"]
 
@@ -44,6 +43,21 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.105882), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_jpj13"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_rynxv"]
 length = 0.001
 tracks/0/type = "value"
@@ -71,21 +85,6 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_jpj13"]
-resource_name = "Idle"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.1),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p0nif"]
 _data = {
 "FullScreenFlash": SubResource("Animation_4tni4"),
@@ -99,8 +98,65 @@ bg_color = Color(0.45098, 0.376471, 0.0392157, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k8wat"]
 bg_color = Color(1, 0.803922, 0.160784, 1)
 
-[node name="FightUI" type="Node2D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0d0da"]
+bg_color = Color(0.321569, 0, 0.0862745, 1)
+shadow_color = Color(0, 0, 0, 0.14902)
+shadow_size = 1
+shadow_offset = Vector2(0, 0.1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kgruk"]
+bg_color = Color(0.701961, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rrxqy"]
+font_size = 7
+shadow_color = Color(0, 0, 0, 0.376471)
+shadow_offset = Vector2(0.3, 0.3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_21w31"]
+font_size = 7
+shadow_color = Color(0, 0, 0, 0.376471)
+shadow_offset = Vector2(0.3, 0.3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7yrr8"]
+font_size = 7
+shadow_color = Color(0, 0, 0, 0.376471)
+shadow_offset = Vector2(0.3, 0.3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eiu0l"]
+bg_color = Color(0.321569, 0, 0.0862745, 1)
+shadow_color = Color(0, 0, 0, 0.14902)
+shadow_size = 1
+shadow_offset = Vector2(0, 0.1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bdkt8"]
+bg_color = Color(0.701961, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tby78"]
+font_size = 7
+shadow_color = Color(0, 0, 0, 0.376471)
+shadow_offset = Vector2(0.3, 0.3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_43ixm"]
+font_size = 6
+
+[sub_resource type="LabelSettings" id="LabelSettings_8j8tt"]
+shadow_color = Color(0, 0, 0, 0.376471)
+shadow_offset = Vector2(0.3, 0.3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fbxy0"]
+font_size = 11
+shadow_color = Color(0, 0, 0, 0.376471)
+shadow_offset = Vector2(0.3, 0.3)
+
+[node name="FightUI" type="Node2D" node_paths=PackedStringArray("player_hp_label", "player_hp_progress_bar", "player_block_label", "energy", "villain_hp_label", "villain_hp_progress_bar", "villain_block_label")]
 script = ExtResource("1_uu6ea")
+player_hp_label = NodePath("PlayerHealthBlock/ProgressBar/HpPlayerLabel")
+player_hp_progress_bar = NodePath("PlayerHealthBlock/ProgressBar")
+player_block_label = NodePath("PlayerHealthBlock/BlockPanelPlayer/BlockPlayerLabel")
+energy = NodePath("Energy/Label")
+villain_hp_label = NodePath("VillainHealthBlock/ProgressBar/HpVillainLabel")
+villain_hp_progress_bar = NodePath("VillainHealthBlock/ProgressBar")
+villain_block_label = NodePath("VillainHealthBlock/BlockPanelVillain/BlockVillainLabel")
 
 [node name="SymbolBorders" type="StaticBody2D" parent="."]
 position = Vector2(-31, 21)
@@ -118,8 +174,8 @@ shape = SubResource("SegmentShape2D_8u83p")
 
 [node name="SymbolContainer" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0.458824)
-position = Vector2(172.046, 106.557)
-scale = Vector2(1.42977, 0.922595)
+position = Vector2(169.995, 102.057)
+scale = Vector2(0.99628, 0.977541)
 skew = -0.427606
 texture = ExtResource("1_43a5r")
 script = ExtResource("2_0xu77")
@@ -147,7 +203,6 @@ scale = Vector2(1.00877, 1)
 texture = ExtResource("2_vhg54")
 
 [node name="CharacterGraphicBackgroundVillain" type="Sprite2D" parent="."]
-visible = false
 z_index = -1
 position = Vector2(291.204, 32.9923)
 rotation = 3.14159
@@ -155,7 +210,6 @@ scale = Vector2(1.2434, -1.34227)
 texture = ExtResource("3_icxxx")
 
 [node name="CharacterGraphicBackground" type="Sprite2D" parent="."]
-visible = false
 z_index = -1
 position = Vector2(29, 30.9938)
 scale = Vector2(1.26581, 1.31303)
@@ -195,6 +249,12 @@ autoplay = "Idle"
 position = Vector2(160, 90)
 position_smoothing_enabled = true
 
+[node name="UIBackground" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(7.99948, 0.56525)
+color = Color(0, 0.09, 0.0885, 1)
+
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -2
 offset_right = 40.0
@@ -203,11 +263,14 @@ scale = Vector2(7.97895, 4.51807)
 color = Color(0, 0, 0, 0.635294)
 
 [node name="TimerBar" type="ProgressBar" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = 110.0
-offset_top = -1.0
-offset_right = 159.0
-offset_bottom = 59.0
-scale = Vector2(1.66872, 0.092991)
+offset_right = 189.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_vgycg")
 theme_override_styles/fill = SubResource("StyleBoxFlat_k8wat")
 value = 100.0
@@ -223,8 +286,212 @@ scale = Vector2(0.921014, 4.58366)
 theme_override_font_sizes/font_size = 10
 horizontal_alignment = 1
 
-[node name="VillainNodes" parent="." instance=ExtResource("9_c08je")]
+[node name="Powers" parent="." instance=ExtResource("9_ttpp5")]
+position = Vector2(-14, -149)
 
-[node name="PlayerSide" parent="." instance=ExtResource("10_nhhe8")]
+[node name="PlayerHealthBlock" type="HBoxContainer" parent="."]
+layout_direction = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 66.0
+offset_right = 110.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+alignment = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="PlayerHealthBlock"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 4.0
+theme_override_font_sizes/font_size = 10
+theme_override_styles/background = SubResource("StyleBoxFlat_0d0da")
+theme_override_styles/fill = SubResource("StyleBoxFlat_kgruk")
+max_value = 10.0
+step = 1.0
+value = 10.0
+show_percentage = false
+
+[node name="HpPlayerLabel" type="Label" parent="PlayerHealthBlock/ProgressBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "10"
+label_settings = SubResource("LabelSettings_rrxqy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BlockPanelPlayer" type="Panel" parent="PlayerHealthBlock"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorRect" type="ColorRect" parent="PlayerHealthBlock/BlockPanelPlayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.262745, 0.52549, 0.94902, 1)
+
+[node name="BlockPlayerLabel" type="Label" parent="PlayerHealthBlock/BlockPanelPlayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+label_settings = SubResource("LabelSettings_21w31")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerLabel" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.035
+anchor_top = 0.362
+anchor_right = 0.035
+anchor_bottom = 0.362
+offset_left = -6.2
+offset_top = 143.84
+offset_right = 51.8
+offset_bottom = 166.84
+theme_override_font_sizes/font_size = 8
+text = "Overload"
+horizontal_alignment = 1
+
+[node name="VillainHealthBlock" type="HBoxContainer" parent="."]
+layout_direction = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 189.0
+offset_right = 233.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+alignment = 2
+
+[node name="BlockPanelVillain" type="Panel" parent="VillainHealthBlock"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorRect" type="ColorRect" parent="VillainHealthBlock/BlockPanelVillain"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.262745, 0.52549, 0.94902, 1)
+
+[node name="BlockVillainLabel" type="Label" parent="VillainHealthBlock/BlockPanelVillain"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+label_settings = SubResource("LabelSettings_7yrr8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="VillainHealthBlock"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 4.0
+theme_override_font_sizes/font_size = 10
+theme_override_styles/background = SubResource("StyleBoxFlat_eiu0l")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bdkt8")
+max_value = 50.0
+step = 0.1
+value = 50.0
+fill_mode = 1
+show_percentage = false
+
+[node name="HpVillainLabel" type="Label" parent="VillainHealthBlock/ProgressBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "10"
+label_settings = SubResource("LabelSettings_tby78")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VillainLabel" type="Label" parent="."]
+visible = false
+offset_left = 270.0
+offset_top = 80.0
+offset_right = 320.0
+offset_bottom = 103.0
+theme_override_font_sizes/font_size = 8
+text = "OVERLOAD"
+horizontal_alignment = 1
+
+[node name="VillainNameBottomBorder" type="ColorRect" parent="."]
+visible = false
+offset_left = 289.0
+offset_top = 92.0
+offset_right = 304.0
+offset_bottom = 93.0
+
+[node name="IntentionLabel" type="Label" parent="."]
+offset_left = 126.0
+offset_top = -3.0
+offset_right = 175.0
+offset_bottom = 37.0
+theme_override_font_sizes/font_size = 5
+text = "Board disruption"
+label_settings = SubResource("LabelSettings_43ixm")
+horizontal_alignment = 1
+
+[node name="Value" type="Label" parent="IntentionLabel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 1.0
+offset_bottom = 84.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 12
+label_settings = SubResource("LabelSettings_8j8tt")
+horizontal_alignment = 1
+
+[node name="Energy" type="ColorRect" parent="."]
+offset_left = 132.0
+offset_top = 20.0
+offset_right = 146.0
+offset_bottom = 34.0
+color = Color(0, 0.646964, 0.646964, 1)
+
+[node name="Label" type="Label" parent="Energy"]
+layout_mode = 0
+offset_right = 14.0
+offset_bottom = 16.0
+text = "0"
+label_settings = SubResource("LabelSettings_fbxy0")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="timeout" from="Timers/TurnTimer" to="Timers/TurnTimer" method="_turn_end"]

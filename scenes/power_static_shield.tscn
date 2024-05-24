@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://6myhq3bddrng"]
+
+[ext_resource type="PackedScene" uid="uid://boxhnujlf2lc0" path="res://scenes/power_parent.tscn" id="1_1ovas"]
+[ext_resource type="Script" path="res://scripts/power_static_shield.gd" id="2_xthe3"]
+[ext_resource type="Texture2D" uid="uid://3douki6prjh" path="res://sprites/symbols/block.svg" id="3_fy1af"]
+[ext_resource type="Texture2D" uid="uid://crxfpe2sqhblx" path="res://sprites/symbols/energy.svg" id="4_tctsr"]
+[ext_resource type="Texture2D" uid="uid://un85d4dtuech" path="res://sprites/symbols/power.svg" id="5_lhcdx"]
+
+[node name="Power_static_shield" instance=ExtResource("1_1ovas")]
+script = ExtResource("2_xthe3")
+
+[node name="3" parent="." index="4"]
+texture = ExtResource("3_fy1af")
+
+[node name="4" parent="." index="5"]
+texture = ExtResource("4_tctsr")
+
+[node name="5" parent="." index="6"]
+texture = ExtResource("4_tctsr")
+
+[node name="6" parent="." index="7"]
+texture = ExtResource("5_lhcdx")

@@ -5,15 +5,31 @@ extends Node
 @onready var camera_2d = $Camera2D
 var screen_shake = false
 
+const PLAYER_INFO = preload("res://resources/player_info.tres")
+const VILLAIN_INFO = preload("res://resources/VILLAIN_INFO.tres")
+
+@export var player_hp_label : Label
+@export var player_hp_progress_bar : ProgressBar
+@export var player_block_label : Label
+@export var energy : Label
+
+@export var villain_hp_label : Label
+@export var villain_hp_progress_bar : ProgressBar
+@export var villain_block_label : Label
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	signal_setup()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	#print("Flash.a: " + str(color_rect.color.a))
-	pass
+	player_hp_label.text = str(PLAYER_INFO.hp)
+	player_hp_progress_bar.max_value = PLAYER_INFO.hp_max
+	player_hp_progress_bar.value = PLAYER_INFO.hp
+	player_block_label.text = str(PLAYER_INFO.block)
+	energy.text = str(PLAYER_INFO.energy)
+	
+	villain_hp_label.text = str(VILLAIN_INFO.hp)
+	villain_hp_progress_bar.max_value = VILLAIN_INFO.hp_max
+	villain_hp_progress_bar.value = VILLAIN_INFO.hp
+	villain_block_label.text = str(VILLAIN_INFO.block)
 
 func screen_vfx(power_name):
 	animation_player.play("FullScreenFlash")

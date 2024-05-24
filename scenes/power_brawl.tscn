@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://btbiti6lm6jo3"]
+
+[ext_resource type="PackedScene" uid="uid://boxhnujlf2lc0" path="res://scenes/power_parent.tscn" id="1_3tfoq"]
+[ext_resource type="Script" path="res://scripts/power_brawl.gd" id="2_h2iwi"]
+[ext_resource type="Texture2D" uid="uid://cu8kp8md3jqiu" path="res://sprites/symbols/brawl.svg" id="3_84tcb"]
+[ext_resource type="Texture2D" uid="uid://3douki6prjh" path="res://sprites/symbols/block.svg" id="4_rdxx4"]
+
+[node name="power_brawl" instance=ExtResource("1_3tfoq")]
+script = ExtResource("2_h2iwi")
+
+[node name="1" parent="." index="2"]
+texture = ExtResource("3_84tcb")
+
+[node name="2" parent="." index="3"]
+texture = ExtResource("3_84tcb")
+
+[node name="3" parent="." index="4"]
+texture = ExtResource("4_rdxx4")

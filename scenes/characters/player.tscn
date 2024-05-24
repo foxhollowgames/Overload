@@ -1,33 +1,33 @@
-[gd_scene load_steps=14 format=3 uid="uid://d26ven2j33kvd"]
+[gd_scene load_steps=14 format=3 uid="uid://dm886n4fygh66"]
 
-[ext_resource type="Texture2D" uid="uid://c7hy1syvsnd7x" path="res://sprites/characters/Overload-Sheet.png" id="1_bnx2c"]
+[ext_resource type="Texture2D" uid="uid://c7hy1syvsnd7x" path="res://sprites/characters/Overload-Sheet.png" id="2_ftae6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d6dyb"]
-atlas = ExtResource("1_bnx2c")
+atlas = ExtResource("2_ftae6")
 region = Rect2(0, 0, 138, 209)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7mkta"]
-atlas = ExtResource("1_bnx2c")
+atlas = ExtResource("2_ftae6")
 region = Rect2(138, 0, 138, 209)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7wjyv"]
-atlas = ExtResource("1_bnx2c")
+atlas = ExtResource("2_ftae6")
 region = Rect2(276, 0, 138, 209)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jwqhd"]
-atlas = ExtResource("1_bnx2c")
+atlas = ExtResource("2_ftae6")
 region = Rect2(414, 0, 138, 209)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jy3ct"]
-atlas = ExtResource("1_bnx2c")
+atlas = ExtResource("2_ftae6")
 region = Rect2(552, 0, 138, 209)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wqtpm"]
-atlas = ExtResource("1_bnx2c")
+atlas = ExtResource("2_ftae6")
 region = Rect2(690, 0, 138, 209)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4tate"]
-atlas = ExtResource("1_bnx2c")
+atlas = ExtResource("2_ftae6")
 region = Rect2(828, 0, 138, 209)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_npvgw"]

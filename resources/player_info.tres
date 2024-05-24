@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ActorResource" load_steps=3 format=3 uid="uid://3dtwje16gk41"]
+
+[ext_resource type="Script" path="res://scripts/actor_data.gd" id="1_qr37p"]
+[ext_resource type="Texture2D" uid="uid://c7hy1syvsnd7x" path="res://sprites/characters/Overload-Sheet.png" id="2_2ngjb"]
+
+[resource]
+script = ExtResource("1_qr37p")
+name = "Overload"
+sprite = ExtResource("2_2ngjb")
+hp_max = 10
+hp = 10

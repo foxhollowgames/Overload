@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://dnpeol8cuq64b"]
+
+[ext_resource type="PackedScene" uid="uid://c4hp2chlqyd02" path="res://scenes/symbols/symbol_parent.tscn" id="1_tdl3l"]
+[ext_resource type="Shader" path="res://shaders/color_shift.gdshader" id="2_op68q"]
+[ext_resource type="Shader" path="res://shaders/color_white.gdshader" id="3_2sbwp"]
+[ext_resource type="Texture2D" uid="uid://i3ub3k3yy3mt" path="res://sprites/symbols/magnet.svg" id="4_3rfc3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ojuqj"]
+resource_local_to_scene = true
+shader = ExtResource("2_op68q")
+shader_parameter/mix_percent = 0.0
+shader_parameter/symbol_color = Color(0, 0.745098, 0.909804, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ya2m1"]
+resource_local_to_scene = true
+shader = ExtResource("3_2sbwp")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_percent = 0.0
+
+[node name="symbol_magnet" instance=ExtResource("1_tdl3l")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_ojuqj")
+
+[node name="Sprite2D" parent="." index="1"]
+material = SubResource("ShaderMaterial_ya2m1")
+texture = ExtResource("4_3rfc3")

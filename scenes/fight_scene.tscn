@@ -1,0 +1,85 @@
+[gd_scene load_steps=11 format=3 uid="uid://4in1oc305qmn"]
+
+[ext_resource type="Script" path="res://scenes/symbols/fight.gd" id="1_n037f"]
+[ext_resource type="PackedScene" uid="uid://du1f6yickomfp" path="res://scenes/turn_start_ui.tscn" id="2_v6t7d"]
+[ext_resource type="AudioStream" uid="uid://b88xfs4q105cd" path="res://audio/kf011004-calculated-moves.wav" id="3_2lp1u"]
+[ext_resource type="AudioStream" uid="uid://dys0dge5oh7xb" path="res://audio/atmo-industrial-construction-site-vehicles-01.wav" id="4_qr1pu"]
+[ext_resource type="AudioStream" uid="uid://8hy6asu6r3cx" path="res://audio/atmo-urban-small-construction-site-01.wav" id="5_ssj6e"]
+[ext_resource type="AudioStream" uid="uid://b34qxrypwq4bc" path="res://audio/transition.wav" id="6_jow7a"]
+[ext_resource type="Script" path="res://scenes/characters/actor_parent.gd" id="7_ltsfb"]
+[ext_resource type="PackedScene" uid="uid://brrvyjhqs5aa" path="res://scenes/fight_ui.tscn" id="8_gvq1q"]
+[ext_resource type="PackedScene" uid="uid://dm886n4fygh66" path="res://scenes/characters/player.tscn" id="9_fr5ka"]
+[ext_resource type="PackedScene" uid="uid://dkuih8v60l230" path="res://scenes/characters/villain_parent.tscn" id="10_eck5y"]
+
+[node name="Fight" type="Node2D"]
+script = ExtResource("1_n037f")
+
+[node name="TurnStartUI" parent="." instance=ExtResource("2_v6t7d")]
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="BgMusic" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("3_2lp1u")
+volume_db = -13.72
+autoplay = true
+
+[node name="BgNoise" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("4_qr1pu")
+volume_db = -24.92
+autoplay = true
+
+[node name="BgNoise2" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("5_ssj6e")
+volume_db = -18.52
+autoplay = true
+
+[node name="RelicTransition" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("6_jow7a")
+volume_db = -15.2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ActorParent" type="Node2D" parent="."]
+visible = false
+position = Vector2(40, 201)
+script = ExtResource("7_ltsfb")
+
+[node name="ActorHP" type="Label" parent="ActorParent"]
+visible = false
+offset_left = -16.0
+offset_top = -4.0
+offset_right = 24.0
+offset_bottom = 19.0
+
+[node name="ActorBlock" type="Label" parent="ActorParent"]
+visible = false
+offset_left = -16.0
+offset_top = -4.0
+offset_right = 24.0
+offset_bottom = 19.0
+
+[node name="ActorEnergy" type="ProgressBar" parent="ActorParent"]
+visible = false
+offset_left = -2.0
+offset_top = 36.0
+offset_right = 2.0
+offset_bottom = 63.0
+
+[node name="FightUI" parent="." instance=ExtResource("8_gvq1q")]
+unique_name_in_owner = true
+z_index = 2
+
+[node name="Player" parent="." instance=ExtResource("9_fr5ka")]
+z_index = 1
+position = Vector2(50, 117)
+scale = Vector2(0.569435, 0.569435)
+
+[node name="VillainParent" parent="." instance=ExtResource("10_eck5y")]
+z_index = 1
+position = Vector2(273, 115)
+scale = Vector2(-0.569, 0.569)
+
+[connection signal="timeout" from="FightUI/SymbolContainer/SymbolTimers/SpawnTimer" to="FightUI/SymbolContainer" method="_spawn"]
+
+[editable path="TurnStartUI"]
+[editable path="FightUI"]
