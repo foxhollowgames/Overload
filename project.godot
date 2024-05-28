@@ -16,8 +16,8 @@ config/features=PackedStringArray("4.2", "Forward Plus")
 
 [autoload]
 
-SignalBus="*res://signal_bus.gd"
-Global="*res://global.gd"
+SignalBus="*res://scripts/signal_bus.gd"
+Global="*res://scripts/global.gd"
 
 [display]
 

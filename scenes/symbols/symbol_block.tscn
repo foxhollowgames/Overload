@@ -26,6 +26,5 @@ material = SubResource("ShaderMaterial_5rh47")
 
 [node name="Sprite2D" parent="." index="1"]
 material = SubResource("ShaderMaterial_776nf")
-scale = Vector2(0.06, 0.06)
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_barricade"]

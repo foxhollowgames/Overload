@@ -517,18 +517,21 @@ autoplay = "idle"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_rxdb3")
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("8_hquw2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.907036, 0.907036)
 shape = SubResource("CircleShape2D_3v31g")
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
+scale = Vector2(0.284864, 0.284864)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_yql04")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(0.787843, 0.787843)
 
 [node name="ClickSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_edex0")

@@ -163,8 +163,8 @@ position = Vector2(-31, 21)
 skew = -0.427606
 
 [node name="LeftBorder" type="CollisionShape2D" parent="SymbolBorders"]
-position = Vector2(56.8619, -40.6611)
-scale = Vector2(1, 26)
+position = Vector2(56.6482, -95.6085)
+scale = Vector2(1, 44.6)
 shape = SubResource("SegmentShape2D_tw1ar")
 
 [node name="RightBorder" type="CollisionShape2D" parent="SymbolBorders"]
@@ -253,6 +253,7 @@ position_smoothing_enabled = true
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(7.99948, 0.56525)
+mouse_filter = 2
 color = Color(0, 0.09, 0.0885, 1)
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -260,6 +261,7 @@ z_index = -2
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(7.97895, 4.51807)
+mouse_filter = 2
 color = Color(0, 0, 0, 0.635294)
 
 [node name="TimerBar" type="ProgressBar" parent="."]
@@ -277,7 +279,6 @@ value = 100.0
 show_percentage = false
 
 [node name="TimerLabel" type="Label" parent="TimerBar"]
-visible = false
 layout_mode = 0
 offset_left = 1.0
 offset_right = 49.0
@@ -441,7 +442,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VillainLabel" type="Label" parent="."]
-visible = false
 offset_left = 270.0
 offset_top = 80.0
 offset_right = 320.0
@@ -451,7 +451,6 @@ text = "OVERLOAD"
 horizontal_alignment = 1
 
 [node name="VillainNameBottomBorder" type="ColorRect" parent="."]
-visible = false
 offset_left = 289.0
 offset_top = 92.0
 offset_right = 304.0

@@ -11,7 +11,7 @@
 
 [node name="PowerChainLightning" parent="." instance=ExtResource("1_7apve")]
 position = Vector2(248, 164)
-scale = Vector2(0.75, 0.75)
+scale = Vector2(0.75, 0.774081)
 
 [node name="PowerStaticShield" parent="." instance=ExtResource("2_yk8w8")]
 position = Vector2(217, 164)

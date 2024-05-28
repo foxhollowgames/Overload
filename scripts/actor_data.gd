@@ -7,3 +7,14 @@ class_name ActorResource
 @export var hp = hp_max
 @export var block = 1
 @export var energy = 0
+
+func gain_block(block_increase):
+	block += block_increase
+
+func take_damage(attack):
+	if block > 0:
+		while block > 0 and attack > 0:
+			block -= 1
+			attack -= 1
+	
+	hp -= attack

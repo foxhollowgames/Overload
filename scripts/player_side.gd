@@ -1,13 +1,6 @@
 extends Node
 
-# Powers
-@onready var power_chain_lightning = $Powers/PowerChainLightning
-@onready var power_static_shield = $Powers/PowerStaticShield
-@onready var power_shock = $Powers/PowerShock
-@onready var power_energize = $Powers/PowerEnergize
-@onready var power_block = $Powers/PowerBlock
-@onready var power_brawl = $Powers/PowerBrawl
-@onready var power_array = [power_chain_lightning, power_static_shield, power_shock, power_energize, power_block, power_brawl]
+
 
 # Depracated super power variables
 var ball_lightning_charges = 0
@@ -38,17 +31,6 @@ func _speed_demon_enabled():
 func _speed_demon_disable():
 	speed_demon = false
 
-# Check if there is ANY power active, and if not, clear the state
-func _is_power_active(power_name):
-	var is_active = false
-	
-	for _i in power_array.size():
-		if power_array[_i].active:
-			is_active = true
-	
-	if not is_active:
-		SignalBus.clear_combo.emit(power_name)
-
 #func relic_setup():
 	#for _i in range (Global.relics_acquired.size()):
 		#match Global.relics_acquired[_i]:
@@ -76,7 +58,7 @@ func _ball_lightning_check(power_name):
 func signal_setup():
 	#SignalBus.chain_lightning_enabled.connect(_set_chain_lightning_charges)
 	#SignalBus.clicked.connect(_ball_lightning_check)
-	SignalBus.clicked.connect(_is_power_active)
+
 	SignalBus.barricade.connect(_barricade_enabled)
 	SignalBus.thorns.connect(_thorns_enabled)
 	SignalBus.speed_demon.connect(_speed_demon_enabled)

@@ -1,6 +1,6 @@
 extends Node
 
-signal clicked(power_name)
+signal clicked(symbol_type)
 signal power(_power_name)
 signal power_end()
 signal clear_combo()

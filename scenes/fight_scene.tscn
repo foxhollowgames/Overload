@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://4in1oc305qmn"]
+[gd_scene load_steps=12 format=3 uid="uid://4in1oc305qmn"]
 
 [ext_resource type="Script" path="res://scenes/symbols/fight.gd" id="1_n037f"]
 [ext_resource type="PackedScene" uid="uid://du1f6yickomfp" path="res://scenes/turn_start_ui.tscn" id="2_v6t7d"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://brrvyjhqs5aa" path="res://scenes/fight_ui.tscn" id="8_gvq1q"]
 [ext_resource type="PackedScene" uid="uid://dm886n4fygh66" path="res://scenes/characters/player.tscn" id="9_fr5ka"]
 [ext_resource type="PackedScene" uid="uid://dkuih8v60l230" path="res://scenes/characters/villain_parent.tscn" id="10_eck5y"]
+[ext_resource type="PackedScene" uid="uid://d5l6xit8uqvv" path="res://scenes/symbols/bouncy_peg.tscn" id="11_7cg2t"]
 
 [node name="Fight" type="Node2D"]
 script = ExtResource("1_n037f")
@@ -78,6 +79,11 @@ scale = Vector2(0.569435, 0.569435)
 z_index = 1
 position = Vector2(273, 115)
 scale = Vector2(-0.569, 0.569)
+script = null
+
+[node name="Bouncy Peg" parent="." instance=ExtResource("11_7cg2t")]
+z_index = 1
+position = Vector2(155, 125)
 
 [connection signal="timeout" from="FightUI/SymbolContainer/SymbolTimers/SpawnTimer" to="FightUI/SymbolContainer" method="_spawn"]
 

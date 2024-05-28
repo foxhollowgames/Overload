@@ -18,7 +18,7 @@ func _process(delta):
 	if PLAYER_INFO.hp <= 0:
 		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 
-func _effect(power_name):
+func effect(power_name):
 	print(power_name.text)
 	match power_name.text:
 		"Brawl": 
@@ -29,7 +29,7 @@ func _effect(power_name):
 		"Energize":
 			_energize(energize)
 		"Chain Lightning":
-			_super_power()
+			super_power()
 		"Shock":
 			VILLAIN_INFO.take_damage(1)
 			_energize(energize)
@@ -43,7 +43,7 @@ func _effect(power_name):
 func _energize(energize):
 	PLAYER_INFO.energy += energize
 
-func _super_power():
+func super_power():
 	if PLAYER_INFO.energy >= super_power_cost:
 		PLAYER_INFO.energy -= super_power_cost
 		#SignalBus.chain_lightning_enabled.emit()
@@ -55,7 +55,7 @@ func _super_power():
 
 func signal_setup():
 	SignalBus.player_damage.connect(PLAYER_INFO.take_damage)
-	SignalBus.power.connect(_effect)
+	SignalBus.power.connect(effect)
 
 func debug_commands():
 	if Input.is_action_just_pressed("debug_energize_full"):

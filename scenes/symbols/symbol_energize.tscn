@@ -27,5 +27,4 @@ material = SubResource("ShaderMaterial_hfhm6")
 
 [node name="Sprite2D" parent="." index="1"]
 material = SubResource("ShaderMaterial_geayx")
-scale = Vector2(0.06, 0.06)
 texture = ExtResource("5_e6x8h")

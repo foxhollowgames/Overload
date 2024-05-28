@@ -26,27 +26,27 @@ horizontal_alignment = 1
 
 [node name="1" type="Sprite2D" parent="."]
 position = Vector2(-17, 4)
-scale = Vector2(0.370911, 0.370911)
+scale = Vector2(0.07, 0.07)
 texture = ExtResource("2_01grx")
 
 [node name="2" type="Sprite2D" parent="."]
 position = Vector2(-11, 4)
-scale = Vector2(0.371, 0.371)
+scale = Vector2(0.07, 0.07)
 texture = ExtResource("2_01grx")
 
 [node name="3" type="Sprite2D" parent="."]
 position = Vector2(-5, 4)
-scale = Vector2(0.371, 0.371)
+scale = Vector2(0.07, 0.07)
 texture = ExtResource("3_ybrb3")
 
 [node name="4" type="Sprite2D" parent="."]
 position = Vector2(1, 4)
-scale = Vector2(0.371, 0.371)
+scale = Vector2(0.07, 0.07)
 
 [node name="5" type="Sprite2D" parent="."]
 position = Vector2(7, 4)
-scale = Vector2(0.371, 0.371)
+scale = Vector2(0.07, 0.07)
 
 [node name="6" type="Sprite2D" parent="."]
 position = Vector2(13, 4)
-scale = Vector2(0.371, 0.371)
+scale = Vector2(0.07, 0.07)
