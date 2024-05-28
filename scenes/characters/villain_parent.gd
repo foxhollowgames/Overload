@@ -35,7 +35,7 @@ func _villain_turn():
 			VILLAIN_INFO.gain_block(4)
 		"Board Interference":
 			_board_interference()
-	
+	SignalBus.power.emit()
 	squish_squash()
 	intention_value = ''
 	_r_intention()

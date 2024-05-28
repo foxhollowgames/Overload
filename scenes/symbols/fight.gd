@@ -23,4 +23,3 @@ func villain_defeated():
 func signal_setup():
 	SignalBus.villain_turn_end.connect(_turn_ini)
 	SignalBus.villain_defeated.connect(villain_defeated)
-
