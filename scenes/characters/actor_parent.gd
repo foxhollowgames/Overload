@@ -8,9 +8,10 @@ class_name actor
 const PLAYER_INFO = preload("res://resources/player_info.tres")
 const VILLAIN_INFO = preload("res://resources/villain_info.tres")
 
-# Called when the node enters the scene tree for the first time.
+## Called when the node enters the scene tree for the first time.
 func _ready():
-	signal_setup_actor()
+	#signal_setup_actor()
+	pass
 
 #func _effect(power_name):
 	#pass

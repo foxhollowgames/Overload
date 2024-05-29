@@ -8,11 +8,10 @@ var block_increase = 1
 var energize = 1
 
 func _ready():
-	super()
 	signal_setup()
 	$AnimatedSprite2D.play()
 
-func _process(delta):
+func _process(_delta):
 	debug_commands()
 	
 	if PLAYER_INFO.hp <= 0:
@@ -40,8 +39,8 @@ func effect(power_name):
 	SignalBus.power_end.emit()
 	squish_squash()
 
-func _energize(energize):
-	PLAYER_INFO.energy += energize
+func _energize(energy):
+	PLAYER_INFO.energy += energy
 
 func super_power():
 	if PLAYER_INFO.energy >= super_power_cost:

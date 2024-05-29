@@ -16,6 +16,8 @@ const VILLAIN_INFO = preload("res://resources/villain_info.tres")
 @export var villain_hp_label : Label
 @export var villain_hp_progress_bar : ProgressBar
 @export var villain_block_label : Label
+@export var intention_value_label : Label
+@export var intention_label : Label
 
 # Powers
 # TODO: Make dynamically loaded through a resource or smthng
@@ -32,11 +34,10 @@ func _ready():
 	signal_setup()
 	update_ui()
 	
-func _process(delta):
-	print(VILLAIN_INFO.hp)
-	print(VILLAIN_INFO.block)
+func _process(_delta):
+	pass
 
-func screen_vfx(power_name):
+func screen_vfx(_power_name):
 	# TODO: Adjust this to be dynamic to the type of effect happening (IE: More damage = screenshake, healing = green flash instead of white, etc)
 	animation_player.play("FullScreenFlash")
 	screen_shake = true;
@@ -58,6 +59,20 @@ func update_ui():
 	villain_hp_progress_bar.max_value = VILLAIN_INFO.hp_max
 	villain_hp_progress_bar.value = VILLAIN_INFO.hp
 	villain_block_label.text = str(VILLAIN_INFO.block)
+	match VILLAIN_INFO.intention:
+		"attack":
+			#TODO: Add ICONS
+			intention_value_label.text = VILLAIN_INFO.attack.value
+			intention_label.text = "Attack"
+		"block":
+			intention_value_label.text = VILLAIN_INFO.block.value
+			intention_label.text = "Block"
+		"interfere":
+			intention_label.text = "Interfere"
+		"buff":
+			intention_label.text = "Buff"
+		"debuff":
+			intention_label.text = "Debuff"
 
 # Check if there is ANY power active, and if not, clear the state
 func _is_power_active(power_name):

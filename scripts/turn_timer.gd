@@ -10,7 +10,7 @@ func _ready():
 	timer_label.text = "Timer"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	debug_commands()
 	
 	timer_progress.value = self.time_left

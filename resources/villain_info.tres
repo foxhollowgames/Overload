@@ -1,12 +1,15 @@
-[gd_resource type="Resource" script_class="ActorResource" load_steps=3 format=3 uid="uid://cpcs5dmgx5stu"]
+[gd_resource type="Resource" script_class="VillainResource" load_steps=3 format=3 uid="uid://cpcs5dmgx5stu"]
 
-[ext_resource type="Script" path="res://scripts/actor_data.gd" id="1_rf7b6"]
+[ext_resource type="Script" path="res://scripts/villain_data.gd" id="1_tt41j"]
 [ext_resource type="Texture2D" uid="uid://bu6f13nus8um7" path="res://sprites/Ohm-Sheet.png" id="2_5c188"]
 
 [resource]
-script = ExtResource("1_rf7b6")
+script = ExtResource("1_tt41j")
+intention_label = ""
+intention_value = 0
 name = "Ohm"
 sprite = ExtResource("2_5c188")
 hp_max = 10
-hp = 10
+hp = null
 block = 1
+energy = 0

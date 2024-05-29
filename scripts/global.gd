@@ -45,4 +45,4 @@ func _ready():
 	#relics_acquired.append(title)
 
 func _pitch(sound):
-	sound.AudioEffectPitchShift
+	sound.AudioEffectPitchShift()

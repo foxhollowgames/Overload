@@ -5,7 +5,6 @@ var SYMBOL_BRAWL = Global.symbol_type.BRAWL
 var SYMBOL_BLOCK = Global.symbol_type.BLOCK
 var SYMBOL_ENERGIZE = Global.symbol_type.ENERGIZE
 var SYMBOL_SUPER_POWER = Global.symbol_type.SUPER_POWER
-var symbol_type
 @export var power_name : Label
 
 var power_state = false
@@ -20,7 +19,7 @@ var active = false
 func _ready():
 	signal_setup()
 
-func _power_check(symbol_type):
+func _power_check(_symbol_type):
 	#print("Power section: ")
 	#print(Global.combo)
 	
@@ -50,7 +49,7 @@ func _power_check(symbol_type):
 		SignalBus.power.emit(power_name)
 		active = false
 
-func _clear_combo(_clear_combo = ""):
+func clear_combo(_clear_combo = ""):
 	Global.combo.clear()
 	power_state = false
 	for _j in POWER.size():
@@ -60,6 +59,6 @@ func _clear_combo(_clear_combo = ""):
 
 func signal_setup():
 	SignalBus.clicked.connect(_power_check)
-	SignalBus.turn_end.connect(_clear_combo)
-	SignalBus.power.connect(_clear_combo)
-	SignalBus.clear_combo.connect(_clear_combo)
+	SignalBus.turn_end.connect(clear_combo)
+	SignalBus.power.connect(clear_combo)
+	SignalBus.clear_combo.connect(clear_combo)

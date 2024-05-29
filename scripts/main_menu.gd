@@ -11,6 +11,6 @@ func _on_quit_pressed():
 
 func _on_windowed_toggled(toggled_on):
 	if (toggled_on):
-		DisplayServer.window_set_mode(3, 0)
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN, 0)
 	else:
-		DisplayServer.window_set_mode(0, 0)
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED, 0)

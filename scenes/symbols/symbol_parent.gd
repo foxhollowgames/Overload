@@ -112,9 +112,13 @@ func clicked_vfx():
 	animated_sprite_2d.material.set_shader_parameter("symbol_color", color)
 	#print("Symbol Color: " + str(animated_sprite_2d.material.get_shader_parameter("symbol_color")))
 	if (randi_range(0, 1)):
-		animated_sprite_2d.flip_h
+		animated_sprite_2d.flip_h = true
+	else:
+		animated_sprite_2d.flip_h = false
 	if (randi_range(0, 1)):
-		animated_sprite_2d.flip_v
+		animated_sprite_2d.flip_v = true
+	else:
+		animated_sprite_2d.flip_v = false
 	animated_sprite_2d.play(random_animation)
 
 	animation_player.play("click_flash")
