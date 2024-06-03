@@ -148,7 +148,7 @@ font_size = 11
 shadow_color = Color(0, 0, 0, 0.376471)
 shadow_offset = Vector2(0.3, 0.3)
 
-[node name="FightUI" type="Node2D" node_paths=PackedStringArray("player_hp_label", "player_hp_progress_bar", "player_block_label", "energy", "villain_hp_label", "villain_hp_progress_bar", "villain_block_label")]
+[node name="FightUI" type="Node2D" node_paths=PackedStringArray("player_hp_label", "player_hp_progress_bar", "player_block_label", "energy", "villain_hp_label", "villain_hp_progress_bar", "villain_block_label", "intention_value_label", "intention_label")]
 script = ExtResource("1_uu6ea")
 player_hp_label = NodePath("PlayerHealthBlock/ProgressBar/HpPlayerLabel")
 player_hp_progress_bar = NodePath("PlayerHealthBlock/ProgressBar")
@@ -157,6 +157,8 @@ energy = NodePath("Energy/Label")
 villain_hp_label = NodePath("VillainHealthBlock/ProgressBar/HpVillainLabel")
 villain_hp_progress_bar = NodePath("VillainHealthBlock/ProgressBar")
 villain_block_label = NodePath("VillainHealthBlock/BlockPanelVillain/BlockVillainLabel")
+intention_value_label = NodePath("IntentionLabel/Value")
+intention_label = NodePath("IntentionLabel")
 
 [node name="SymbolBorders" type="StaticBody2D" parent="."]
 position = Vector2(-31, 21)

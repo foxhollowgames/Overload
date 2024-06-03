@@ -5,11 +5,33 @@
 
 [resource]
 script = ExtResource("1_tt41j")
-intention_label = ""
-intention_value = 0
+intention_options = {
+"attack": {
+"odds": 20,
+"value": [1, 2, 3, 4]
+},
+"block": {
+"odds": 20,
+"value": [1, 2, 3, 4]
+},
+"buff": {
+"odds": 20,
+"value": 1
+},
+"debuff": {
+"odds": 20,
+"value": 1
+},
+"interfere": {
+"odds": 20,
+"type": "res://scenes/symbols/bouncy_peg.tscn"
+}
+}
+damage = 0
+block_r = 0
 name = "Ohm"
 sprite = ExtResource("2_5c188")
 hp_max = 10
-hp = null
+hp = 10
 block = 1
 energy = 0

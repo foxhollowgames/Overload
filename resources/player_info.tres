@@ -9,3 +9,5 @@ name = "Overload"
 sprite = ExtResource("2_2ngjb")
 hp_max = 10
 hp = 10
+block = 1
+energy = 0

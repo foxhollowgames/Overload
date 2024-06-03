@@ -66,9 +66,22 @@ offset_top = 36.0
 offset_right = 2.0
 offset_bottom = 63.0
 
-[node name="FightUI" parent="." instance=ExtResource("8_gvq1q")]
+[node name="FightUI" parent="." node_paths=PackedStringArray("player_hp_label", "player_hp_progress_bar", "player_block_label", "energy", "villain_hp_label", "villain_hp_progress_bar", "villain_block_label", "intention_value_label", "intention_label") instance=ExtResource("8_gvq1q")]
 unique_name_in_owner = true
 z_index = 2
+player_hp_label = NodePath("PlayerHealthBlock/ProgressBar/HpPlayerLabel")
+player_hp_progress_bar = NodePath("PlayerHealthBlock/ProgressBar")
+player_block_label = NodePath("PlayerHealthBlock/BlockPanelPlayer/BlockPlayerLabel")
+energy = NodePath("Energy/Label")
+villain_hp_label = NodePath("VillainHealthBlock/ProgressBar/HpVillainLabel")
+villain_hp_progress_bar = NodePath("VillainHealthBlock/ProgressBar")
+villain_block_label = NodePath("VillainHealthBlock/BlockPanelVillain/BlockVillainLabel")
+intention_value_label = NodePath("IntentionLabel/Value")
+intention_label = NodePath("IntentionLabel")
+
+[node name="TurnTimer" parent="FightUI/Timers" index="1" node_paths=PackedStringArray("timer_progress", "timer_label")]
+timer_progress = NodePath("../../TimerBar")
+timer_label = NodePath("../../TimerBar/TimerLabel")
 
 [node name="Player" parent="." instance=ExtResource("9_fr5ka")]
 z_index = 1

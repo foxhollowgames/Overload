@@ -2,10 +2,8 @@ extends actor
 class_name villain
 
 func _init():
-	print(Global.villain_name)
 	signal_setup()
-	r_intention()
-	$AnimatedSprite2D.play()
+	VILLAIN_INFO.intention_set()
 
 func _process(_delta):
 	debug_commands()
@@ -20,10 +18,9 @@ func villain_turn():
 	
 	SignalBus.power.emit()
 	squish_squash()
-	intention_value = ''
-	r_intention()
 	#TODO MAKE THIS NOT A TIMER YUCKITY YUCKITY YUCK DRUCKS MCDUCKS. Could we just await squish_squash?
 	await get_tree().create_timer(0.5).timeout
+	VILLAIN_INFO.intention_set()
 	SignalBus.villain_turn_end.emit()
 	#_villain_turn_end()
 
@@ -32,16 +29,6 @@ func villain_turn_end():
 
 func interfere():
 	SignalBus.spawn_bouncy.emit()
-
-func r_intention():
-	intention =  intention_options.pick_random()
-	match intention:
-		'Attack':
-			intention_value = '4'
-	if (intention == intention_options[0]):
-		intention_value = '4'
-	if (intention == intention_options[1]):
-		intention_value = '4'
 
 func _villain_defeated():
 	SignalBus.villain_defeated.emit()

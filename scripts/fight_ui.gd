@@ -5,8 +5,8 @@ extends Node
 @onready var camera_2d = $Camera2D
 var screen_shake = false
 
-const PLAYER_INFO = preload("res://resources/player_info.tres")
-const VILLAIN_INFO = preload("res://resources/villain_info.tres")
+@onready var PLAYER_INFO = load("res://resources/player_info.tres")
+@onready var VILLAIN_INFO = load("res://resources/villain_info.tres")
 
 @export var player_hp_label : Label
 @export var player_hp_progress_bar : ProgressBar
@@ -55,17 +55,19 @@ func update_ui():
 	player_block_label.text = str(PLAYER_INFO.block)
 	energy.text = str(PLAYER_INFO.energy)
 	
+	#TODO: Remote > FightUI > Villain_Info resource is updating correctly, but the label is not adjusting afterwards for some reason
 	villain_hp_label.text = str(VILLAIN_INFO.hp)
 	villain_hp_progress_bar.max_value = VILLAIN_INFO.hp_max
 	villain_hp_progress_bar.value = VILLAIN_INFO.hp
+	print_debug((VILLAIN_INFO.block))
 	villain_block_label.text = str(VILLAIN_INFO.block)
 	match VILLAIN_INFO.intention:
 		"attack":
 			#TODO: Add ICONS
-			intention_value_label.text = VILLAIN_INFO.attack.value
+			intention_value_label.text = str(VILLAIN_INFO.value)
 			intention_label.text = "Attack"
 		"block":
-			intention_value_label.text = VILLAIN_INFO.block.value
+			intention_value_label.text = str(VILLAIN_INFO.value)
 			intention_label.text = "Block"
 		"interfere":
 			intention_label.text = "Interfere"

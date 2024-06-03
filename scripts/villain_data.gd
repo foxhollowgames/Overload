@@ -10,6 +10,7 @@ class_name VillainResource
 }
 @export var intention_icon : Texture2D
 var intention = ''
+var value = 0
 
 @export var damage = 0:
 	get:
@@ -21,21 +22,16 @@ var intention = ''
 var strength = 0
 var sap = 0
 
-
-
 func intention_set():
 	var weights = PackedFloat32Array([intention_options.attack.odds, intention_options.block.odds, intention_options.interfere.odds, intention_options.buff.odds, intention_options.debuff.odds])
 	var rng = RandomNumberGenerator.new()
 	
 	intention = intention_options.keys()[rng.rand_weighted(weights)]
-	#match intention_options:
-		#"Attack":
-			#SignalBus.player_damage.emit(VILLAIN_INFO.damage_options)
-			#animation_player.play("attack_slide")
-		#"Block":
-			#VILLAIN_INFO.gain_block(4)
-		#"Board Interference":
-			#interfere()
+	match intention:
+		"attack":
+			value = intention_options.attack.value.pick_random()
+		"block":
+			value = intention_options.attack.value.pick_random()
 
 func villain_gain_strength():
 	strength += intention_options.buff.value

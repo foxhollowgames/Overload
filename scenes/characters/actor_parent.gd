@@ -5,8 +5,8 @@ class_name actor
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var animation_player = $AnimationPlayer
-const PLAYER_INFO = preload("res://resources/player_info.tres")
-const VILLAIN_INFO = preload("res://resources/villain_info.tres")
+var PLAYER_INFO = preload("res://resources/player_info.tres")
+var VILLAIN_INFO = preload("res://resources/villain_info.tres")
 
 ## Called when the node enters the scene tree for the first time.
 func _ready():

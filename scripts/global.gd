@@ -9,12 +9,12 @@ enum symbol_type {
 	}
 var combo = []
 
-var SYMBOL_BRAWL = load("res://scenes/Symbols/symbol_brawl.tscn")
-var SYMBOL_BLOCK = load("res://scenes/Symbols/symbol_block.tscn")
-var SYMBOL_ENERGIZE = load("res://scenes/Symbols/symbol_energize.tscn")
-var SYMBOL_MAGNET = load("res://scenes/Symbols/symbol_magnet.tscn")
-var SYMBOL_SUPER_POWER = load("res://scenes/Symbols/symbol_super_power.tscn")
-var SYMBOL_BOUNCY = load("res://scenes/Symbols/bouncy_peg.tscn")
+var SYMBOL_BRAWL = load("res://scenes/symbols/symbol_brawl.tscn")
+var SYMBOL_BLOCK = load("res://scenes/symbols/symbol_block.tscn")
+var SYMBOL_ENERGIZE = load("res://scenes/symbols/symbol_energize.tscn")
+var SYMBOL_MAGNET = load("res://scenes/symbols/symbol_magnet.tscn")
+var SYMBOL_SUPER_POWER = load("res://scenes/symbols/symbol_super_power.tscn")
+var SYMBOL_BOUNCY = load("res://scenes/symbols/bouncy_peg.tscn")
 
 var brawl_state = false
 var brawl_array_state = [false, false, false]

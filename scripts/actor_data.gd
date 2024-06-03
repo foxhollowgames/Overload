@@ -18,3 +18,5 @@ func take_damage(attack):
 			attack -= 1
 	
 	hp -= attack
+	print_debug("Block: " + str(block))
+	print_debug("hp: " + str(hp))
