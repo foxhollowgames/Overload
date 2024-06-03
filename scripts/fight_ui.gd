@@ -37,7 +37,7 @@ func _ready():
 func _process(_delta):
 	pass
 
-func screen_vfx(_power_name):
+func screen_vfx(_effect):
 	# TODO: Adjust this to be dynamic to the type of effect happening (IE: More damage = screenshake, healing = green flash instead of white, etc)
 	animation_player.play("FullScreenFlash")
 	screen_shake = true;
@@ -54,26 +54,25 @@ func update_ui():
 	player_hp_progress_bar.value = PLAYER_INFO.hp
 	player_block_label.text = str(PLAYER_INFO.block)
 	energy.text = str(PLAYER_INFO.energy)
-	
-	#TODO: Remote > FightUI > Villain_Info resource is updating correctly, but the label is not adjusting afterwards for some reason
 	villain_hp_label.text = str(VILLAIN_INFO.hp)
 	villain_hp_progress_bar.max_value = VILLAIN_INFO.hp_max
 	villain_hp_progress_bar.value = VILLAIN_INFO.hp
-	print_debug((VILLAIN_INFO.block))
 	villain_block_label.text = str(VILLAIN_INFO.block)
+	print_debug((VILLAIN_INFO.value))
+	intention_value_label.text = str(VILLAIN_INFO.value)
 	match VILLAIN_INFO.intention:
 		"attack":
 			#TODO: Add ICONS
-			intention_value_label.text = str(VILLAIN_INFO.value)
 			intention_label.text = "Attack"
 		"block":
-			intention_value_label.text = str(VILLAIN_INFO.value)
 			intention_label.text = "Block"
 		"interfere":
 			intention_label.text = "Interfere"
 		"buff":
+			intention_value_label.text = ''
 			intention_label.text = "Buff"
 		"debuff":
+			intention_value_label.text = ''
 			intention_label.text = "Debuff"
 
 # Check if there is ANY power active, and if not, clear the state
@@ -89,6 +88,7 @@ func _is_power_active(power_name):
 
 
 func signal_setup():
-	SignalBus.power.connect(screen_vfx)
+	SignalBus.villain_attack.connect(screen_vfx)
 	SignalBus.power_end.connect(update_ui)
+	SignalBus.villain_turn_end.connect(update_ui)
 	SignalBus.clicked.connect(_is_power_active)

@@ -1,0 +1,84 @@
+{
+	"categories": [
+		{
+			"uuid": "2206fb2a-1707-43be-b80f-3198774e28db",
+			"title": "Task",
+			"color": "70bafa"
+		}
+	],
+	"stages": [
+		{
+			"uuid": "1a215ad5-db1f-4513-b91f-32e2636ee7fe",
+			"title": "Todo",
+			"tasks": [
+				"0629f9b1-c8d7-4310-b387-279a94ad317a",
+				"d4d9e63d-5111-4c4f-8ab4-8771a608c678"
+			]
+		},
+		{
+			"uuid": "9637c375-9844-4dbd-8263-c45c3d694697",
+			"title": "Doing",
+			"tasks": [
+				"15d1370f-1a4c-4e28-9fd0-7e9a6998d91d"
+			]
+		},
+		{
+			"uuid": "f2faad87-f87f-468d-b576-b4c2ae7d5126",
+			"title": "Done",
+			"tasks": [
+				"f6729ee7-fd51-4637-a790-cd378636e620",
+				"9c74559c-c921-4032-a157-98eddd6c6376"
+			]
+		}
+	],
+	"tasks": [
+		{
+			"uuid": "15d1370f-1a4c-4e28-9fd0-7e9a6998d91d",
+			"title": "Inteference spawning in the play area",
+			"description": "",
+			"category": "2206fb2a-1707-43be-b80f-3198774e28db",
+			"steps": []
+		},
+		{
+			"uuid": "0629f9b1-c8d7-4310-b387-279a94ad317a",
+			"title": "Spawn symbols from markers instead of xy coords",
+			"description": "",
+			"category": "2206fb2a-1707-43be-b80f-3198774e28db",
+			"steps": []
+		},
+		{
+			"uuid": "f6729ee7-fd51-4637-a790-cd378636e620",
+			"title": "Apply strength/sap appropriately",
+			"description": "",
+			"category": "2206fb2a-1707-43be-b80f-3198774e28db",
+			"steps": []
+		},
+		{
+			"uuid": "9c74559c-c921-4032-a157-98eddd6c6376",
+			"title": "Fix player powers to be OOP",
+			"description": "",
+			"category": "2206fb2a-1707-43be-b80f-3198774e28db",
+			"steps": []
+		},
+		{
+			"uuid": "d4d9e63d-5111-4c4f-8ab4-8771a608c678",
+			"title": "Reset resources on death (player AND villain)",
+			"description": "",
+			"category": "2206fb2a-1707-43be-b80f-3198774e28db",
+			"steps": []
+		}
+	],
+	"layout": {
+		"columns": [
+			[
+				"1a215ad5-db1f-4513-b91f-32e2636ee7fe"
+			],
+			[
+				"9637c375-9844-4dbd-8263-c45c3d694697"
+			],
+			[
+				"f2faad87-f87f-468d-b576-b4c2ae7d5126"
+			]
+		]
+	}
+}

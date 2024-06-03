@@ -88,15 +88,13 @@ z_index = 1
 position = Vector2(50, 117)
 scale = Vector2(0.569435, 0.569435)
 
-[node name="VillainParent" parent="." instance=ExtResource("10_eck5y")]
-z_index = 1
-position = Vector2(273, 115)
-scale = Vector2(-0.569, 0.569)
-script = null
-
 [node name="Bouncy Peg" parent="." instance=ExtResource("11_7cg2t")]
 z_index = 1
 position = Vector2(155, 125)
+
+[node name="VillainParent" parent="." instance=ExtResource("10_eck5y")]
+z_index = 1
+position = Vector2(269, 135)
 
 [connection signal="timeout" from="FightUI/SymbolContainer/SymbolTimers/SpawnTimer" to="FightUI/SymbolContainer" method="_spawn"]
 

@@ -20,6 +20,7 @@ func villain_defeated():
 	#get_tree().change_scene_to_file(relic_choice_scene)
 	get_tree().change_scene_to_file("res://sprites/game_end.tscn")
 
+
 func signal_setup():
 	SignalBus.villain_turn_end.connect(_turn_ini)
 	SignalBus.villain_defeated.connect(villain_defeated)

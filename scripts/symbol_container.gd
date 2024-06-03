@@ -1,4 +1,4 @@
-extends Sprite2D
+extends Polygon2D
 
 # Symbol loading
 var SYMBOL_BRAWL = load("res://scenes/symbols/symbol_brawl.tscn")
@@ -45,12 +45,15 @@ func _spawn():
 		#symbol_create.speed_demon = true
 
 func _spawn_bouncy():
-	var random_x = randi_range(-200, 200)
-	var random_y = randi_range(-200, 200)
+	#var random_x = randi_range(-200, 200)
+	#var random_y = randi_range(-200, 200)
+	#TODO: Figure out random spawning
+	var coord = $NavigationRegion2D.map_get_random_point()
 	var _interference_create = SYMBOL_BOUNCY.instantiate()
 	add_child(_interference_create)
-	_interference_create.global_position.x = random_x
-	_interference_create.global_position.y = random_y
+	_interference_create.global_position = coord
+	#_interference_create.global_position.x = random_x
+	#_interference_create.global_position.y = random_y
 
 func signal_setup():
 	SignalBus.spawn_toggle.connect(_spawn_toggle)

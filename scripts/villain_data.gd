@@ -31,7 +31,13 @@ func intention_set():
 		"attack":
 			value = intention_options.attack.value.pick_random()
 		"block":
-			value = intention_options.attack.value.pick_random()
+			value = intention_options.block.value.pick_random()
+		"interfere":
+			value = ''
+		"debuff":
+			value = intention_options.buff.value
+		"debuff":
+			value = intention_options.debuff.value
 
 func villain_gain_strength():
 	strength += intention_options.buff.value

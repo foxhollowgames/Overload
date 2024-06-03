@@ -21,7 +21,11 @@ func effect(power_name):
 	print(power_name.text)
 	match power_name.text:
 		"Brawl": 
-			VILLAIN_INFO.take_damage(1)
+			var damage = 1
+			var total_damage = damage - VILLAIN_INFO.sap
+			if total_damage < 0:
+				total_damage = 0
+			SignalBus.villain_damage.emit(total_damage)
 			animation_player.play("attack_slide")
 		"Block":
 			PLAYER_INFO.gain_block(1)
@@ -30,7 +34,11 @@ func effect(power_name):
 		"Chain Lightning":
 			super_power()
 		"Shock":
-			VILLAIN_INFO.take_damage(1)
+			var damage = 1
+			var total_damage = damage - VILLAIN_INFO.sap
+			if total_damage < 0:
+				total_damage = 0
+			SignalBus.villain_damage.emit(total_damage)
 			_energize(energize)
 			animation_player.play("attack_slide")
 		"Static Shield":
