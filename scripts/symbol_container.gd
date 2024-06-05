@@ -11,6 +11,8 @@ var symbol_type_array = [SYMBOL_BRAWL, SYMBOL_BLOCK, SYMBOL_ENERGIZE, SYMBOL_SUP
 
 var can_spawn = false
 
+var inside = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#get_tree().create_timer(time).timeout.connect(to something)
@@ -28,32 +30,23 @@ func _spawn_toggle():
 func _spawn():
 	if not can_spawn:
 		return
+	var markers = [$"Symbol Spawners/Marker1", $"Symbol Spawners/Marker2", $"Symbol Spawners/Marker3", $"Symbol Spawners/Marker4", $"Symbol Spawners/Marker5", $"Symbol Spawners/Marker6", $"Symbol Spawners/Marker7", $"Symbol Spawners/Marker8", $"Symbol Spawners/Marker9"]
+	var random_marker = markers.pick_random()
 	var random_symbol = symbol_type_array.pick_random()
 	var symbol_create = random_symbol.instantiate()
-	var random_x = randi_range(-100, 100)
-	symbol_create.position.x = random_x
-	symbol_create.position.y = -150
+	
 	add_child(symbol_create)
-	#Relics that are no longer used in the game
-	#match symbol_create.symbol_type:
-		#0:
-			#if barricade:
-				#symbol_create.barricade = true
-			#if thorns:
-				#symbol_create.thorns = true
-	#if speed_demon:
-		#symbol_create.speed_demon = true
+	print("Marker: " + str(random_marker))
+	print("Marker POS: " + str(random_marker.position))
+	symbol_create.global_position = random_marker.global_position
 
 func _spawn_bouncy():
-	#var random_x = randi_range(-200, 200)
-	#var random_y = randi_range(-200, 200)
-	#TODO: Figure out random spawning
-	var coord = $NavigationRegion2D.map_get_random_point()
+	var markers = [$"Interfere Spawners/Marker1", $"Interfere Spawners/Marker2", $"Interfere Spawners/Marker3", $"Interfere Spawners/Marker4", $"Interfere Spawners/Marker5", $"Interfere Spawners/Marker6", $"Interfere Spawners/Marker7", $"Interfere Spawners/Marker8", $"Interfere Spawners/Marker9"]
+	var random_marker = markers.pick_random()
 	var _interference_create = SYMBOL_BOUNCY.instantiate()
+	
 	add_child(_interference_create)
-	_interference_create.global_position = coord
-	#_interference_create.global_position.x = random_x
-	#_interference_create.global_position.y = random_y
+	_interference_create.global_position = random_marker.global_position
 
 func signal_setup():
 	SignalBus.spawn_toggle.connect(_spawn_toggle)

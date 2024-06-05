@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://brrvyjhqs5aa"]
+[gd_scene load_steps=29 format=3 uid="uid://brrvyjhqs5aa"]
 
 [ext_resource type="Texture2D" uid="uid://1xh4bs40wlfa" path="res://sprites/ui/Symbol_Background.png" id="1_43a5r"]
 [ext_resource type="Script" path="res://scripts/fight_ui.gd" id="1_uu6ea"]
@@ -13,11 +13,6 @@
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_tw1ar"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_8u83p"]
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_k7v8n"]
-vertices = PackedVector2Array(284.273, 159, 118.383, 159, 63.5391, 40.75, 227.68, 38.1016)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(48, 31, 234, 28, 300, 169, 112, 169)])
 
 [sub_resource type="Animation" id="Animation_4tni4"]
 resource_name = "FullScreenFlash"
@@ -186,14 +181,55 @@ scale = Vector2(0.99628, 0.977541)
 skew = -0.427606
 color = Color(0, 0, 0, 0.713726)
 texture = ExtResource("1_43a5r")
-polygon = PackedVector2Array(-130.812, -122.537, 83.5292, -121.413, 81.7183, 124.786, -132.357, 130.407)
+polygon = PackedVector2Array(-131.359, -123.662, 83.5292, -121.413, 81.7183, 124.786, -132.357, 130.407)
 script = ExtResource("2_0xu77")
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="SymbolContainer"]
-position = Vector2(-148.88, -122.537)
-scale = Vector2(1.00373, 1.2137)
-skew = 0.386435
-navigation_polygon = SubResource("NavigationPolygon_k7v8n")
+[node name="Symbol Spawners" type="Node" parent="SymbolContainer"]
+
+[node name="Marker1" type="Marker2D" parent="SymbolContainer/Symbol Spawners"]
+position = Vector2(23.0166, -12.1048)
+scale = Vector2(0.99628, 0.977541)
+skew = -0.427606
+
+[node name="Marker2" type="Marker2D" parent="SymbolContainer/Symbol Spawners"]
+position = Vector2(48.0166, -12.1048)
+scale = Vector2(0.99628, 0.977541)
+skew = -0.427606
+
+[node name="Marker3" type="Marker2D" parent="SymbolContainer/Symbol Spawners"]
+position = Vector2(71.0166, -12.1048)
+scale = Vector2(0.99628, 0.977541)
+skew = -0.427606
+
+[node name="Marker4" type="Marker2D" parent="SymbolContainer/Symbol Spawners"]
+position = Vector2(93.0166, -12.1048)
+scale = Vector2(0.99628, 0.977541)
+skew = -0.427606
+
+[node name="Marker5" type="Marker2D" parent="SymbolContainer/Symbol Spawners"]
+position = Vector2(116.017, -13.1048)
+scale = Vector2(0.99628, 0.977541)
+skew = -0.427606
+
+[node name="Marker6" type="Marker2D" parent="SymbolContainer/Symbol Spawners"]
+position = Vector2(140.017, -12.1048)
+scale = Vector2(0.99628, 0.977541)
+skew = -0.427606
+
+[node name="Marker7" type="Marker2D" parent="SymbolContainer/Symbol Spawners"]
+position = Vector2(164.017, -12.1048)
+scale = Vector2(0.99628, 0.977541)
+skew = -0.427606
+
+[node name="Marker8" type="Marker2D" parent="SymbolContainer/Symbol Spawners"]
+position = Vector2(188.017, -12.1048)
+scale = Vector2(0.99628, 0.977541)
+skew = -0.427606
+
+[node name="Marker9" type="Marker2D" parent="SymbolContainer/Symbol Spawners"]
+position = Vector2(212.017, -12.1048)
+scale = Vector2(0.99628, 0.977541)
+skew = -0.427606
 
 [node name="SymbolTimers" type="Node" parent="SymbolContainer"]
 script = ExtResource("3_qeqai")
@@ -204,6 +240,53 @@ wait_time = 0.25
 [node name="PreTurn" type="Timer" parent="SymbolContainer/SymbolTimers"]
 wait_time = 3.0
 one_shot = true
+
+[node name="Interfere Spawners" type="Node" parent="SymbolContainer"]
+
+[node name="Marker1" type="Marker2D" parent="SymbolContainer/Interfere Spawners"]
+position = Vector2(162.017, 102.895)
+scale = Vector2(0.99628, 0.977541)
+skew = -0.427606
+
+[node name="Marker2" type="Marker2D" parent="SymbolContainer/Interfere Spawners"]
+position = Vector2(110.017, 107.895)
+scale = Vector2(0.99628, 0.977541)
+skew = -0.427606
+
+[node name="Marker3" type="Marker2D" parent="SymbolContainer/Interfere Spawners"]
+position = Vector2(232.017, 99.8952)
+scale = Vector2(0.99628, 0.977541)
+skew = -0.427606
+
+[node name="Marker4" type="Marker2D" parent="SymbolContainer/Interfere Spawners"]
+position = Vector2(177, 145)
+scale = Vector2(0.99628, 0.977541)
+skew = -0.427606
+
+[node name="Marker5" type="Marker2D" parent="SymbolContainer/Interfere Spawners"]
+position = Vector2(154, 65)
+scale = Vector2(0.99628, 0.977541)
+skew = -0.427606
+
+[node name="Marker6" type="Marker2D" parent="SymbolContainer/Interfere Spawners"]
+position = Vector2(212, 63)
+scale = Vector2(0.99628, 0.977541)
+skew = -0.427606
+
+[node name="Marker7" type="Marker2D" parent="SymbolContainer/Interfere Spawners"]
+position = Vector2(125, 150)
+scale = Vector2(0.99628, 0.977541)
+skew = -0.427606
+
+[node name="Marker8" type="Marker2D" parent="SymbolContainer/Interfere Spawners"]
+position = Vector2(103, 66)
+scale = Vector2(0.99628, 0.977541)
+skew = -0.427606
+
+[node name="Marker9" type="Marker2D" parent="SymbolContainer/Interfere Spawners"]
+position = Vector2(247, 142)
+scale = Vector2(0.99628, 0.977541)
+skew = -0.427606
 
 [node name="CharacterStatBackgroundVillain" type="Sprite2D" parent="."]
 visible = false

@@ -94,7 +94,8 @@ position = Vector2(155, 125)
 
 [node name="VillainParent" parent="." instance=ExtResource("10_eck5y")]
 z_index = 1
-position = Vector2(269, 135)
+position = Vector2(278, 116)
+scale = Vector2(-0.6, 0.6)
 
 [connection signal="timeout" from="FightUI/SymbolContainer/SymbolTimers/SpawnTimer" to="FightUI/SymbolContainer" method="_spawn"]
 
