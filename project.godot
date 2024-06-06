@@ -18,6 +18,8 @@ config/features=PackedStringArray("4.3", "Forward Plus")
 
 SignalBus="*res://scripts/signal_bus.gd"
 Global="*res://scripts/global.gd"
+PlayerInfo="res://resources/player_info.tres"
+VillainInfo="res://resources/villain_info.tres"
 
 [display]
 

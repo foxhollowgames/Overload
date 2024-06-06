@@ -3,10 +3,6 @@ extends Node
 @onready var color_rect = $ScreenFlash
 @onready var animation_player = $ScreenFlash/AnimationPlayer
 @onready var camera_2d = $Camera2D
-var screen_shake = false
-
-@onready var PLAYER_INFO = load("res://resources/player_info.tres")
-@onready var VILLAIN_INFO = load("res://resources/villain_info.tres")
 
 @export var player_hp_label : Label
 @export var player_hp_progress_bar : ProgressBar
@@ -37,30 +33,94 @@ func _ready():
 func _process(_delta):
 	pass
 
-func screen_vfx(_effect):
+func screen_vfx(_effect, damage):
 	# TODO: Adjust this to be dynamic to the type of effect happening (IE: More damage = screenshake, healing = green flash instead of white, etc)
-	animation_player.play("FullScreenFlash")
-	screen_shake = true;
-	var tween := get_tree().create_tween()
-	tween.tween_property(camera_2d, "offset", Vector2(randi_range(-3, -5), randi_range(1, 3)), 0.1).set_trans(Tween.TRANS_SPRING)
-	tween.parallel().tween_property(camera_2d, "zoom", Vector2(randf_range(1.01, 1.02), randf_range(1.01, 1.02)), .1).set_trans(Tween.TRANS_BOUNCE)
-	tween.tween_property(camera_2d, "offset", Vector2(0, 0), 0.1).set_trans(Tween.TRANS_SPRING)
-	tween.tween_property(camera_2d, "zoom", Vector2(1, 1), 0.1).set_trans(Tween.TRANS_SPRING)
-	tween.tween_callback(update_ui)
+	match _effect:
+		"attack_player":
+			animation_player.play("FullScreenFlash")
+			var tween := get_tree().create_tween()
+			if damage <= 0:
+				tween.tween_property(camera_2d, "offset", Vector2(randi_range(0, 0), randi_range(1, 2)), 0.1).set_trans(Tween.TRANS_SPRING)
+				tween.parallel().tween_property(camera_2d, "zoom", Vector2(randf_range(1, 1), randf_range(1, 1)), .1).set_trans(Tween.TRANS_BOUNCE)
+			elif damage <= 3:
+				tween.tween_property(camera_2d, "offset", Vector2(randi_range(-1, -2), randi_range(1, 2)), 0.1).set_trans(Tween.TRANS_SPRING)
+				tween.parallel().tween_property(camera_2d, "zoom", Vector2(randf_range(1.001, 1.002), randf_range(1.01, 1.02)), .1).set_trans(Tween.TRANS_BOUNCE)
+			elif damage <= 5:
+				tween.tween_property(camera_2d, "offset", Vector2(randi_range(-3, -5), randi_range(1, 3)), 0.1).set_trans(Tween.TRANS_SPRING)
+				tween.parallel().tween_property(camera_2d, "zoom", Vector2(randf_range(1.01, 1.02), randf_range(1.01, 1.02)), .1).set_trans(Tween.TRANS_BOUNCE)
+			else:
+				tween.tween_property(camera_2d, "offset", Vector2(randi_range(-5, -7), randi_range(1, 3)), 0.1).set_trans(Tween.TRANS_SPRING)
+				tween.parallel().tween_property(camera_2d, "zoom", Vector2(randf_range(1.2, 1.3), randf_range(1.01, 1.02)), .1).set_trans(Tween.TRANS_BOUNCE)
+			tween.tween_property(camera_2d, "offset", Vector2(0, 0), 0.1).set_trans(Tween.TRANS_SPRING)
+			tween.tween_property(camera_2d, "zoom", Vector2(1, 1), 0.1).set_trans(Tween.TRANS_SPRING)
+			tween.tween_callback(update_ui)
+		"attack_villain":
+			animation_player.play("FullScreenFlash")
+			var tween := get_tree().create_tween()
+			if damage <= 0:
+				tween.tween_property(camera_2d, "offset", Vector2(randi_range(0, 0), randi_range(1, 2)), 0.1).set_trans(Tween.TRANS_SPRING)
+				tween.parallel().tween_property(camera_2d, "zoom", Vector2(randf_range(1, 1), randf_range(1, 1)), .1).set_trans(Tween.TRANS_BOUNCE)
+			elif damage <= 3:
+				tween.tween_property(camera_2d, "offset", Vector2(randi_range(-1, -2), randi_range(1, 2)), 0.1).set_trans(Tween.TRANS_SPRING)
+				tween.parallel().tween_property(camera_2d, "zoom", Vector2(randf_range(1.001, 1.002), randf_range(1.01, 1.02)), .1).set_trans(Tween.TRANS_BOUNCE)
+			elif damage <= 5:
+				tween.tween_property(camera_2d, "offset", Vector2(randi_range(-3, -5), randi_range(1, 3)), 0.1).set_trans(Tween.TRANS_SPRING)
+				tween.parallel().tween_property(camera_2d, "zoom", Vector2(randf_range(1.01, 1.02), randf_range(1.01, 1.02)), .1).set_trans(Tween.TRANS_BOUNCE)
+			else:
+				tween.tween_property(camera_2d, "offset", Vector2(randi_range(-5, -7), randi_range(1, 3)), 0.1).set_trans(Tween.TRANS_SPRING)
+				tween.parallel().tween_property(camera_2d, "zoom", Vector2(randf_range(1.02, 1.03), randf_range(1.01, 1.02)), .1).set_trans(Tween.TRANS_BOUNCE)
+			tween.tween_property(camera_2d, "offset", Vector2(0, 0), 0.1).set_trans(Tween.TRANS_SPRING)
+			tween.tween_property(camera_2d, "zoom", Vector2(1, 1), 0.1).set_trans(Tween.TRANS_SPRING)
+			tween.tween_callback(update_ui)
+		"block_player":
+			var tween := get_tree().create_tween()
+			tween.tween_property(player_block_label, "scale", Vector2(1.2, 1.2), .1).set_trans(Tween.TRANS_BOUNCE)
+			tween.tween_property(player_block_label, "scale", Vector2(1, 1), 0.1).set_trans(Tween.TRANS_SPRING)
+			tween.tween_callback(update_ui)
+		"block_villain":
+			var tween := get_tree().create_tween()
+			#tween.tween_property(player_block_label, "position", Vector2(.25, .5), 0.1).set_trans(Tween.TRANS_SPRING)
+			tween.tween_property(villain_block_label, "scale", Vector2(1.2, 1.2), .1).set_trans(Tween.TRANS_BOUNCE)
+			tween.tween_property(villain_block_label, "scale", Vector2(1, 1), 0.1).set_trans(Tween.TRANS_SPRING)
+			tween.tween_callback(update_ui)
+		"interference":
+			animation_player.play("FullScreenFlash")
+			var tween := get_tree().create_tween()
+			tween.tween_property(camera_2d, "offset", Vector2(randi_range(-3, -5), randi_range(1, 3)), 0.1).set_trans(Tween.TRANS_SPRING)
+			tween.parallel().tween_property(camera_2d, "zoom", Vector2(randf_range(1.01, 1.02), randf_range(1.01, 1.02)), .1).set_trans(Tween.TRANS_BOUNCE)
+			tween.tween_property(camera_2d, "offset", Vector2(0, 0), 0.1).set_trans(Tween.TRANS_SPRING)
+			tween.tween_property(camera_2d, "zoom", Vector2(1, 1), 0.1).set_trans(Tween.TRANS_SPRING)
+			tween.tween_callback(update_ui)
+		"buff":
+			animation_player.play("FullScreenFlash")
+			var tween := get_tree().create_tween()
+			tween.tween_property(camera_2d, "offset", Vector2(randi_range(-3, -5), randi_range(1, 3)), 0.1).set_trans(Tween.TRANS_SPRING)
+			tween.parallel().tween_property(camera_2d, "zoom", Vector2(randf_range(1.01, 1.02), randf_range(1.01, 1.02)), .1).set_trans(Tween.TRANS_BOUNCE)
+			tween.tween_property(camera_2d, "offset", Vector2(0, 0), 0.1).set_trans(Tween.TRANS_SPRING)
+			tween.tween_property(camera_2d, "zoom", Vector2(1, 1), 0.1).set_trans(Tween.TRANS_SPRING)
+			tween.tween_callback(update_ui)
+		"debuff":
+			animation_player.play("FullScreenFlash")
+			var tween := get_tree().create_tween()
+			tween.tween_property(camera_2d, "offset", Vector2(randi_range(-3, -5), randi_range(1, 3)), 0.1).set_trans(Tween.TRANS_SPRING)
+			tween.parallel().tween_property(camera_2d, "zoom", Vector2(randf_range(1.01, 1.02), randf_range(1.01, 1.02)), .1).set_trans(Tween.TRANS_BOUNCE)
+			tween.tween_property(camera_2d, "offset", Vector2(0, 0), 0.1).set_trans(Tween.TRANS_SPRING)
+			tween.tween_property(camera_2d, "zoom", Vector2(1, 1), 0.1).set_trans(Tween.TRANS_SPRING)
+			tween.tween_callback(update_ui)
+	
 
 func update_ui():
-	player_hp_label.text = str(PLAYER_INFO.hp)
-	player_hp_progress_bar.max_value = PLAYER_INFO.hp_max
-	player_hp_progress_bar.value = PLAYER_INFO.hp
-	player_block_label.text = str(PLAYER_INFO.block)
-	energy.text = str(PLAYER_INFO.energy)
-	villain_hp_label.text = str(VILLAIN_INFO.hp)
-	villain_hp_progress_bar.max_value = VILLAIN_INFO.hp_max
-	villain_hp_progress_bar.value = VILLAIN_INFO.hp
-	villain_block_label.text = str(VILLAIN_INFO.block)
-	print_debug((VILLAIN_INFO.value))
-	intention_value_label.text = str(VILLAIN_INFO.value)
-	match VILLAIN_INFO.intention:
+	player_hp_label.text = str(Global.PLAYER_INFO.hp)
+	player_hp_progress_bar.max_value = Global.PLAYER_INFO.hp_max
+	player_hp_progress_bar.value = Global.PLAYER_INFO.hp
+	player_block_label.text = str(Global.PLAYER_INFO.block)
+	energy.text = str(Global.PLAYER_INFO.energy)
+	villain_hp_label.text = str(Global.VILLAIN_INFO.hp)
+	villain_hp_progress_bar.max_value = Global.VILLAIN_INFO.hp_max
+	villain_hp_progress_bar.value = Global.VILLAIN_INFO.hp
+	villain_block_label.text = str(Global.VILLAIN_INFO.block)
+	intention_value_label.text = str(Global.VILLAIN_INFO.value)
+	match Global.VILLAIN_INFO.intention:
 		"attack":
 			#TODO: Add ICONS
 			intention_label.text = "Attack"
@@ -88,7 +148,7 @@ func _is_power_active(power_name):
 
 
 func signal_setup():
-	SignalBus.villain_attack.connect(screen_vfx)
+	SignalBus.screen_vfx.connect(screen_vfx)
 	SignalBus.power_end.connect(update_ui)
 	SignalBus.villain_turn_end.connect(update_ui)
 	SignalBus.clicked.connect(_is_power_active)

@@ -8,6 +8,9 @@ class_name ActorResource
 @export var block = 1
 @export var energy = 0
 
+var strength = 0
+var sap = 0
+
 func gain_block(block_increase):
 	block += block_increase
 
@@ -18,5 +21,9 @@ func take_damage(attack):
 			attack -= 1
 	
 	hp -= attack
-	print_debug("Block: " + str(block))
-	print_debug("hp: " + str(hp))
+
+func reset_player():
+	hp_max = 10
+	hp = hp_max
+	block = 1
+	energy = 0

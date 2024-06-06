@@ -19,9 +19,6 @@ var value = 0
 	get:
 		return intention_options.block.value.pick_random()
 
-var strength = 0
-var sap = 0
-
 func intention_set():
 	var weights = PackedFloat32Array([intention_options.attack.odds, intention_options.block.odds, intention_options.interfere.odds, intention_options.buff.odds, intention_options.debuff.odds])
 	var rng = RandomNumberGenerator.new()

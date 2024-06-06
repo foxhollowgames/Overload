@@ -1,7 +1,9 @@
 extends Node
 
+@onready var PLAYER_INFO = load("res://resources/player_info.tres")
+@onready var VILLAIN_INFO = load("res://resources/villain_info.tres")
+
 var relics_acquired = []
-var thorns_count = 0
 @export var fight_scene : PackedScene
 
 enum symbol_type {
@@ -34,15 +36,6 @@ var POWER_STATIC_SHIELD = [SYMBOL_BLOCK, SYMBOL_BLOCK, SYMBOL_BLOCK, SYMBOL_ENER
 var static_shield_state = false
 var static_shield_array_state = [false, false, false, false, false, false]
 
-var villain_name = null
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-	#SignalBus.relic_picked.connect(_relic_add)
-#
-#func _relic_add(title):
-	#relics_acquired.append(title)
 
 func _pitch(sound):
 	sound.AudioEffectPitchShift()

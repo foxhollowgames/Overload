@@ -36,8 +36,6 @@ func _spawn():
 	var symbol_create = random_symbol.instantiate()
 	
 	add_child(symbol_create)
-	print("Marker: " + str(random_marker))
-	print("Marker POS: " + str(random_marker.position))
 	symbol_create.global_position = random_marker.global_position
 
 func _spawn_bouncy():

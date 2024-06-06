@@ -1,6 +1,7 @@
 extends Control
 
 func _play():
+	Global.PLAYER_INFO.reset_player()
 	get_tree().change_scene_to_file("res://scenes/fight_scene.tscn")
 
 func _tutorial():

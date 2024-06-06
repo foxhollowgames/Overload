@@ -18,7 +18,7 @@ func villain_defeated():
 	transition_audio.play()
 	await get_tree().create_timer(2).timeout
 	#get_tree().change_scene_to_file(relic_choice_scene)
-	get_tree().change_scene_to_file("res://sprites/game_end.tscn")
+	get_tree().change_scene_to_file("res://scenes/downtime.tscn")
 
 
 func signal_setup():

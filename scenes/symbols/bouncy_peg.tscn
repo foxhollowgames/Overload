@@ -13,6 +13,8 @@ radius = 9.0
 radius = 9.0
 
 [node name="Bouncy Peg" type="StaticBody2D"]
+top_level = true
+z_index = 1
 physics_material_override = SubResource("PhysicsMaterial_0o4p5")
 script = ExtResource("1_y1te3")
 
